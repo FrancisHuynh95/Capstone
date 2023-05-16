@@ -17,6 +17,13 @@ class User(db.Model, UserMixin):
     last_name = db.Column(db.String(255))
     profile_img = db.Column(db.String(255))
 
+
+    reviews = db.relationship(
+        "Review",
+        back_populates="reviewer",
+        cascade='delete-orphan, all'
+    )
+
     @property
     def password(self):
         return self.hashed_password
@@ -31,6 +38,11 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
+            'firstName': self.first_name,
+            'lastName': self.last_name,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'bio': self.bio,
+            'profileImage': self.profile_image,
+            'reviews': [review.to_dict() for review in self.reviews],
         }
