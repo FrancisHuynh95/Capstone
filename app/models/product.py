@@ -17,7 +17,7 @@ class Product(db.Model):
     product_img3 = db.Column(db.String(255))
     product_img4 = db.Column(db.String(255))
     product_img5 = db.Column(db.String(255))
-    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('user.id')))
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
 
 
     product = db.relationship(
