@@ -24,6 +24,12 @@ class User(db.Model, UserMixin):
         cascade='delete-orphan, all'
     )
 
+    products = db.relationship(
+        "Product",
+        back_populates="product",
+        cascade='delete-orphan, all'
+    )
+
     @property
     def password(self):
         return self.hashed_password
