@@ -8,10 +8,10 @@ class Review(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
 
-    id = db.Column(db.integer, primary_key=True)
-    reviewer_id = db.Column(db.integer, db.ForeignKey(add_prefix_for_prod('user.id')))
+    id = db.Column(db.Integer, primary_key=True)
+    reviewer_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('user.id')))
     review = db.Column(db.Text, nullable=False)
-    star_rating = db.Column(db.integer, nullable=False)
+    star_rating = db.Column(db.Integer, nullable=False)
 
 
     reviewer = db.relationship(
