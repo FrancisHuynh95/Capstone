@@ -6,7 +6,7 @@ from app.api.aws_helpers import ALLOWED_IMAGES
 
 class ProductForm(FlaskForm):
     name = StringField('name', validators=[DataRequired()])
-    price = IntegerField('price', validators=[DataRequired(), NumberRange(min=1)])
+    price = IntegerField('price', validators=[DataRequired()])
     description = StringField('description', validators=[DataRequired()])
     product_img1 = FileField("product image", validators=[FileRequired(), FileAllowed(list(ALLOWED_IMAGES))])
     product_img2 = FileField("product image", validators=[FileRequired(), FileAllowed(list( ALLOWED_IMAGES))])

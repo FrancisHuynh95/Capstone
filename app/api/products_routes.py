@@ -24,6 +24,7 @@ def get_product_by_id(id):
 def create_product():
     form = ProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print('form data ================>>>>>>>>>>>>>>>=================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>',form.data)
     if form.validate_on_submit():
         product1 = form.data['product_img1']
         product2 = form.data['product_img2']

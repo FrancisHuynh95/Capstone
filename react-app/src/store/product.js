@@ -46,13 +46,18 @@ export const getSingleProductThunk = (id) => async (dispatch) => {
 }
 
 export const createProductThunk = (product) => async (dispatch) => {
+    console.log('thunk has been initialized', product)
     const response = await fetch(`/products/new`, {
         method: 'POST',
         body: product
     })
+    console.log("after response", response)
     if(response.ok){
+        console.log("Response is okay!!!!!!!")
         const newProduct = await response.json()
+        console.log("before dispatch", newProduct)
         await dispatch(createProduct(newProduct))
+        console.log("Response dispatched", newProduct)
     } else {
         return ("Response is not okay!!!!!!!")
     }
