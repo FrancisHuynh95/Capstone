@@ -20,7 +20,7 @@ class Product(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
 
 
-    product = db.relationship(
+    users = db.relationship(
         "User",
         back_populates="products"
     )

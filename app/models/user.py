@@ -20,13 +20,13 @@ class User(db.Model, UserMixin):
 
     reviews = db.relationship(
         "Review",
-        back_populates="reviewer",
+        back_populates="users",
         cascade='delete-orphan, all'
     )
 
     products = db.relationship(
         "Product",
-        back_populates="product",
+        back_populates="users",
         cascade='delete-orphan, all'
     )
 
@@ -48,7 +48,6 @@ class User(db.Model, UserMixin):
             'lastName': self.last_name,
             'username': self.username,
             'email': self.email,
-            'bio': self.bio,
-            'profileImage': self.profile_image,
+            'profileImage': self.profile_img,
             'reviews': [review.to_dict() for review in self.reviews],
         }
