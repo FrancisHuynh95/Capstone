@@ -20,9 +20,13 @@ class Product(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
 
 
-    users = db.relationship(
+    user = db.relationship(
         "User",
         back_populates="products"
+    )
+    reviews = db.relationship(
+        "Review",
+        back_populates="product"
     )
 
     def to_dict(self):

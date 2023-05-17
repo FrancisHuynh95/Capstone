@@ -4,21 +4,24 @@ from sqlalchemy import text
 
 def seeded_review(seeded_users, seeded_product):
     review1 = Review(
-        reviewer_name =  seeded_users[0],
+        user_id =  seeded_users[0].id,
         review = 'Review 1',
-        star_rating = 5
+        star_rating = 5,
+        product_id = seeded_product[0].id
 
     )
     review2 = Review(
-        reviewer_name =  seeded_users[1],
+        user_id =  seeded_users[1].id,
         review = 'Review 2',
-        star_rating = 5
+        star_rating = 5,
+        product_id = seeded_product[0].id
 
     )
     review3 = Review(
-        reviewer_name =  seeded_users[2],
+        user_id =  seeded_users[2].id,
         review = 'Review 3',
-        star_rating = 5
+        star_rating = 5,
+        product_id = seeded_product[0].id
     )
 
     all_reviews = [review1, review2, review3]

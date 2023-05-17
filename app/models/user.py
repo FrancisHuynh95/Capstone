@@ -20,13 +20,13 @@ class User(db.Model, UserMixin):
 
     reviews = db.relationship(
         "Review",
-        back_populates="users",
+        back_populates="user",
         cascade='delete-orphan, all'
     )
 
     products = db.relationship(
         "Product",
-        back_populates="users",
+        back_populates="user",
         cascade='delete-orphan, all'
     )
 

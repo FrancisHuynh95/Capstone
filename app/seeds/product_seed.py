@@ -11,7 +11,7 @@ def seed_products(seeded_users):
         product_img3 = 'Test imgURL',
         product_img4 = 'Test imgURL',
         product_img5 = 'Test imgURL',
-        users = seeded_users[0]
+        user = seeded_users[0]
     )
     product2 = Product(
         name = 'Key Caps',
@@ -22,7 +22,7 @@ def seed_products(seeded_users):
         product_img3 = 'Test2 imgURL',
         product_img4 = 'Test2 imgURL',
         product_img5 = 'Test2 imgURL',
-        users = seeded_users[1]
+        user = seeded_users[1]
     )
     product3 = Product(
         name = 'Stabilizer',
@@ -33,7 +33,7 @@ def seed_products(seeded_users):
         product_img3 = 'Test3 imgURL',
         product_img4 = 'Test3 imgURL',
         product_img5 = 'Test3 imgURL',
-        users = seeded_users[2]
+        user = seeded_users[2]
     )
 
     all_products = [product1, product2, product3]
