@@ -1,6 +1,7 @@
 const GET_ALL_PRODUCTS = '/GETALLPRODUCTS'
 const GET_SINGLE_PRODUCT = '/GETSINGLEPRODUCT'
-const CREATE_PRODUCT = "CREATEPRODUCT"
+const CREATE_PRODUCT = "/CREATEPRODUCT"
+const DELETE_PRODUCT = "/DELETEPRODUCT"
 
 const getProducts = (products) => {
     return {
@@ -20,6 +21,13 @@ const createProduct = (product) => {
     return {
         type: CREATE_PRODUCT,
         product
+    }
+}
+
+const deleteProduct = (id) => {
+    return {
+        type: DELETE_PRODUCT,
+        id
     }
 }
 
@@ -63,25 +71,44 @@ export const createProductThunk = (product) => async (dispatch) => {
     }
 }
 
+export const deleteProductThunk = (id) => async (dispatch) => {
+    console.log('INITIATED THE THUNK', id)
+    const response = await fetch(`/products/${+id}`, {
+        method: "DELETE"
+    })
+    console.log('before res.ok', response)
+    if(response.ok){
+        console.log('inside res.ok')
+        const deleted = await response.json()
+        await dispatch(deleteProduct(id))
+    } else {
+        console.log("SOMETHING WRONG WITH THUNK")
+        return "DID NOT DELETE"
+    }
+}
+
 const initalState = { products: {}, singleProduct: {}}
 const productReducer = (state = initalState, action) => {
     let newState;
     switch(action.type) {
         case GET_ALL_PRODUCTS:
-            newState = {products: {...state.products}, singleProduct: {...state.singleProduct}}
+            newState = {products: {}, singleProduct: {}}
             action.products.forEach(product => { newState.products[product.id] = product})
             return newState
         case GET_SINGLE_PRODUCT:
-            newState = {products: {...state.products}, singleProduct: {...state.singleProduct}}
+            newState = {products: {}, singleProduct: {}}
             newState.singleProduct[action.product.id] = action.product
             return newState
         case CREATE_PRODUCT:
             newState = {products: {...state.products}, singleProduct: {...state.singleProduct}}
             newState.singleProduct[action.product.id] = action.product
             return newState
+        case DELETE_PRODUCT:
+            newState = {products: {...state.products}, singleProduct: {...state.singleProduct}}
+            delete newState[action.id]
+            return newState
         default:
             return state;
     }
 }
-
 export default productReducer

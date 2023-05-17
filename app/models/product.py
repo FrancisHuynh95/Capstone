@@ -40,7 +40,7 @@ class Product(db.Model):
             'product_img1': self.product_img1,
             'product_img2': self.product_img2,
             'product_img3' : self.product_img3,
-            'product_img5': self.product_img4,
+            'product_img4': self.product_img4,
             'product_img5' : self.product_img5,
             'user': self.user.to_dict()
         }

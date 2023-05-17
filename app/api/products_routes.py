@@ -17,6 +17,7 @@ def get_all_products():
 @product_routes.route('/<int:id>')
 def get_product_by_id(id):
     products = Product.query.get(id)
+    print('PRODUCT BY ID FROM THE ROUTE ===========>',products)
     return products.to_dict()
 
 @product_routes.route('/new', methods=['POST'])
