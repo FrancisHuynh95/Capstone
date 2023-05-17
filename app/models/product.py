@@ -40,5 +40,5 @@ class Product(db.Model):
             'product_img3' : self.product_img3,
             'product_img5': self.product_img4,
             'product_img5' : self.product_img5,
-            'user_id': self.user_id
+            'user': self.user.to_dict()
         }

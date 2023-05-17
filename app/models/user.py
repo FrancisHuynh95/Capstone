@@ -3,6 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
 
+
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
@@ -30,6 +31,7 @@ class User(db.Model, UserMixin):
         cascade='delete-orphan, all'
     )
 
+
     @property
     def password(self):
         return self.hashed_password
@@ -50,4 +52,13 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'profileImage': self.profile_img,
             'reviews': [review.to_dict() for review in self.reviews],
+        }
+    def to_dict_no_review(self):
+        return {
+            'id': self.id,
+            'firstName': self.first_name,
+            'lastName': self.last_name,
+            'username': self.username,
+            'email': self.email,
+            'profileImage': self.profile_img,
         }
