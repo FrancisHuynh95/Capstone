@@ -66,7 +66,8 @@ def create_product():
             product_img2 = aws_product_img2,
             product_img3 = aws_product_img3,
             product_img4 = aws_product_img4,
-            product_img5 = aws_product_img5
+            product_img5 = aws_product_img5,
+            user_id = form.data['uploader_id']
         )
 
         print('new_product ========>', new_product)
