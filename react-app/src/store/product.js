@@ -9,16 +9,12 @@ const getProducts = (products) => {
 
 
 export const getAllProductsThunk = () => async (dispatch) => {
-    console.log('GET ALL PRODUCTS THUNK')
     const response = await fetch('/products/')
-    console.log('BEFORE RESPONSE.OK',response)
     if(response.ok){
-        console.log('AFTER RESPONSE.OK',response)
         const newProducts = await response.json()
-        console.log('newProducts ==================>',newProducts)
         await dispatch(getProducts(newProducts))
     } else {
-        console.log('RESPONSE IS NOT OK')
+        return ('RESPONSE IS NOT OK')
     }
 }
 
@@ -28,10 +24,7 @@ const productReducer = (state = initalState, action) => {
     switch(action.type) {
         case GET_ALL_PRODUCTS:
             newState = {products: {...state.products}, singleProduct: {...state.singleProduct}}
-            console.log('IN THE REDUCER', newState)
-            console.log('action.products', action.products)
-            // action.products.forEach(product => { newState.products[product.id] = product})
-
+            action.products.forEach(product => { newState.products[product.id] = product})
             return newState
         default:
             return state;
