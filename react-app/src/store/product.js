@@ -7,7 +7,6 @@ const getProducts = (products) => {
     }
 }
 
-
 export const getAllProductsThunk = () => async (dispatch) => {
     const response = await fetch('/products/')
     if(response.ok){
