@@ -11,3 +11,9 @@ def get_all_products():
     products = Product.query.all()
     product_list = [product.to_dict() for product in products]
     return jsonify(product_list)
+
+
+@product_routes.route('/<int:id>')
+def get_product_by_id(id):
+    products = Product.query.get(id)
+    return products.to_dict()
