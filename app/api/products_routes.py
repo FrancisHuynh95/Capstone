@@ -76,3 +76,16 @@ def create_product():
         return jsonify(new_product.to_dict())
     else:
         return "Bad Data"
+
+
+@product_routes.route("/<int:id>", methods=["DELETE"])
+@login_required
+def delete_product(id):
+
+    product = Product.query.get(id)
+    db.session.delete(product)
+    db.session.commit()
+
+    return jsonify({
+        'message': "Product has been deleted"
+    })
