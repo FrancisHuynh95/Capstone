@@ -47,7 +47,8 @@ const productReducer = (state = initalState, action) => {
             return newState
         case GET_SINGLE_PRODUCT:
             newState = {products: {...state.products}, singleProduct: {...state.singleProduct}}
-            newState[action.product.id] = action.product
+            newState.singleProduct[action.product.id] = action.product
+            return newState
         default:
             return state;
     }
