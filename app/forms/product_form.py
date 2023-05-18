@@ -11,6 +11,6 @@ class ProductForm(FlaskForm):
     product_img1 = FileField("product image", validators=[FileRequired(), FileAllowed(list(ALLOWED_IMAGES))])
     product_img2 = FileField("product image", validators=[FileRequired(), FileAllowed(list( ALLOWED_IMAGES))])
     product_img3 = FileField("product image", validators=[FileRequired(), FileAllowed(list( ALLOWED_IMAGES))])
-    product_img4 = FileField("product image", validators=[FileRequired(), FileAllowed(list( ALLOWED_IMAGES))])
-    product_img5 = FileField("product image", validators=[FileRequired(), FileAllowed(list( ALLOWED_IMAGES))])
+    product_img4 = FileField("product image", validators=[ FileAllowed(list( ALLOWED_IMAGES))])
+    product_img5 = FileField("product image", validators=[ FileAllowed(list( ALLOWED_IMAGES))])
     uploader_id = IntegerField('Uploader Id', validators=[DataRequired()])
