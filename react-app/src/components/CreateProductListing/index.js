@@ -87,7 +87,7 @@ function CreateProductListing() {
     }
     return (
         <>
-            <form encType="multipart/form-data" onSubmit={handleSubmit}>
+            <form encType="multipart/form-data" onSubmit={handleSubmit} method="PUT">
                 <h1>Create Product Listing Component</h1>
                 {error.name && <p className="errors">{error.name}</p>}
                 {error.price && <p className="errors">{error.price}</p>}
@@ -95,15 +95,15 @@ function CreateProductListing() {
                 {error.image && <p className="errors">{error.image}</p>}
                 <label>
                     <div>Name</div>
-                    <input id="product_name" type="text" value={name} placeholder='Product Name' onChange={(e) => setName(e.target.value)} />
+                    <input className="product_name" type="text" value={name} placeholder='Product Name' onChange={(e) => setName(e.target.value)} />
                 </label>
                 <label>
                     <div>Price</div>
-                    <input id="product_price" type="number" value={price} placeholder='Product Price' onChange={(e) => setPrice(e.target.value)} />
+                    <input className="product_price" type="number" value={price} placeholder='Product Price' onChange={(e) => setPrice(e.target.value)} />
                 </label>
                 <label>
                     <div>Description</div>
-                    <textarea id="product_description" type="text" value={description} placeholder='Product Description' onChange={(e) => setDescription(e.target.value)} />
+                    <textarea className="product_description" type="text" value={description} placeholder='Product Description' onChange={(e) => setDescription(e.target.value)} />
                 </label>
                 <label>
                     <div>First Product Image</div>

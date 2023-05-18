@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, redirect, request
 from app.models import Product, db, User
 from flask_login import login_required
 from app.api.aws_helpers import get_unique_filename, upload_file_to_s3, remove_file_from_s3
-from app.forms import ProductForm
+from app.forms import ProductForm, UpdateProductForm
 
 
 product_routes = Blueprint('product', __name__)
@@ -89,3 +89,78 @@ def delete_product(id):
     return jsonify({
         'message': "Product has been deleted"
     })
+
+
+@product_routes.route("/<int:id>/update", methods=["PUT"])
+def edit_product(id):
+    product = Product.query.get(id)
+    form = UpdateProductForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        print(form.data)
+        if form.data['product_img1']:
+            image = form.data['product_img1']
+            image.filename = get_unique_filename(image.filename)
+            upload = upload_file_to_s3(image)
+
+            if 'url' not in upload:
+                return upload['errors']
+            product_image = upload['url']
+
+            product.product_img1 = product_image
+
+        if form.data['product_img2']:
+            image = form.data['product_img2']
+            image.filename = get_unique_filename(image.filename)
+            upload = upload_file_to_s3(image)
+
+            if 'url' not in upload:
+                return upload['errors']
+            product_image = upload['url']
+
+            product.product_img2 = product_image
+
+        if form.data['product_img3']:
+            image = form.data['product_img3']
+            image.filename = get_unique_filename(image.filename)
+            upload = upload_file_to_s3(image)
+
+            if 'url' not in upload:
+                return upload['errors']
+            product_image = upload['url']
+
+            product.product_img3 = product_image
+
+        if form.data['product_img4']:
+            image = form.data['product_img4']
+            image.filename = get_unique_filename(image.filename)
+            upload = upload_file_to_s3(image)
+
+            if 'url' not in upload:
+                return upload['errors']
+            product_image = upload['url']
+
+            product.product_img4 = product_image
+
+        if form.data['product_img5']:
+            image = form.data['product_img5']
+            image.filename = get_unique_filename(image.filename)
+            upload = upload_file_to_s3(image)
+
+            if 'url' not in upload:
+                return upload['errors']
+            product_image = upload['url']
+
+            product.product_img5 = product_image
+
+        if form.datga['name']:
+            product.name = form.data['name']
+        if form.datga['price']:
+            product.price = form.data['price']
+        if form.datga['description']:
+            product.description = form.data['description']
+
+        db.session.commit()
+        return product.to_dict()
+    else:
+        return "BAD DATA YA FOO"
