@@ -95,11 +95,14 @@ export const deleteProductThunk = (id) => async (dispatch) => {
     }
 }
 
-export const updateProductThunk = (formData, product) => async (dispatch) => {
-    const response = await fetch('/products/update', {
+export const updateProductThunk = (formData, productId) => async (dispatch) => {
+    console.log('inside the thunk', formData)
+    console.log('inside the thunk', productId)
+    const response = await fetch(`/products/${productId}`, {
         method: "PUT",
         body: formData
     })
+    console.log('Is the res okay?', response)
     if(response.ok){
         console.log("RES IS OKAY")
     } else {

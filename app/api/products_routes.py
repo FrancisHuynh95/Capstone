@@ -91,11 +91,14 @@ def delete_product(id):
     })
 
 
-@product_routes.route("/<int:id>/update", methods=["PUT"])
+@product_routes.route("/<int:id>", methods=["PUT"])
+@login_required
 def edit_product(id):
     product = Product.query.get(id)
     form = UpdateProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print('product ==================================>', product.to_dict())
+    print('lol', form.data['name'])
     if form.validate_on_submit():
         print(form.data)
         if form.data['product_img1']:
@@ -105,9 +108,9 @@ def edit_product(id):
 
             if 'url' not in upload:
                 return upload['errors']
-            product_image = upload['url']
+            product_image1 = upload['url']
 
-            product.product_img1 = product_image
+            product.product_img1 = product_image1
 
         if form.data['product_img2']:
             image = form.data['product_img2']
@@ -116,9 +119,9 @@ def edit_product(id):
 
             if 'url' not in upload:
                 return upload['errors']
-            product_image = upload['url']
+            product_image2 = upload['url']
 
-            product.product_img2 = product_image
+            product.product_img2 = product_image2
 
         if form.data['product_img3']:
             image = form.data['product_img3']
@@ -127,9 +130,9 @@ def edit_product(id):
 
             if 'url' not in upload:
                 return upload['errors']
-            product_image = upload['url']
+            product_image3 = upload['url']
 
-            product.product_img3 = product_image
+            product.product_img3 = product_image3
 
         if form.data['product_img4']:
             image = form.data['product_img4']
@@ -138,9 +141,9 @@ def edit_product(id):
 
             if 'url' not in upload:
                 return upload['errors']
-            product_image = upload['url']
+            product_image4 = upload['url']
 
-            product.product_img4 = product_image
+            product.product_img4 = product_image4
 
         if form.data['product_img5']:
             image = form.data['product_img5']
@@ -149,18 +152,21 @@ def edit_product(id):
 
             if 'url' not in upload:
                 return upload['errors']
-            product_image = upload['url']
+            product_image5 = upload['url']
 
-            product.product_img5 = product_image
+            product.product_img5 = product_image5
 
-        if form.datga['name']:
+        if form.data['name']:
             product.name = form.data['name']
-        if form.datga['price']:
+        if form.data['price']:
             product.price = form.data['price']
-        if form.datga['description']:
+        if form.data['description']:
             product.description = form.data['description']
+
+        print('product LFKDJDKSLFJKLSDFJSDKL =======================================>', product.to_dict())
 
         db.session.commit()
         return product.to_dict()
     else:
-        return "BAD DATA YA FOO"
+        print('BAD DATA WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO')
+        return form.errors
