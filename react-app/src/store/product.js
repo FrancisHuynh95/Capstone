@@ -73,7 +73,7 @@ export const createProductThunk = (product) => async (dispatch) => {
 
 export const deleteProductThunk = (id) => async (dispatch) => {
     console.log('INITIATED THE THUNK', id)
-    const response = await fetch(`/products/${+id}`, {
+    const response = await fetch(`/products/${id}`, {
         method: "DELETE"
     })
     console.log('before res.ok', response)
@@ -105,7 +105,7 @@ const productReducer = (state = initalState, action) => {
             return newState
         case DELETE_PRODUCT:
             newState = {products: {...state.products}, singleProduct: {...state.singleProduct}}
-            delete newState[action.id]
+            delete newState.singleProduct[action.id]
             return newState
         default:
             return state;
