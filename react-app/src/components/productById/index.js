@@ -23,15 +23,15 @@ function ProductById() {
         <>
             {singleProductArray.map(product =>
                 <div>
-                    <p>{product.name}</p>
-                    <p>{product.price}</p>
-                    <p>{product.description}</p>
+                    <p>Name {product.name}</p>
+                    <p>Price ${product.price}</p>
+                    <p>Description {product.description}</p>
                     <div className="pics-carasol">
-                        <p>{product.product_img1}</p>
-                        <p>{product.product_img2}</p>
-                        <p>{product.product_img3}</p>
-                        <p>{product.product_img4}</p>
-                        <p>{product.product_img5}</p>
+                        <img src={`${product.product_img1}`}></img>
+                        <img src={`${product.product_img2}`}></img>
+                        <img src={`${product.product_img3}`}></img>
+                        <img src={`${product.product_img4}`}></img>
+                        <img src={`${product.product_img5}`}></img>
                     </div>
                     <div className="isUserButtons">
                         {product.user.id === user.id && <OpenModalButton
