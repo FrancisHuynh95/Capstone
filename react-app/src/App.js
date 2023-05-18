@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import Home from "./components/home";
 import ProductById from "./components/productById";
 import CreateProductListing from "./components/CreateProductListing";
+import UpdateProduct from "./components/updateProduct";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route path="/products/new">
             <CreateProductListing />
+          </Route>
+          <Route path="/products/:productId/update">
+            <UpdateProduct />
           </Route>
           <Route path="/products/:productId">
             <ProductById />
