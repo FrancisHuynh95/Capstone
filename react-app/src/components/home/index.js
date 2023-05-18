@@ -17,7 +17,7 @@ function Home() {
             {allProductArray.map(product =>
                 <NavLink to={`/products/${product.id}`}>
                     <div className="product_card">
-                        <div className="product_img">{product.product_img1}</div>
+                        <img className="product_img" src={product.product_img1}></img>
                         <div className="product_name">{product.name}</div>
                         <div className="product_price">${product.price}</div>
                     </div>
