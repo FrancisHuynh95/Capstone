@@ -1,12 +1,12 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField
+from wtforms import StringField, IntegerField, FloatField
 from wtforms.validators import DataRequired, NumberRange
 from flask_wtf.file import FileField, FileAllowed, FileRequired
 from app.api.aws_helpers import ALLOWED_IMAGES
 
 class ProductForm(FlaskForm):
     name = StringField('name', validators=[DataRequired()])
-    price = IntegerField('price', validators=[DataRequired()])
+    price = FloatField('price', validators=[DataRequired()])
     description = StringField('description', validators=[DataRequired()])
     product_img1 = FileField("product image", validators=[FileRequired(), FileAllowed(list(ALLOWED_IMAGES))])
     product_img2 = FileField("product image", validators=[FileRequired(), FileAllowed(list( ALLOWED_IMAGES))])
