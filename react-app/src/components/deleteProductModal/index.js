@@ -11,8 +11,8 @@ function DeleteProductModal({product_id}) {
 
 
     console.log('INSIDE DELETE PRODUCT MODAL',product_id)
-    function handleOnClick(){
-        dispatch(deleteProductThunk(product_id))
+    async function handleOnClick(){
+        await dispatch(deleteProductThunk(product_id))
         closeModal()
         history.push('/')
     }
