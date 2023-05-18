@@ -32,7 +32,7 @@ function UpdateProduct() {
     }, [productId, name, price, description])
 
     function handleUpdateButton(){
-
+        console.log('weeeeenis')
     }
 
 
@@ -109,7 +109,7 @@ function UpdateProduct() {
                 </label>
             </div>
             <div>
-            <button>Update Product</button>
+            <button onClick={() => handleUpdateButton()}>Update Product</button>
             </div>
         </>
     )

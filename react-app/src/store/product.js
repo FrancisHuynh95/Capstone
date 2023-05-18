@@ -2,6 +2,7 @@ const GET_ALL_PRODUCTS = '/GETALLPRODUCTS'
 const GET_SINGLE_PRODUCT = '/GETSINGLEPRODUCT'
 const CREATE_PRODUCT = "/CREATEPRODUCT"
 const DELETE_PRODUCT = "/DELETEPRODUCT"
+const UPDATE_PRODUCT = '/UPDATEPRODUCT'
 
 const getProducts = (products) => {
     return {
@@ -28,6 +29,13 @@ const deleteProduct = (id) => {
     return {
         type: DELETE_PRODUCT,
         id
+    }
+}
+
+const updateProduct = (product) => {
+    return {
+        type: UPDATE_PRODUCT,
+        product
     }
 }
 
@@ -84,6 +92,18 @@ export const deleteProductThunk = (id) => async (dispatch) => {
     } else {
         console.log("SOMETHING WRONG WITH THUNK")
         return "DID NOT DELETE"
+    }
+}
+
+export const updateProductThunk = (formData, product) => async (dispatch) => {
+    const response = await fetch('/products/update', {
+        method: "PUT",
+        body: formData
+    })
+    if(response.ok){
+        console.log("RES IS OKAY")
+    } else {
+        console.log("RES IS NOT OKAY")
     }
 }
 
