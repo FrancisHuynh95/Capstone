@@ -50,19 +50,13 @@ function CreateProductListing() {
         }
 
         if(product_img1 === null){
-            errorObj.image = "Five images are required"
+            errorObj.image = "Three images are required"
         }
         if(product_img2 === null){
-            errorObj.image = "Five images are required"
+            errorObj.image = "Three images are required"
         }
         if(product_img3 === null){
-            errorObj.image = "Five images are required"
-        }
-        if(product_img4 === null){
-            errorObj.image = "Five images are required"
-        }
-        if(product_img5 === null){
-            errorObj.image = "Five images are required"
+            errorObj.image = "Three images are required"
         }
 
         setError(errorObj)
@@ -76,9 +70,9 @@ function CreateProductListing() {
             formData.append("product_img1", product_img1)
             formData.append("product_img2", product_img2)
             formData.append("product_img3", product_img3)
-            formData.append("product_img4", product_img4)
-            formData.append("product_img5", product_img5)
             formData.append("uploader_id", currentUser.id)
+            if(product_img4 !== null) formData.append("product_img4", product_img4)
+            if(product_img5 !== null) formData.append("product_img5", product_img5)
 
             await dispatch(createProductThunk(formData))
 
