@@ -1,13 +1,13 @@
 import React, { useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux'
 import { getSingleProductThunk } from "../../store/product"
+import { getReviewThunk } from "../../store/review"
 import { useParams } from "react-router-dom"
 import OpenModalButton from "../OpenModalButton"
 import DeleteProductModal from "../deleteProductModal"
 import { useHistory } from "react-router-dom"
 import "./productById.css"
 import { useState } from "react"
-import { getReviewThunk } from "../../store/review"
 
 function ProductById() {
     const { productId } = useParams()
