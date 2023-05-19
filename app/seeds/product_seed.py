@@ -16,7 +16,7 @@ def seed_products(seeded_users):
     product2 = Product(
         name = 'Gateron Box Ink V2 Switches',
         price = 59.99,
-        description = "Gateron has updated their ink v2 molds with a box stem that helps with wobble. With the longer 20mm spring, the new Box Ink's provide a snappier return when typing. The semi-smokey housing makes them ideal for RGB setups, allowing for the light of the keyboard to shine through.",
+        description = "Gateron has updated their ink v2 molds with a box stem that helps with wobble. With the longer 20mm spring, the new Box Ink's provide a snappier return when typing. The semi-smokey housing makes them ideal for RGB setups.",
         product_img1 = 'https://keebsy.s3.us-west-1.amazonaws.com/f45668eb2661478d85b4b1fe99171b4e.png',
         product_img2 = 'https://keebsy.s3.us-west-1.amazonaws.com/eb716ace9e7a4c9fa5e310e6f14ada76.png',
         product_img3 = 'https://keebsy.s3.us-west-1.amazonaws.com/3a1cf272614b4a4c838d04edddabaa9b.png',
@@ -82,7 +82,7 @@ def seed_products(seeded_users):
     product8 = Product(
         name = 'TOFU60 2.0 KIT',
         price = 159.00,
-        description = "Aluminum case (anodized and electrostatically coated)PC/ Aluminum/ Fiberglass/ Carbon fiber plateHot-swappable PCB, QMK firmware, VIA support, without per-key RGBBrass weight (transparent E-coating after sandblasting)Top mount, silicone socks, silicone bowl, 3 types of structural supportFlex cut PCB, thickness 1.2 mmUSB-C daughterboard support≈1.4 kg before assemblyLength: 294.7 mm, width: 115.7 mm, front: 18.5 mm, back: 32.5 mm, typing angle: 7°Design by KBDfans",
+        description = "Aluminum case PC/ Aluminum/ Fiberglass/ Carbon fiber plateHot-swappable PCB, QMK firmware, VIA support, Brass weight (transparent E-coating after sandblasting)Top mount, silicone socks, silicone bowl, Flex cut PCB, USB-C daughterboard",
         product_img1 = 'http://keebsy.s3.amazonaws.com/862b598944874a6297b79c3d87476ed1.jpg',
         product_img2 = 'http://keebsy.s3.amazonaws.com/9c1bba1d239b441bb2f937f6569d9355.jpg',
         product_img3 = 'http://keebsy.s3.amazonaws.com/a36a9398e2c84f379523016243ad983d.jpg',
@@ -126,7 +126,7 @@ def seed_products(seeded_users):
     product12 = Product(
         name = 'White Coiled Cable',
         price = 49.99,
-        description = "Elevate your keyboard setup to the next level with the CableMod Pro Keyboard Cable. Made for keyboards with a USB-C port, this hand-made keyboard cable is sleeved with both ModFlex and ModMesh sleeving, and is the ultimate accessory to make your keyboard setup pop.",
+        description = "Elevate your keyboard setup to the next level with the CableMod Pro Keyboard Cable. Made for keyboards with a USB-C port, this hand-made keyboard cable is sleeved with both ModFlex and ModMesh sleeving",
         product_img1 = 'http://keebsy.s3.amazonaws.com/b5ae07e24e984610991a3abc54889e5a.jpg',
         product_img2 = 'http://keebsy.s3.amazonaws.com/478ce31803cd481f9cbd332bc0f3ef75.jpg',
         product_img3 = 'http://keebsy.s3.amazonaws.com/8db0c20e279b4c4090a5d6c6668e2905.jpg',
@@ -135,7 +135,7 @@ def seed_products(seeded_users):
     product13 = Product(
         name = 'Black Coiled Cable',
         price = 49.99,
-        description = "Elevate your keyboard setup to the next level with the CableMod Pro Keyboard Cable. Made for keyboards with a USB-C port, this hand-made keyboard cable is sleeved with both ModFlex and ModMesh sleeving, and is the ultimate accessory to make your keyboard setup pop.",
+        description = "Elevate your keyboard setup to the next level with the CableMod Pro Keyboard Cable. Made for keyboards with a USB-C port, this hand-made keyboard cable is sleeved with both ModFlex and ModMesh sleeving",
         product_img1 = 'http://keebsy.s3.amazonaws.com/850287cb7ee5486890c946a3a5a0fb5c.jpg',
         product_img2 = 'http://keebsy.s3.amazonaws.com/11d186b04dcd4f13a3db1874205414b9.jpg',
         product_img3 = 'http://keebsy.s3.amazonaws.com/e11418280cf54a2b8ae0006c1c21ba39.jpg',
@@ -144,7 +144,7 @@ def seed_products(seeded_users):
     product14 = Product(
         name = 'Red Coiled Cable',
         price = 49.99,
-        description = "Elevate your keyboard setup to the next level with the CableMod Pro Keyboard Cable. Made for keyboards with a USB-C port, this hand-made keyboard cable is sleeved with both ModFlex and ModMesh sleeving, and is the ultimate accessory to make your keyboard setup pop.",
+        description = "Elevate your keyboard setup to the next level with the CableMod Pro Keyboard Cable. Made for keyboards with a USB-C port, this hand-made keyboard cable is sleeved with both ModFlex and ModMesh sleeving",
         product_img1 = 'http://keebsy.s3.amazonaws.com/7b2f93ae5c6c48bda15885c64703b793.jpg',
         product_img2 = 'http://keebsy.s3.amazonaws.com/77e5c70763f945178f20d51ce82c063b.jpg',
         product_img3 = 'http://keebsy.s3.amazonaws.com/d6911ab0b015429cb09ac5f1cad54d65.jpg',
@@ -153,7 +153,7 @@ def seed_products(seeded_users):
     product15 = Product(
         name = 'Grey Coiled Cable',
         price = 49.99,
-        description = "Elevate your keyboard setup to the next level with the CableMod Pro Keyboard Cable. Made for keyboards with a USB-C port, this hand-made keyboard cable is sleeved with both ModFlex and ModMesh sleeving, and is the ultimate accessory to make your keyboard setup pop.",
+        description = "Elevate your keyboard setup to the next level with the CableMod Pro Keyboard Cable. Made for keyboards with a USB-C port, this hand-made keyboard cable is sleeved with both ModFlex and ModMesh sleeving",
         product_img1 = 'http://keebsy.s3.amazonaws.com/a56d610010b944a8801774de5fd4acda.jpg',
         product_img2 = 'http://keebsy.s3.amazonaws.com/3ee9821af31e4ee19763e180fc363434.jpg',
         product_img3 = 'http://keebsy.s3.amazonaws.com/fa4c4287a2954ce584da2514e832ca0d.jpg',
@@ -162,7 +162,7 @@ def seed_products(seeded_users):
     product16 = Product(
         name = 'Rainbow Coiled Cable',
         price = 49.99,
-        description = "Elevate your keyboard setup to the next level with the CableMod Pro Keyboard Cable. Made for keyboards with a USB-C port, this hand-made keyboard cable is sleeved with both ModFlex and ModMesh sleeving, and is the ultimate accessory to make your keyboard setup pop.",
+        description = "Elevate your keyboard setup to the next level with the CableMod Pro Keyboard Cable. Made for keyboards with a USB-C port, this hand-made keyboard cable is sleeved with both ModFlex and ModMesh sleeving",
         product_img1 = 'http://keebsy.s3.amazonaws.com/0c5ed8b082b045fe8cd2da0634bdabba.jpg',
         product_img2 = 'http://keebsy.s3.amazonaws.com/6cabaadd61c64ad7b5093888ba8cfc88.jpg',
         product_img3 = 'http://keebsy.s3.amazonaws.com/4879d0bf285f404c93605b51e3776f91.jpg',
