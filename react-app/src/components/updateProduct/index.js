@@ -38,7 +38,7 @@ function UpdateProduct() {
         const formData = new FormData()
         formData.append("name", name)
         formData.append("price", price)
-        console.log('FOOOOOOOOOOOOORM DAAAAAAAAAAAAAAAAAAAAAAAAATA =====>',price)
+
         formData.append("description", description)
 
         if(product_img1){
@@ -57,6 +57,7 @@ function UpdateProduct() {
             formData.append("product_img5", product_img5)
         }
         await dispatch(updateProductThunk(formData, productId))
+        history.push(`/products/${productId}`)
     }
 
 
