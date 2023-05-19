@@ -30,5 +30,8 @@
 .the_big_image_container {
     width: fit-content;
     height: fit-content;
+}
 
+.singleProduct{
+    padding: 0rem 20rem 0rem 20rem;
 }

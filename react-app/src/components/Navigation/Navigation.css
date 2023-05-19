@@ -5,3 +5,28 @@
 .hidden {
   display: none;
 }
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+  padding: 0rem 20rem 0rem 21rem;
+}
+
+.HomeButton{
+  display: flex;
+  width: 25%;
+}
+
+.newProduct {
+  width: 25%;
+}
+
+.socials {
+  width:25%;
+}
+
+.UserButton {
+  position: fixed;
+  border: 1px solid blue;
+}

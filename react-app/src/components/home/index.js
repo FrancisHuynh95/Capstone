@@ -10,32 +10,28 @@ function Home() {
     const allProductArray1 = Object.values(allProducts)
     const dispatch = useDispatch()
 
-    const allProductArray = allProductArray1.sort((a,b) => Math.random() - Math.random())
+    const allProductArray = allProductArray1.sort((a, b) => Math.random() - Math.random())
 
     useEffect(() => {
         dispatch(getAllProductsThunk())
     }, [dispatch])
     return (
         <>
-            <div className="background_color_behind_images">
-
-            <div className="home_everything_container">
-                <div className="product_card_container">
-                    {allProductArray.map(product =>
+            <div className="product_card_container">
+                {allProductArray.map(product =>
+                    <div title={`${product.name}`} className="product_card">
                         <NavLink className="Home_NavLink" to={`/products/${product.id}`}>
-                            <div title={`${product.name}`} className="product_card">
-                                <div className="product_img_container">
-                                <img className="product_img" src={product.product_img1}></img>
-                                </div>
-                                <div className="product_price_container">
-                                    ${product.price}
-                                </div>
+                            {/* <div className="product_img_container"> */}
+                            <img className="product_img" src={product.product_img1}></img>
+                            {/* </div> */}
+                            <div className="product_price_container">
+                                ${product.price}
                             </div>
                         </NavLink>
-                    )}
                     </div>
-                </div>
+                )}
             </div>
+
         </>
     )
 }

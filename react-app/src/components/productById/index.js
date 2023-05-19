@@ -7,12 +7,16 @@ import DeleteProductModal from "../deleteProductModal"
 import { useHistory } from "react-router-dom"
 import "./productById.css"
 import { useState } from "react"
+import { getReviewThunk } from "../../store/review"
 
 function ProductById() {
     const { productId } = useParams()
     const dispatch = useDispatch()
     const singleProduct = useSelector(state => state.product.singleProduct)
     const singleProductArray = Object.values(singleProduct)
+    const getReview = useSelector(state => state.Review)
+
+    console.log('get review =================>',getReview)
     const history = useHistory()
     const user = useSelector(state => state.session.user)
     let imgArray = []
@@ -24,18 +28,18 @@ function ProductById() {
         imgArray.push(singleProductArray[0].product_img3)
         imgArray.push(singleProductArray[0].product_img4)
         imgArray.push(singleProductArray[0].product_img5)
-        console.log('imgArray',imgArray)
     }
 
     useEffect(() => {
         setBigImg(imgArray.length > 0 ? imgArray[0] : "")
+        dispatch(getReviewThunk())
         dispatch(getSingleProductThunk(productId))
     }, [dispatch, imgArray.length])
     if (!singleProductArray) return <p>oopsies</p>
     return (
         <>
             {singleProductArray.map(product =>
-                <div>
+                <div className="singleProduct">
                     <div className="product_information">
                         <p>Name {product.name}</p>
                         <p>Price ${product.price}</p>

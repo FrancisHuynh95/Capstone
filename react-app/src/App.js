@@ -9,6 +9,7 @@ import Home from "./components/home";
 import ProductById from "./components/productById";
 import CreateProductListing from "./components/CreateProductListing";
 import UpdateProduct from "./components/updateProduct";
+import BackgroundColor from "./components/home/background-color";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ function App() {
             <ProductById />
           </Route>
           <Route path="/">
-            <Home />
+            <BackgroundColor />
           </Route>
         </Switch>
       )}
