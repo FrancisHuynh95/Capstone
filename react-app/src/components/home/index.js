@@ -7,8 +7,10 @@ import "./home.css"
 
 function Home() {
     const allProducts = useSelector(state => state.product.products)
-    const allProductArray = Object.values(allProducts)
+    const allProductArray1 = Object.values(allProducts)
     const dispatch = useDispatch()
+
+    const allProductArray = allProductArray1.sort((a,b) => Math.random() - Math.random())
 
     useEffect(() => {
         dispatch(getAllProductsThunk())

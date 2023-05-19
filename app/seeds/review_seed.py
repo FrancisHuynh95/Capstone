@@ -8,14 +8,12 @@ def seeded_review(seeded_users, seeded_product):
         review = 'Review 1',
         star_rating = 5,
         product = seeded_product
-
     )
     review2 = Review(
         user_id =  seeded_users[1].id,
         review = 'Review 2',
         star_rating = 5,
         product = seeded_product
-
     )
     review3 = Review(
         user_id =  seeded_users[2].id,
