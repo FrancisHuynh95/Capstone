@@ -82,7 +82,7 @@ def seed_products(seeded_users):
     product8 = Product(
         name = 'TOFU60 2.0 KIT',
         price = 159.00,
-        description = "Aluminum case PC/ Aluminum/ Fiberglass/ Carbon fiber plateHot-swappable PCB, QMK firmware, VIA support, Brass weight (transparent E-coating after sandblasting)Top mount, silicone socks, silicone bowl, Flex cut PCB, USB-C daughterboard",
+        description = "Aluminum case PC/ Aluminum/ Fiberglass/ Carbon fiber plateHot-swappable PCB, QMK firmware, VIA support, Brass weight (transparent E-coating after sandblasting)Top mount, silicone socks, silicone bowl, Flex cut PCB, USB-C daughterboard.",
         product_img1 = 'http://keebsy.s3.amazonaws.com/862b598944874a6297b79c3d87476ed1.jpg',
         product_img2 = 'http://keebsy.s3.amazonaws.com/9c1bba1d239b441bb2f937f6569d9355.jpg',
         product_img3 = 'http://keebsy.s3.amazonaws.com/a36a9398e2c84f379523016243ad983d.jpg',
@@ -243,7 +243,7 @@ def seed_products(seeded_users):
     product25 = Product(
         name = 'Interstellar Artisan Keycap',
         price = 40.99,
-        description = "Interstellar Artisan KeycapIs there anything more beautiful and awe-inspiring than the great cosmos? Despite the advancements in space science, what lies beyond the confines of our planet continues to be a mystery. It’s that constant search for answers that keep space enthusiasts hooked.",
+        description = "Interstellar Artisan KeycapIs there anything more beautiful and awe-inspiring than the great cosmos? Despite the advancements in space science, what lies beyond the confines of our planet continues to be a mystery.",
         product_img1 = 'http://keebsy.s3.amazonaws.com/a359248b93554ad1a1f4cdec613bab09.jpg',
         product_img2 = 'http://keebsy.s3.amazonaws.com/93da94b21e244b76be94f0f75b06b445.jpg',
         product_img3 = 'http://keebsy.s3.amazonaws.com/c673ae28bd16494b992d33af9ec7bc9f.jpg',
