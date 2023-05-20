@@ -1,7 +1,10 @@
 import { useState } from "react"
+import { useDispatch } from "react-redux"
 import StarRating from "./stars"
 
+
 const UpdateReviewModal = () => {
+    const dispatch = useDispatch()
     const [review, setReview] = useState("")
     const [stars, setStars] = useState(0)
 
@@ -9,6 +12,10 @@ const UpdateReviewModal = () => {
         setStars(parseInt(number));
     };
 
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        
+    }
     return (
         <>
             <form>

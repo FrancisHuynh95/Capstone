@@ -3,6 +3,8 @@ const GET_SINGLE_PRODUCT = '/GETSINGLEPRODUCT'
 const CREATE_PRODUCT = "/CREATEPRODUCT"
 const DELETE_PRODUCT = "/DELETEPRODUCT"
 const UPDATE_PRODUCT = '/UPDATEPRODUCT'
+const ADD_REVIEW = '/ADDREVIEW'
+const DELETE_REVIEW = '/DELETEREVIEW'
 
 const getProducts = (products) => {
     return {
@@ -39,7 +41,19 @@ const updateProduct = (product) => {
     }
 }
 
+const create_Review = (reviews) => {
+    return {
+        type: ADD_REVIEW,
+        reviews
+    }
+}
 
+const delete_review = (id) => {
+    return {
+        type :DELETE_REVIEW,
+        id
+    }
+}
 export const getAllProductsThunk = () => async (dispatch) => {
     const response = await fetch('/products/')
     if(response.ok){
@@ -109,6 +123,33 @@ export const updateProductThunk = (formData, productId) => async (dispatch) => {
         console.log("RES IS NOT OKAY")
     }
 }
+export const createReviewThunk = (review) => async (dispatch) => {
+    console.log('create review thunk be thunkin', review)
+    const res = await fetch('/reviews/new', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(review)
+    })
+    if(res.ok){
+        const response = await res.json()
+        console.log(response)
+        await dispatch(create_Review(response))
+    } else {
+        return "CREATE REVIEW THUNK ERROR"
+    }
+}
+
+export const deleteReviewThunk = (id) => async(dispatch) => {
+    const res = await fetch(`/reviews/${id}`, {
+        method:"DELETE"
+    })
+    if(res.ok){
+        const response = await res.json()
+        await dispatch(deleteReviewThunk(id))
+    }
+}
 
 const initalState = { products: {}, singleProduct: {}}
 const productReducer = (state = initalState, action) => {
@@ -130,6 +171,19 @@ const productReducer = (state = initalState, action) => {
             newState = {products: {...state.products}, singleProduct: {...state.singleProduct}}
             delete newState.singleProduct[action.id]
             delete newState.products[action.id]
+            return newState
+        case ADD_REVIEW:
+            newState = {products: {...state.products}, singleProduct: {...state.singleProduct}}
+            console.log(newState.singleProduct.reviews)
+            console.log(action.reviews)
+            newState.singleProduct.reviews[action.reviews.id] = action.reviews
+            return newState
+        case DELETE_REVIEW:
+            newState = {products: {...state.products}, singleProduct: {...state.singleProduct}}
+            newState.singleProduct.reviews.map((review,i) => {
+                if(review.id === action.id){
+                review.splice(i,1)
+            }})
             return newState
         default:
             return state;

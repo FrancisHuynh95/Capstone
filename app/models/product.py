@@ -27,7 +27,6 @@ class Product(db.Model):
     )
     reviews = db.relationship(
         "Review",
-        secondary=product_reviews,
         back_populates="product"
     )
 

@@ -23,14 +23,14 @@ class Review(db.Model):
     )
     product = db.relationship(
         "Product",
-        secondary=product_reviews,
         back_populates="reviews"
     )
 
     def to_dict(self):
         return {
             'id': self.id,
-            'reviewer_id': self.user.to_dict_no_review(),
+            'reviewer': self.user.to_dict_no_review(),
             'review': self.review,
-            'star_rating': self.star_rating
+            'star_rating': self.star_rating,
+            'product_id': self.product_id
         }

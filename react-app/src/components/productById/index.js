@@ -17,6 +17,8 @@ function ProductById() {
     const singleProduct = useSelector(state => state.product.singleProduct)
     const singleProductArray = Object.values(singleProduct)
 
+    console.log(singleProductArray)
+
     const history = useHistory()
     const user = useSelector(state => state.session.user)
     let imgArray = []
@@ -34,10 +36,10 @@ function ProductById() {
     useEffect(() => {
         setBigImg(imgArray.length > 0 ? imgArray[0] : "")
         dispatch(getSingleProductThunk(productId))
-    }, [dispatch, imgArray.length])
+    }, [dispatch, imgArray.length, singleProductArray.reviews])
 
     function hasReview() {
-        let review = singleProductArray[0]?.reviews.find(review => review.reviewer_id?.id === user?.id)
+        let review = singleProductArray[0]?.reviews.find(review => review.reviewer?.id === user?.id)
         if (review) console.log('TRUUUUUUUUUUUUUUUUUUUUUUE')
         else console.log('FAAAAAAAAAAAAAAAAAAAAAAAAAALSE')
     }
@@ -78,11 +80,11 @@ function ProductById() {
                         {singleProductArray[0] && singleProductArray[0].reviews.toReversed().map(review =>
                             <>
                                 <div className="reviewer_and_star_rating">
-                                    <p>{review.reviewer_id.username}</p>
+                                    <p>{review.reviewer.username}</p>
                                     <p>{review.star_rating} <i class="fas fa-star"></i></p>
                                 </div>
                                 <p>{review.review}</p>
-                                {review.reviewer_id.id === user?.id &&
+                                {review.reviewer.id === user?.id &&
                                     <>
                                         <OpenModalButton
                                             buttonText="Update Review"
@@ -102,7 +104,7 @@ function ProductById() {
                                 {singleProductArray[0].user.id !== user.id &&
                                     <OpenModalButton
                                         buttonText="Create Review"
-                                        modalComponent={<CreateReviewModal />}
+                                        modalComponent={<CreateReviewModal productId={productId} />}
                                     />
                                 }
                             </>
