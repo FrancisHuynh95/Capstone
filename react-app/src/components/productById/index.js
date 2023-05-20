@@ -9,6 +9,7 @@ import "./productById.css"
 import { useState } from "react"
 import CreateReviewModal from "../CreateReviewModal"
 import DeleteReviewModal from "../DeleteReviewModal"
+import UpdateReviewModal from "../updateReviewModal"
 
 function ProductById() {
     const { productId } = useParams()
@@ -82,10 +83,16 @@ function ProductById() {
                                 </div>
                                 <p>{review.review}</p>
                                 {review.reviewer_id.id === user?.id &&
-                                    <OpenModalButton
-                                        buttonText="Delete Review"
-                                        modalComponent={<DeleteReviewModal />}
-                                    />
+                                    <>
+                                        <OpenModalButton
+                                            buttonText="Update Review"
+                                            modalComponent={<UpdateReviewModal />}
+                                        />
+                                        <OpenModalButton
+                                            buttonText="Delete Review"
+                                            modalComponent={<DeleteReviewModal />}
+                                        />
+                                    </>
                                 }
                             </>
                         )}
