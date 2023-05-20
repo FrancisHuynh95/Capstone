@@ -43,5 +43,5 @@ class Product(db.Model):
             'product_img4': self.product_img4,
             'product_img5' : self.product_img5,
             'user': self.user.to_dict(),
-            'reviews': self.reviews.to_dict()
+            'reviews': [review.to_dict() for review in self.reviews]
         }
