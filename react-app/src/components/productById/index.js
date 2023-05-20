@@ -14,13 +14,14 @@ function ProductById() {
     const dispatch = useDispatch()
     const singleProduct = useSelector(state => state.product.singleProduct)
     const singleProductArray = Object.values(singleProduct)
-    const getReview = useSelector(state => state.Review)
+    // const getReview = useSelector(state => state.Review)
 
-    console.log('get review =================>',getReview)
+    // console.log('get review =================>',getReview)
     const history = useHistory()
     const user = useSelector(state => state.session.user)
     let imgArray = []
     const [bigImg, setBigImg] = useState("")
+
 
     if(singleProductArray[0]){
         imgArray.push(singleProductArray[0].product_img1)
@@ -32,7 +33,7 @@ function ProductById() {
 
     useEffect(() => {
         setBigImg(imgArray.length > 0 ? imgArray[0] : "")
-        dispatch(getReviewThunk())
+        // dispatch(getReviewThunk())
         dispatch(getSingleProductThunk(productId))
     }, [dispatch, imgArray.length])
     if (!singleProductArray) return <p>oopsies</p>

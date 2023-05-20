@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
+import OpenModalButton from '../OpenModalButton';
+import SocialsModal from '../socialsModal';
 
 function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
@@ -16,7 +18,10 @@ function Navigation({ isLoaded }){
 				<NavLink exact to="/products/new">New Product Listing</NavLink>
 			</div>
 			<div className='socials'>
-				<a>Socials</a>
+				<OpenModalButton
+				buttonText="Contact Me"
+				modalComponent={<SocialsModal />}
+				/>
 			</div>
 			{isLoaded && (
 				<div>

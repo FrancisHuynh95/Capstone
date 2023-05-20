@@ -61,3 +61,9 @@
     height: 350px;
     z-index: -1;
 }
+
+.welcome-back-prompt {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+}
