@@ -29,7 +29,8 @@ const CreateReviewModal = ({productId}) => {
             "user_id": user.id
         }
 
-        await dispatch(createReviewThunk(reviewData))
+        await dispatch(createReviewThunk(reviewData, productId))
+        closeModal()
     }
     useEffect(() => {
         dispatch(getSingleProductThunk(productId))

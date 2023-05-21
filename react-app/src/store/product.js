@@ -5,11 +5,18 @@ const DELETE_PRODUCT = "/DELETEPRODUCT"
 const UPDATE_PRODUCT = '/UPDATEPRODUCT'
 const ADD_REVIEW = '/ADDREVIEW'
 const DELETE_REVIEW = '/DELETEREVIEW'
+const ALL_REVIEWS = '/ALLREVIEW'
 
 const getProducts = (products) => {
     return {
         type: GET_ALL_PRODUCTS,
         products: products
+    }
+}
+const allReviews = (reviews) => {
+    return {
+        type: ALL_REVIEWS,
+        reviews: reviews
     }
 }
 
@@ -34,13 +41,6 @@ const deleteProduct = (id) => {
     }
 }
 
-const updateProduct = (product) => {
-    return {
-        type: UPDATE_PRODUCT,
-        product
-    }
-}
-
 const create_Review = (reviews) => {
     return {
         type: ADD_REVIEW,
@@ -59,6 +59,15 @@ export const getAllProductsThunk = () => async (dispatch) => {
     if(response.ok){
         const newProducts = await response.json()
         await dispatch(getProducts(newProducts))
+    } else {
+        return ('RESPONSE IS NOT OK')
+    }
+}
+export const getAllReviewsThunk = (id) => async (dispatch) => {
+    const response = await fetch(`/reviews/${id}`)
+    if(response.ok){
+        const newReviews = await response.json()
+        await dispatch(allReviews(newReviews))
     } else {
         return ('RESPONSE IS NOT OK')
     }
@@ -123,7 +132,7 @@ export const updateProductThunk = (formData, productId) => async (dispatch) => {
         console.log("RES IS NOT OKAY")
     }
 }
-export const createReviewThunk = (review) => async (dispatch) => {
+export const createReviewThunk = (review, productId) => async (dispatch) => {
     console.log('create review thunk be thunkin', review)
     const res = await fetch('/reviews/new', {
         method: "POST",
@@ -135,19 +144,21 @@ export const createReviewThunk = (review) => async (dispatch) => {
     if(res.ok){
         const response = await res.json()
         console.log(response)
-        await dispatch(create_Review(response))
+        // await dispatch(create_Review(response))
+        await dispatch(getSingleProductThunk(productId))
+        return response;
     } else {
         return "CREATE REVIEW THUNK ERROR"
     }
 }
 
-export const deleteReviewThunk = (id) => async(dispatch) => {
+export const deleteReviewThunk = (id, productId) => async(dispatch) => {
     const res = await fetch(`/reviews/${id}`, {
         method:"DELETE"
     })
     if(res.ok){
         const response = await res.json()
-        await dispatch(deleteReviewThunk(id))
+        await dispatch(getSingleProductThunk(productId))
     }
 }
 
@@ -171,19 +182,6 @@ const productReducer = (state = initalState, action) => {
             newState = {products: {...state.products}, singleProduct: {...state.singleProduct}}
             delete newState.singleProduct[action.id]
             delete newState.products[action.id]
-            return newState
-        case ADD_REVIEW:
-            newState = {products: {...state.products}, singleProduct: {...state.singleProduct}}
-            console.log(newState.singleProduct.reviews)
-            console.log(action.reviews)
-            newState.singleProduct.reviews[action.reviews.id] = action.reviews
-            return newState
-        case DELETE_REVIEW:
-            newState = {products: {...state.products}, singleProduct: {...state.singleProduct}}
-            newState.singleProduct.reviews.map((review,i) => {
-                if(review.id === action.id){
-                review.splice(i,1)
-            }})
             return newState
         default:
             return state;

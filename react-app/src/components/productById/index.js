@@ -92,7 +92,7 @@ function ProductById() {
                                         />
                                         <OpenModalButton
                                             buttonText="Delete Review"
-                                            modalComponent={<DeleteReviewModal />}
+                                            modalComponent={<DeleteReviewModal product_id = {product.id} review_id={review.id} />}
                                         />
                                     </>
                                 }

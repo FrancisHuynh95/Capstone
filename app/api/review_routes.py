@@ -12,6 +12,12 @@ def get_all_reviews():
     review_list = [review.to_dict() for review in reviews]
     return jsonify(review_list)
 
+@review_routes.route('/<int:id>')
+def get_all_reviews_by_product_id(id):
+    reviews = Review.query.all()
+    review_list = [review.to_dict() for review in reviews if review.product_id == id]
+    return jsonify(review_list)
+
 @review_routes.route('/new', methods=['POST'])
 @login_required
 def create_review():
