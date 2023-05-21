@@ -1,9 +1,14 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import StarRating from "./stars"
+import { updateReviewThunk } from "../../store/product"
+import { useModal } from "../../context/Modal"
+import { useSelector } from "react-redux"
 
 
-const UpdateReviewModal = () => {
+const UpdateReviewModal = ({productId}) => {
+    const user = useSelector(state => state.session.user)
+    const {closeModal} = useModal()
     const dispatch = useDispatch()
     const [review, setReview] = useState("")
     const [stars, setStars] = useState(0)
@@ -14,12 +19,19 @@ const UpdateReviewModal = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        
+
+        const reviewData = {
+            "review": review,
+            "star_rating": stars,
+            "product_id": productId,
+            "user_id": user.id
+        }
+        await dispatch(updateReviewThunk(reviewData, productId))
     }
     return (
         <>
             <form>
-                <h1>Update Review Modal</h1>
+                <h1>Update Review Modal {stars}</h1>
                 <div className="review_area">
                     <textarea rows={8} cols={45} placeholder="Write your review here!" value={review} onChange={e => setReview(e.target.value)}></textarea>
                     <div className="Stars">

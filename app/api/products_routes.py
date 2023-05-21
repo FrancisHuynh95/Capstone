@@ -17,7 +17,6 @@ def get_all_products():
 @product_routes.route('/<int:id>')
 def get_product_by_id(id):
     products = Product.query.get(id)
-    print('PRODUCT BY ID FROM THE ROUTE ===========>',products)
     return products.to_dict()
 
 @product_routes.route('/new', methods=['POST'])
@@ -25,7 +24,6 @@ def get_product_by_id(id):
 def create_product():
     form = ProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print('form data ================>>>>>>>>>>>>>>>=================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>',form.data)
     if form.validate_on_submit():
         product1 = form.data['product_img1']
         product2 = form.data['product_img2']
@@ -46,7 +44,6 @@ def create_product():
 
         for isUpload in upload:
             if 'url' not in isUpload:
-                print('error product img =========>', isUpload['errors'])
                 return isUpload['errors']
 
         aws_product_img1 = upload1['url']
@@ -112,8 +109,6 @@ def edit_product(id):
     product = Product.query.get(id)
     form = UpdateProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print('product ==================================>', product.to_dict())
-    print('lol', form.data['name'])
     if form.validate_on_submit():
         print(form.data)
         if form.data['product_img1']:
@@ -177,8 +172,6 @@ def edit_product(id):
             product.price = form.data['price']
         if form.data['description']:
             product.description = form.data['description']
-
-        print('product LFKDJDKSLFJKLSDFJSDKL =======================================>', product.to_dict())
 
         db.session.commit()
         return product.to_dict()

@@ -38,13 +38,6 @@ function ProductById() {
         dispatch(getSingleProductThunk(productId))
     }, [dispatch, imgArray.length, singleProductArray.reviews])
 
-    function hasReview() {
-        let review = singleProductArray[0]?.reviews.find(review => review.reviewer?.id === user?.id)
-        if (review) console.log('TRUUUUUUUUUUUUUUUUUUUUUUE')
-        else console.log('FAAAAAAAAAAAAAAAAAAAAAAAAAALSE')
-    }
-
-
     if (!singleProductArray) return <p>oopsies</p>
     return (
         <>
@@ -88,7 +81,7 @@ function ProductById() {
                                     <>
                                         <OpenModalButton
                                             buttonText="Update Review"
-                                            modalComponent={<UpdateReviewModal />}
+                                            modalComponent={<UpdateReviewModal productId={product.id} />}
                                         />
                                         <OpenModalButton
                                             buttonText="Delete Review"

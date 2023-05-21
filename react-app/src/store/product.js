@@ -2,10 +2,8 @@ const GET_ALL_PRODUCTS = '/GETALLPRODUCTS'
 const GET_SINGLE_PRODUCT = '/GETSINGLEPRODUCT'
 const CREATE_PRODUCT = "/CREATEPRODUCT"
 const DELETE_PRODUCT = "/DELETEPRODUCT"
-const UPDATE_PRODUCT = '/UPDATEPRODUCT'
-const ADD_REVIEW = '/ADDREVIEW'
-const DELETE_REVIEW = '/DELETEREVIEW'
 const ALL_REVIEWS = '/ALLREVIEW'
+const UPDATE_REVIEWS = '/UPDATEREVIEW'
 
 const getProducts = (products) => {
     return {
@@ -41,19 +39,6 @@ const deleteProduct = (id) => {
     }
 }
 
-const create_Review = (reviews) => {
-    return {
-        type: ADD_REVIEW,
-        reviews
-    }
-}
-
-const delete_review = (id) => {
-    return {
-        type :DELETE_REVIEW,
-        id
-    }
-}
 export const getAllProductsThunk = () => async (dispatch) => {
     const response = await fetch('/products/')
     if(response.ok){
@@ -74,7 +59,6 @@ export const getAllReviewsThunk = (id) => async (dispatch) => {
 }
 
 export const getSingleProductThunk = (id) => async (dispatch) => {
-    console.log('Inside the thunk', id)
     const response = await fetch(`/products/${id}`)
     if(response.ok){
         const product = await response.json()
@@ -85,55 +69,41 @@ export const getSingleProductThunk = (id) => async (dispatch) => {
 }
 
 export const createProductThunk = (product) => async (dispatch) => {
-    console.log('thunk has been initialized', product)
     const response = await fetch(`/products/new`, {
         method: 'POST',
         body: product
     })
-    console.log("after response", response)
     if(response.ok){
-        console.log("Response is okay!!!!!!!")
         const newProduct = await response.json()
-        console.log("before dispatch", newProduct)
         await dispatch(createProduct(newProduct))
-        console.log("Response dispatched", newProduct)
     } else {
         return ("Response is not okay!!!!!!!")
     }
 }
 
 export const deleteProductThunk = (id) => async (dispatch) => {
-    console.log('INITIATED THE THUNK', id)
     const response = await fetch(`/products/${id}`, {
         method: "DELETE"
     })
-    console.log('before res.ok', response)
     if(response.ok){
-        console.log('inside res.ok')
         const deleted = await response.json()
         await dispatch(deleteProduct(id))
     } else {
-        console.log("SOMETHING WRONG WITH THUNK")
         return "DID NOT DELETE"
     }
 }
 
 export const updateProductThunk = (formData, productId) => async (dispatch) => {
-    console.log('inside the thunk', formData)
-    console.log('inside the thunk', productId)
     const response = await fetch(`/products/${productId}`, {
         method: "PUT",
         body: formData
     })
-    console.log('Is the res okay?', response)
     if(response.ok){
-        console.log("RES IS OKAY")
     } else {
-        console.log("RES IS NOT OKAY")
+        return
     }
 }
 export const createReviewThunk = (review, productId) => async (dispatch) => {
-    console.log('create review thunk be thunkin', review)
     const res = await fetch('/reviews/new', {
         method: "POST",
         headers: {
@@ -143,8 +113,6 @@ export const createReviewThunk = (review, productId) => async (dispatch) => {
     })
     if(res.ok){
         const response = await res.json()
-        console.log(response)
-        // await dispatch(create_Review(response))
         await dispatch(getSingleProductThunk(productId))
         return response;
     } else {
@@ -159,6 +127,25 @@ export const deleteReviewThunk = (id, productId) => async(dispatch) => {
     if(res.ok){
         const response = await res.json()
         await dispatch(getSingleProductThunk(productId))
+    }
+}
+
+export const updateReviewThunk = (review, productId) => async (dispatch) => {
+    console.log('in the update review thunk', review, productId)
+    const res = await fetch(`/reviews/${review.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(review)
+    })
+    console.log('checking the res', res)
+    if(res.ok){
+        const response = await res.json()
+        await dispatch(getSingleProductThunk(productId))
+        return response
+    } else {
+        console.log('RES IS NOT OKAY')
     }
 }
 

@@ -21,9 +21,7 @@ def get_all_reviews_by_product_id(id):
 @review_routes.route('/new', methods=['POST'])
 @login_required
 def create_review():
-    print('we is creatin')
     form = ReviewForm()
-    print('we is creatin')
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
@@ -40,6 +38,30 @@ def create_review():
         return new_review.to_dict()
     else:
         return jsonify({"errors": "Bad Review oopsies"})
+
+@review_routes.route('/<int:id>', methods=['PUT'])
+@login_required
+def edit_review(id):
+    review = Review.query.get(id)
+    print('REVIEW ==========================>', review)
+    form = ReviewForm
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        print("is the form okay???", form.data['star_rating'])
+        print("is the form okay???", form.data['review'])
+        if form.data['review']:
+            review.review = form.data['review']
+        if form.data['star_rating']:
+            review.star_rating = form.data['star_rating']
+
+        db.session.commit()
+        return review.to_dict()
+    else:
+        print("Error Updating Review")
+        return form.errors
+
+
 
 @review_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
