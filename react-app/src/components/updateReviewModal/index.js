@@ -6,7 +6,7 @@ import { useModal } from "../../context/Modal"
 import { useSelector } from "react-redux"
 
 
-const UpdateReviewModal = ({productId}) => {
+const UpdateReviewModal = ({product_id, review_id}) => {
     const user = useSelector(state => state.session.user)
     const {closeModal} = useModal()
     const dispatch = useDispatch()
@@ -23,15 +23,16 @@ const UpdateReviewModal = ({productId}) => {
         const reviewData = {
             "review": review,
             "star_rating": stars,
-            "product_id": productId,
+            "product_id": product_id,
             "user_id": user.id
         }
-        await dispatch(updateReviewThunk(reviewData, productId))
+        await dispatch(updateReviewThunk(reviewData, product_id, review_id))
+        closeModal()
     }
     return (
         <>
-            <form>
-                <h1>Update Review Modal {stars}</h1>
+            <form onSubmit={handleSubmit} method="PUT">
+                <h1>Update Review Modal</h1>
                 <div className="review_area">
                     <textarea rows={8} cols={45} placeholder="Write your review here!" value={review} onChange={e => setReview(e.target.value)}></textarea>
                     <div className="Stars">

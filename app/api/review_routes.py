@@ -42,14 +42,15 @@ def create_review():
 @review_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def edit_review(id):
+    print('checking the id =====================', id)
     review = Review.query.get(id)
-    print('REVIEW ==========================>', review)
-    form = ReviewForm
-
+    print('checking the review =====================', review.to_dict())
+    form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+
+
     if form.validate_on_submit():
-        print("is the form okay???", form.data['star_rating'])
-        print("is the form okay???", form.data['review'])
+
         if form.data['review']:
             review.review = form.data['review']
         if form.data['star_rating']:
@@ -58,7 +59,7 @@ def edit_review(id):
         db.session.commit()
         return review.to_dict()
     else:
-        print("Error Updating Review")
+        print("========================== Error Updating Review ===============================================")
         return form.errors
 
 
@@ -67,6 +68,7 @@ def edit_review(id):
 @login_required
 def delete_review(id):
     review = Review.query.get(id)
+
     db.session.delete(review)
     db.session.commit()
 

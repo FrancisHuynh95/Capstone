@@ -130,14 +130,13 @@ export const deleteReviewThunk = (id, productId) => async(dispatch) => {
     }
 }
 
-export const updateReviewThunk = (review, productId) => async (dispatch) => {
-    console.log('in the update review thunk', review, productId)
-    const res = await fetch(`/reviews/${review.id}`, {
+export const updateReviewThunk = (reviewData, productId, id ) => async (dispatch) => {
+    const res = await fetch(`/reviews/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(review)
+        body: JSON.stringify(reviewData)
     })
     console.log('checking the res', res)
     if(res.ok){
