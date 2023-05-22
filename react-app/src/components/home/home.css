@@ -34,6 +34,7 @@
     height: 454px;
     width: 100%;
     object-fit: cover;
+    background-color: white;
 }
 
 .product_price_container{
