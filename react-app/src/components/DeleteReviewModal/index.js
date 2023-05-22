@@ -12,9 +12,9 @@ const DeleteReviewModal = ({review_id, product_id}) => {
     }
     return(
         <>
-        <h1>ARE YOU SURE YOU WANT TO DELETE YOUR AWESOME REVIEW?!?!?!?</h1>
-        <button onClick={() => handleYes()}>YES FOO</button>
-        <button onClick={() => closeModal()}>NAH</button>
+        <h1>Are you sure you want to delete your review?</h1>
+        <button onClick={() => handleYes()}>Confirm Delete</button>
+        <button onClick={() => closeModal()}>Cancel</button>
         </>
     )
 }

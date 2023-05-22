@@ -73,19 +73,23 @@ function ProductById() {
                         {singleProductArray[0] && singleProductArray[0].reviews.toReversed().map(review =>
                             <>
                                 <div className="reviewer_and_star_rating">
-                                    <p>{review.reviewer.username}</p>
-                                    <p>{review.star_rating} <i class="fas fa-star"></i></p>
+                                    {review.star_rating === 5 && <p><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> </p>}
+                                    {review.star_rating === 4 && <p><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>  </p>}
+                                    {review.star_rating === 3 && <p><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>  </p>}
+                                    {review.star_rating === 2 && <p><i class="fas fa-star"></i> <i class="fas fa-star"></i> </p>}
+                                    {review.star_rating === 1 && <p><i class="fas fa-star"></i></p>}
+                                    <p>{review.review}</p>
                                 </div>
-                                <p>{review.review}</p>
+                                <p>{review.reviewer.username}</p>
                                 {review.reviewer.id === user?.id &&
                                     <>
                                         <OpenModalButton
                                             buttonText="Update Review"
-                                            modalComponent={<UpdateReviewModal  product_id = {product.id} review_id={review.id}  />}
+                                            modalComponent={<UpdateReviewModal product_id={product.id} review_id={review.id} />}
                                         />
                                         <OpenModalButton
                                             buttonText="Delete Review"
-                                            modalComponent={<DeleteReviewModal product_id = {product.id} review_id={review.id} />}
+                                            modalComponent={<DeleteReviewModal product_id={product.id} review_id={review.id} />}
                                         />
                                     </>
                                 }
