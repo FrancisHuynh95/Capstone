@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux'
 import { createProductThunk, getSingleProductThunk } from "../../store/product"
 import { useHistory } from "react-router-dom"
+import OpenModalButton from "../OpenModalButton"
 
 function CreateProductListing() {
     const currentUser = useSelector(state => state.session.user)
@@ -37,6 +38,11 @@ function CreateProductListing() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        if(!currentUser){
+            return(
+                <OpenModalButton />
+            )
+        }
         const errorObj = {}
 
         if(name.length === 0) {
@@ -63,9 +69,11 @@ function CreateProductListing() {
         if(Object.values(errorObj) > 0){
             return
         } else {
+
+            let price1 = ((+price).toFixed(2)).toString()
             const formData = new FormData()
             formData.append("name", name)
-            formData.append("price", price)
+            formData.append("price", price1)
             formData.append("description", description)
             formData.append("product_img1", product_img1)
             formData.append("product_img2", product_img2)
@@ -75,7 +83,6 @@ function CreateProductListing() {
             if(product_img5 !== null) formData.append("product_img5", product_img5)
 
             await dispatch(createProductThunk(formData))
-
             history.push(`/`)
         }
     }

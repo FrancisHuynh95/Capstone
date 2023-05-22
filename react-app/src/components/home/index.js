@@ -25,7 +25,7 @@ function Home() {
                             <img className="product_img" src={product.product_img1}></img>
                             {/* </div> */}
                             <div className="product_price_container">
-                                ${product.price}
+                                ${(product.price).toFixed(2)}
                             </div>
                         </NavLink>
                     </div>

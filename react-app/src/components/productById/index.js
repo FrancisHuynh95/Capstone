@@ -45,7 +45,7 @@ function ProductById() {
                 <div className="singleProduct">
                     <div className="product_information">
                         <p>Name {product.name}</p>
-                        <p>Price ${product.price}</p>
+                        <p>Price ${(product.price).toFixed(2)}</p>
                         <p>Description {product.description}</p>
                     </div>
                     <div className="image_container">
@@ -61,13 +61,13 @@ function ProductById() {
                         </div>
                     </div>
                     <div className="isUserButtons">
-                        {product.user.id === user.id && <OpenModalButton
+                        {product.user.id === user?.id && <OpenModalButton
                             buttonText="Delete Product"
                             modalComponent={<DeleteProductModal
                                 product_id={product.id}
                             />}
                         />}
-                        {product.user.id === user.id && <button onClick={() => history.push(`/products/${product.id}/update`)}>Update Product</button>}
+                        {product.user.id === user?.id && <button onClick={() => history.push(`/products/${product.id}/update`)}>Update Product</button>}
                     </div>
                     <div className="show-reviews">
                         {singleProductArray[0] && singleProductArray[0].reviews.toReversed().map(review =>
@@ -94,7 +94,7 @@ function ProductById() {
                         {singleProductArray[0].reviews.length === 0 &&
                             <>
                                 <p>The Product doesn't have a review yet</p>
-                                {singleProductArray[0].user.id !== user.id &&
+                                {user && singleProductArray[0].user.id !== user?.id &&
                                     <OpenModalButton
                                         buttonText="Create Review"
                                         modalComponent={<CreateReviewModal productId={productId} />}

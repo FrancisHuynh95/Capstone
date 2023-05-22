@@ -5,11 +5,11 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
-import Home from "./components/home";
 import ProductById from "./components/productById";
 import CreateProductListing from "./components/CreateProductListing";
 import UpdateProduct from "./components/updateProduct";
 import BackgroundColor from "./components/home/background-color";
+
 
 function App() {
   const dispatch = useDispatch();

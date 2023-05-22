@@ -15,7 +15,7 @@ function Navigation({ isLoaded }){
 				<NavLink exact to="/">Home</NavLink>
 			</div>
 			<div className='newProduct'>
-				<NavLink exact to="/products/new">New Product Listing</NavLink>
+				{sessionUser && <NavLink exact to="/products/new">New Product Listing</NavLink>}
 			</div>
 			<div className='socials'>
 				<OpenModalButton
