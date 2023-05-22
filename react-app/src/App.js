@@ -9,6 +9,7 @@ import ProductById from "./components/productById";
 import CreateProductListing from "./components/CreateProductListing";
 import UpdateProduct from "./components/updateProduct";
 import BackgroundColor from "./components/home/background-color";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer isLoaded={isLoaded} />
     </>
   );
 }
