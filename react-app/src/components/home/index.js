@@ -19,17 +19,16 @@ function Home() {
         <>
             <div className="product_card_container">
                 {allProductArray.map(product =>
-                    <div title={`${product.name}`} className="product_card">
-                        <NavLink className="Home_NavLink" to={`/products/${product.id}`}>
-                            {/* <div className="product_img_container"> */}
-                            <img className="product_img" src={product.product_img1}></img>
-                            {/* </div> */}
-                            <div className="product_price_container">
-                                ${(product.price).toFixed(2)}
-                            </div>
-                        </NavLink>
-                    </div>
-                )}
+                    <>
+                        <div title={`${product.name}`} className="product_card">
+                            <NavLink className="Home_NavLink" to={`/products/${product.id}`}>
+                                <img className="product_img" src={product.product_img1}></img>
+                                <p className="product_price_container">${(product.price).toFixed(2)}</p>
+                            </NavLink>
+                        </div>
+                    </>
+                )
+                }
             </div>
 
         </>

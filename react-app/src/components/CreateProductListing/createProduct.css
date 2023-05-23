@@ -1,0 +1,16 @@
+#create-product-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+#create-product-form > label > * {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+}
+#create-product-form > label{
+ width: 80%;
+}

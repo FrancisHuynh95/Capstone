@@ -62,7 +62,7 @@ function ProductById() {
                     </div>
                     <div className="isUserButtons">
                         {product.user.id === user?.id && <OpenModalButton
-                            buttonText="Delete Product"
+                            buttonText={`Delete Product`}
                             modalComponent={<DeleteProductModal
                                 product_id={product.id}
                             />}

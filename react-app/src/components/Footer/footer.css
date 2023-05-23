@@ -1,0 +1,10 @@
+.footerArea {
+    background-color: rgb(106, 106, 255);
+    margin: 0px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 175px;
+    z-index: -1;
+}

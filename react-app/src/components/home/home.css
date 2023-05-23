@@ -1,5 +1,4 @@
 .product_card_container {
-    padding: 0rem 20rem 0rem 20rem;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -14,13 +13,21 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    height: fit-content;
     /* border: 1px solid black; */
     text-decoration: none;
     box-sizing: border-box;
-    height: fit-content;
     border-radius: 10px;
     background-color: rgba(211, 211, 211, 0.059);
+    height: 100%;
+}
+
+.Home_NavLink{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 250px;
+    object-fit: cover;
+    width: 100%;
 }
 
 .product_card:hover {
@@ -30,11 +37,12 @@
 .product_img{
     border-radius: 10px;
     box-sizing: border-box;
-    min-width: 180px;
-    height: 454px;
+    height: 200px;
     width: 100%;
     object-fit: cover;
     background-color: white;
+    padding: 5px;
+
 }
 
 .product_price_container{
@@ -46,9 +54,10 @@
     margin-left: 20px;
     background-color: lightgray;
     border-radius: 5px;
-    margin-bottom: 5px;
     text-decoration: none;
     color: black;
+    position: relative;
+    bottom: 50px;
     /* transform: translate(35px, -15px); */
 }
 

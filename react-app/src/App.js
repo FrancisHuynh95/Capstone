@@ -12,6 +12,7 @@ import BackgroundColor from "./components/home/background-color";
 import Footer from "./components/Footer";
 
 
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -23,6 +24,7 @@ function App() {
     <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
+        <>
         <Switch>
           <Route path="/login" >
             <LoginFormPage />
@@ -41,10 +43,11 @@ function App() {
           </Route>
           <Route path="/">
             <BackgroundColor />
+            {/* <Footer/> */}
           </Route>
         </Switch>
+        </>
       )}
-      <Footer isLoaded={isLoaded} />
     </>
   );
 }

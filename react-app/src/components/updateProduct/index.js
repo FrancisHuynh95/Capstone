@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { getSingleProductThunk, updateProductThunk } from "../../store/product"
 import { useHistory } from "react-router-dom"
+import "./updateproduct.css"
 
 function UpdateProduct() {
     const currentProduct = useSelector(state => state.product.singleProduct)
@@ -64,12 +65,13 @@ function UpdateProduct() {
     if (!Object.values(currentProduct).length) return null
     return (
         <>
-            <form method="PUT" onSubmit={handleUpdateButton}>
+            <form id="update-product-form" method="PUT" onSubmit={handleUpdateButton} encType="multipart/form-data">
                 <h1>Update Product</h1>
                 <div>
                     <label>
-                        <div>Name</div>
+                        Name
                         <input
+                            className="product_name"
                             type="text"
                             value={name || ""}
                             placeholder="Name"
@@ -79,8 +81,9 @@ function UpdateProduct() {
                 </div>
                 <div>
                     <label>
-                        <div>Price</div>
+                        Price
                         <input
+                        className="product_price"
                         type="number"
                         value={price || 0}
                         placeholder="Price"
@@ -90,8 +93,9 @@ function UpdateProduct() {
                 </div>
                 <div>
                     <label>
-                        <div>Description</div>
+                        Description
                         <textarea
+                        className="product_description"
                         value={description}
                         placeholder="Description"
                         onChange={e => setDescription(e.target.value)}
@@ -102,7 +106,7 @@ function UpdateProduct() {
                     <label>
                         <div>First Product Image</div>
                         <input
-                            className="product_img"
+                            className="product_img_update"
                             type='file'
                             name="product_img1"
                             accept="image/*"
@@ -112,7 +116,7 @@ function UpdateProduct() {
                     <label>
                         <div>Second Product Image</div>
                         <input
-                            className="product_img"
+                            className="product_img_update"
                             type='file'
                             name="product_img1"
                             accept="image/*"
@@ -122,7 +126,7 @@ function UpdateProduct() {
                     <label>
                         <div>Three Product Image</div>
                         <input
-                            className="product_img"
+                            className="product_img_update"
                             type='file'
                             name="product_img1"
                             accept="image/*"
@@ -132,7 +136,7 @@ function UpdateProduct() {
                     <label>
                         <div>Four Product Image</div>
                         <input
-                            className="product_img"
+                            className="product_img_update"
                             type='file'
                             name="product_img1"
                             accept="image/*"
@@ -142,7 +146,7 @@ function UpdateProduct() {
                     <label>
                         <div>Five Product Image</div>
                         <input
-                            className="product_img"
+                            className="product_img_update"
                             type='file'
                             name="product_img1"
                             accept="image/*"
@@ -150,7 +154,7 @@ function UpdateProduct() {
                         ></input>
                     </label>
                 </div>
-                <div>
+                <div className="update_submit_button">
                     <button type="submit">Update Product</button>
                 </div>
             </form>

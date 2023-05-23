@@ -1,0 +1,51 @@
+.loginModal {
+    display: flex;
+    justify-content: center;
+    width: 350px;
+}
+
+.loginModal > form {
+    width: 100%;
+    padding: 0px 10px 10px 10px;
+}
+
+.modalH1{
+    text-align: center;
+}
+
+.modalButtons {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    margin: 5px 0px;
+    padding-top: 10px;
+    align-items: center;
+}
+
+.userInputs {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.Input {
+    width: 65%;
+    height: 20px;
+}
+
+.Email {
+    display: flex;
+    gap: 32px;
+    height: 30px;
+}
+
+.Password {
+    display: flex;
+    gap: 10px;
+}
+
+.modalButton{
+    padding: 5px;
+    width: 80%;
+    /* border: none; */
+}

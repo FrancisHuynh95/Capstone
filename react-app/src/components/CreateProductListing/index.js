@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { createProductThunk, getSingleProductThunk } from "../../store/product"
 import { useHistory } from "react-router-dom"
 import OpenModalButton from "../OpenModalButton"
+import "./createProduct.css"
 
 function CreateProductListing() {
     const currentUser = useSelector(state => state.session.user)
@@ -87,19 +88,19 @@ function CreateProductListing() {
         }
     }
     return (
-        <>
-            <form encType="multipart/form-data" onSubmit={handleSubmit} method="PUT">
+        <div className="create-product-rapper">
+            <form id="create-product-form" encType="multipart/form-data" onSubmit={handleSubmit} method="POST" >
                 <h1>Create Product Listing Component</h1>
                 {error.name && <p className="errors">{error.name}</p>}
                 {error.price && <p className="errors">{error.price}</p>}
                 {error.description && <p className="errors">{error.description}</p>}
                 {error.image && <p className="errors">{error.image}</p>}
                 <label>
-                    <div>Name</div>
+                    Name
                     <input className="product_name" type="text" value={name} placeholder='Product Name' onChange={(e) => setName(e.target.value)} />
                 </label>
                 <label>
-                    <div>Price</div>
+                    Price
                     <input className="product_price" type="number" value={price} placeholder='Product Price' onChange={(e) => setPrice(e.target.value)} />
                 </label>
                 <label>
@@ -109,7 +110,7 @@ function CreateProductListing() {
                 <label>
                     <div>First Product Image</div>
                     <input
-                        className="product_img"
+                        className="product_img_upload"
                         type='file'
                         name="product_img1"
                         accept="image/*"
@@ -119,7 +120,7 @@ function CreateProductListing() {
                 <label>
                     <div>Second Product Image</div>
                     <input
-                        className="product_img"
+                        className="product_img_upload"
                         type='file'
                         name="product_img2"
                         accept="image/*"
@@ -129,7 +130,7 @@ function CreateProductListing() {
                 <label>
                     <div>Third Product Image</div>
                     <input
-                        className="product_img"
+                        className="product_img_upload"
                         type='file'
                         name="product_img3"
                         accept="image/*"
@@ -139,7 +140,7 @@ function CreateProductListing() {
                 <label>
                     <div>Fourth Product Image</div>
                     <input
-                        className="product_img"
+                        className="product_img_upload"
                         type='file'
                         name="product_img4"
                         accept="image/*"
@@ -149,7 +150,7 @@ function CreateProductListing() {
                 <label>
                     <div>Fifth Product Image</div>
                     <input
-                        className="product_img"
+                        className="product_img_upload"
                         type='file'
                         name="product_img5"
                         accept="image/*"
@@ -160,7 +161,7 @@ function CreateProductListing() {
                     <button type="submit">Submit</button>
                 </div>
             </form>
-        </>
+        </div>
     )
 }
 

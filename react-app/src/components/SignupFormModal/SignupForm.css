@@ -1,0 +1,26 @@
+
+.signupModal{
+    width: 350px;
+}
+
+#signupForm{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    padding: 1rem;
+}
+
+#signupForm > label > input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+#signupForm > label {
+    margin-left: 10px;
+}
+.signupButton{
+    margin-bottom: 10px;
+    width: 185px;
+    margin-left: 19px;
+}

@@ -19,7 +19,7 @@ function LoginFormModal() {
     if (data) {
       setErrors(data);
     } else {
-        closeModal()
+      closeModal()
     }
   };
 
@@ -33,34 +33,42 @@ function LoginFormModal() {
 
   return (
     <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-        <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Log In</button>
-        <button onClick={() => demoUser()}>Demo User</button>
-      </form>
+      <div className="loginModal">
+        <form onSubmit={handleSubmit}>
+          <h1 className="modalH1">Log In</h1>
+          <ul>
+            {errors.map((error, idx) => (
+              <li className="errors" key={idx}>{error}</li>
+            ))}
+          </ul>
+          <div className="userInputs">
+            <div className="Email">
+              Email:
+                <input
+                  className="Input"
+                  type="text"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  />
+            </div>
+            <div className="Password">
+              Password:
+                <input
+                  className="Input"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+            </div>
+          </div>
+          <div className="modalButtons">
+            <button className="modalButton" type="submit">Log In</button>
+            <button className="modalButton" onClick={() => demoUser()}>Demo User</button>
+          </div>
+        </form>
+      </div>
     </>
   );
 }

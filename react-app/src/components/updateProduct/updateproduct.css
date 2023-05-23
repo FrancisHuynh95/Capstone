@@ -1,0 +1,21 @@
+#update-product-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+#update-product-form > div > label > * {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+}
+#update-product-form > div{
+ width: 90%;
+}
+
+.update_submit_button {
+    text-align: center;
+}

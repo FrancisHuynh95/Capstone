@@ -1,1 +1,15 @@
 /* TODO Add site wide styles */
+#root {
+    margin: 0px 2.5rem;
+    font-family: 'Neuton', serif;
+}
+
+.errors {
+    color: red;
+    list-style-type: none;
+}
+
+body {
+    background-color:rgb(255, 234, 206);
+
+}

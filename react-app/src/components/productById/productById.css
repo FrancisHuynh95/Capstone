@@ -2,6 +2,7 @@
     display:flex;
     width: 100px;
     height: 100px;
+    object-fit: cover;
 }
 
 .product_img_product_page:hover {
@@ -18,13 +19,15 @@
 }
 
 .the_big_image {
-    height: 525px;
-    width: 700px;
+    height: 325px;
+    width: 500px;
+    object-fit: cover;
 }
 
 .image_container {
     display: flex;
     gap: 20px;
+    align-items: center;
 }
 
 .the_big_image_container {
@@ -32,6 +35,12 @@
     height: fit-content;
 }
 
-.singleProduct{
-    padding: 0rem 20rem 0rem 20rem;
+.isUserButtons > button {
+    background-color: white;
+    border-radius: 50px;
+    color: black;
+    padding: 20px 40px;
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
 }
