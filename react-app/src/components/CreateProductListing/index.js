@@ -45,9 +45,14 @@ function CreateProductListing() {
             )
         }
         const errorObj = {}
-
         if(name.length === 0) {
             errorObj.name = "Name is required"
+        }
+        if(name.length > 30){
+            errorObj.name = "Name must be in between 5 and 30 characters"
+        }
+        if(name.length < 5){
+            errorObj.name = "Name must be in between 5 and 30 characters"
         }
         if(price <= 0) {
             errorObj.price = "Price has to be greater than 0."
@@ -65,9 +70,8 @@ function CreateProductListing() {
         if(product_img3 === null){
             errorObj.image = "Three images are required"
         }
-
         setError(errorObj)
-        if(Object.values(errorObj) > 0){
+        if(Object.values(errorObj).length > 0){
             return
         } else {
 

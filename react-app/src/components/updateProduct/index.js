@@ -36,6 +36,30 @@ function UpdateProduct() {
 
     const handleUpdateButton = async (e) => {
         e.preventDefault()
+        const errorObj = {}
+        if(name.length === 0) {
+            errorObj.name = "Name is required"
+        }
+        if(name.length > 30){
+            errorObj.name = "Name must be in between 5 and 30 characters"
+        }
+        if(name.length < 5){
+            errorObj.name = "Name must be in between 5 and 30 characters"
+        }
+        if(price <= 0) {
+            errorObj.price = "Price has to be greater than 0."
+        }
+        if(description.length === 0) {
+            errorObj.description = "Description is required."
+        }
+        setError(errorObj)
+        if(Object.values(errorObj).length > 0){
+            return
+        } else {
+
+
+
+
         const formData = new FormData()
         formData.append("name", name)
         formData.append("price", price)
@@ -60,6 +84,7 @@ function UpdateProduct() {
         await dispatch(updateProductThunk(formData, productId))
         history.push(`/products/${productId}`)
     }
+    }
 
 
     if (!Object.values(currentProduct).length) return null
@@ -67,6 +92,9 @@ function UpdateProduct() {
         <>
             <form id="update-product-form" method="PUT" onSubmit={handleUpdateButton} encType="multipart/form-data">
                 <h1>Update Product</h1>
+                {error.name && <p className="errors">{error.name}</p>}
+                {error.price && <p className="errors">{error.price}</p>}
+                {error.description && <p className="errors">{error.description}</p>}
                 <div>
                     <label>
                         Name
