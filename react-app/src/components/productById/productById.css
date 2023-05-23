@@ -39,8 +39,28 @@
     background-color: white;
     border-radius: 50px;
     color: black;
-    padding: 20px 40px;
+    padding: 6px 40px;
     font-size: 15px;
     margin-top: 10px;
     cursor: pointer;
+}
+.updateReviewButtons > button {
+    background-color: black;
+    border-radius: 50px;
+    color: white;
+    padding: 3px 20px;
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.isUserButtons{
+    display: flex;
+    gap: 10px;
+}
+
+.updateReviewButtons{
+    display: flex;
+    gap: 10px;
+
 }
