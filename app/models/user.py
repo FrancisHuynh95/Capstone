@@ -52,6 +52,7 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'profileImage': self.profile_img,
             'reviews': [review.to_dict() for review in self.reviews],
+            'product': [product.to_dict_no_user_no_review() for product in self.products]
         }
     def to_dict_no_review(self):
         return {

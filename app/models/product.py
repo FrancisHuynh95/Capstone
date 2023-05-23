@@ -44,3 +44,15 @@ class Product(db.Model):
             'user': self.user.to_dict(),
             'reviews': [review.to_dict() for review in self.reviews]
         }
+    def to_dict_no_user_no_review(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'price': self.price,
+            'description': self.description,
+            'product_img1': self.product_img1,
+            'product_img2': self.product_img2,
+            'product_img3' : self.product_img3,
+            'product_img4': self.product_img4,
+            'product_img5' : self.product_img5,
+        }

@@ -6,6 +6,8 @@ import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
+import { NavLink } from "react-router-dom";
+
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -47,16 +49,21 @@ function ProfileButton({ user }) {
   return (
     <>
       <button id="userButtonProfileThing" onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+      <i class="far fa-user"></i>
       </button>
       <div className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <p>{user.username}</p>
+          <div className="usernameAndEmail">
+            <p>Hello {user.username}</p>
+            <div>
+            <NavLink exact to="/user"><i class="far fa-user"></i> Your Profile</NavLink>
+            </div>
             <p>{user.email}</p>
-            <p>
-              <button onClick={handleLogout}>Log Out</button>
-            </p>
+          </div>
+
+              <button  className="userButtonProfileThingButton" onClick={handleLogout}>Log Out</button>
+
           </>
         ) : (
           <>

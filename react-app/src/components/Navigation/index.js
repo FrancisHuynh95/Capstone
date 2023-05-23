@@ -15,10 +15,11 @@ function Navigation({ isLoaded }){
 				<NavLink exact to="/">Home</NavLink>
 			</div>
 			<div className='newProduct'>
-				{sessionUser && <NavLink exact to="/products/new">New Product Listing</NavLink>}
+				{sessionUser && <NavLink className="NewProductListing" exact to="/products/new">New Product Listing</NavLink>}
 			</div>
 			<div className='socials'>
 				<OpenModalButton
+				className="socialsButton"
 				buttonText="Contact Me"
 				modalComponent={<SocialsModal />}
 				/>
