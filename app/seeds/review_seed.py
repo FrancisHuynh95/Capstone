@@ -13,7 +13,7 @@ def seeded_review(seeded_users, seeded_product):
         user_id =  seeded_users[1].id,
         review = 'These switches look so nice! I really enjoy the green color.',
         star_rating = 5,
-        product_id = seeded_product[2].id
+        product_id = seeded_product[3].id
     )
     review3 = Review(
         user_id =  seeded_users[2].id,
@@ -22,7 +22,7 @@ def seeded_review(seeded_users, seeded_product):
         product_id = seeded_product[0].id
     )
     review4 = Review(
-        user_id =  seeded_users[4].id,
+        user_id =  seeded_users[3].id,
         review = 'These gateron Oil Kings are great.. Extremely smooth from the factory. Highly Recommend.',
         star_rating = 5,
         product_id = seeded_product[3].id
@@ -91,7 +91,7 @@ def seeded_review(seeded_users, seeded_product):
         user_id =  seeded_users[7].id,
         review = 'The grey of this color seems like it goes with more colors. I like it',
         star_rating = 5,
-        product_id = seeded_product[8].id
+        product_id = seeded_product[14].id
     )
     review16 = Review(
         user_id =  seeded_users[8].id,
@@ -239,7 +239,7 @@ def seeded_review(seeded_users, seeded_product):
     )
     next12 = Review(
         user_id =  seeded_users[5].id,
-        review = 'Keyboard is ok',
+        review = 'Good white cable.',
         star_rating = 5,
         product_id = seeded_product[11].id
     )

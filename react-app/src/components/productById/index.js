@@ -17,8 +17,6 @@ function ProductById() {
     const singleProduct = useSelector(state => state.product.singleProduct)
     const singleProductArray = Object.values(singleProduct)
 
-    console.log(singleProductArray)
-
     const history = useHistory()
     const user = useSelector(state => state.session.user)
     let imgArray = []
