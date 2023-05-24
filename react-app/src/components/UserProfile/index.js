@@ -3,23 +3,31 @@ import { useSelector, useDispatch } from "react-redux"
 import { getAllProductsThunk } from "../../store/product"
 import "./userprofile.css"
 import { NavLink } from "react-router-dom"
+import OpenModalButton from "../OpenModalButton"
+import DeleteProductModal from "../deleteProductModal"
 import { useHistory } from "react-router-dom"
 
 const UserProfile = () => {
     const user = useSelector(state => state.session.user)
+    const allProducts = useSelector(state => state.product.products)
+    const allProductArray1 = Object.values(allProducts)
+    const filiteredProducts = allProductArray1.filter(product => product.user.id === user.id)
+    console.log('filtered products =============>', filiteredProducts)
     const history = useHistory()
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(getAllProductsThunk())
-    }, [])
+    }, [dispatch, filiteredProducts.length])
 
+
+    if(!user || !allProducts) return <p>Loading</p>
     return (
         <>
             <h1>User Profile</h1>
             <h2>My Products</h2>
             <div className="userProductsEverything">
-                {user.product.map(product =>
+                {filiteredProducts.map(product =>
                     <div className="userProductsContainer">
                         <NavLink exact to={`/products/${product.id}`}>
                             <p className="user_product_name">{product.name}</p>
@@ -29,7 +37,12 @@ const UserProfile = () => {
                         </NavLink>
                         <div className="userButtons">
                             <button onClick={() => history.push(`/products/${product.id}/update`)}>Update</button>
-                            <button>Delete</button>
+                            <OpenModalButton
+                            buttonText={`Delete Product`}
+                            modalComponent={<DeleteProductModal
+                                product_id={product.id}
+                            />}
+                        />
                         </div>
                     </div>
                 )}
