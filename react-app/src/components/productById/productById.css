@@ -7,7 +7,7 @@
 
 .product_img_product_page:hover {
     cursor: pointer;
-    box-shadow: 2px 2px 5px 1px black;
+    box-shadow: 1px 2px 15px 5px gray;
     translate: 5px;
 }
 
@@ -22,6 +22,49 @@
     height: 325px;
     width: 550px;
     object-fit: cover;
+}
+
+@media screen and (max-width: 1095px) {
+    .image_container {
+        width: 90%
+    }
+    .the_big_image{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+
+    }
+}
+
+@media screen and (min-width: 1096px) {
+    .product_img_product_page:hover {
+        cursor: pointer;
+        box-shadow: 1px 2px 15px 5px gray;
+        translate: 5px;
+    }
+    .product_img_product_page{
+        display:flex;
+        width: 75%;
+        height: 75%;
+        object-fit: cover;
+    }
+    .pics-carasol {
+        width: 30%
+    }
+    .image_container {
+        width: 100%
+    }
+    .the_big_image{
+        height: 70%;
+        width: 70%;
+        object-fit: cover;
+    }
+    .the_big_image_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
 }
 
 .image_container {
@@ -80,4 +123,8 @@
     display: flex;
     flex-direction: column;
     width: 28%;
+}
+
+.productIdReview{
+    width: 90%
 }

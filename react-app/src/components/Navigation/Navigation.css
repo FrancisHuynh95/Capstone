@@ -29,20 +29,15 @@
   justify-content: space-evenly;
   align-items: center;
   height: 100px;
+  width: 100%;
+  font-size: large;
   /* border: 1px solid red; */
 }
 
-.HomeButton{
-  display: flex;
-  width: 25%;
-}
-
 .newProduct {
-  width: 25%;
-}
-
-.socials {
-  width:25%;
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
 .UserButton {
@@ -58,10 +53,6 @@ li {
   list-style-type: none;
 }
 
-.socialsButton {
-  background-color: red;
-}
-
 .socials > button {
   border: none;
   background-color: transparent;
@@ -69,5 +60,17 @@ li {
 }
 
 .logo {
-  width: 225px;
+  width: 150px;
+  object-fit: cover;
+}
+.HomeButton {
+  object-fit: cover;
+  display: flex;
+  height: 100%;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
