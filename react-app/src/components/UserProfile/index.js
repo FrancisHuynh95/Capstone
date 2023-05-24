@@ -6,13 +6,23 @@ import { NavLink } from "react-router-dom"
 import OpenModalButton from "../OpenModalButton"
 import DeleteProductModal from "../deleteProductModal"
 import { useHistory } from "react-router-dom"
+import UpdateReviewModal from "../updateReviewModal"
 
 const UserProfile = () => {
     const user = useSelector(state => state.session.user)
     const allProducts = useSelector(state => state.product.products)
     const allProductArray1 = Object.values(allProducts)
+    console.log('allProductArray1 ==========>',allProductArray1)
+    const reviewArray = []
+    for(let i = 0; i < allProductArray1.length; i++){
+        for(let j = 0; j < allProductArray1[i].reviews.length; j++){
+            if(allProductArray1[i].reviews[j].reviewer.id === user.id){
+                reviewArray.push(allProductArray1[i].reviews[j])
+            }
+        }
+    }
+    console.log(reviewArray)
     const filiteredProducts = allProductArray1.filter(product => product.user.id === user.id)
-    console.log('filtered products =============>', filiteredProducts)
     const history = useHistory()
     const dispatch = useDispatch()
 
@@ -21,7 +31,8 @@ const UserProfile = () => {
     }, [dispatch, filiteredProducts.length])
 
 
-    if(!user || !allProducts) return <p>Loading</p>
+    if(!allProducts) return <p>Loading</p>
+    if(!user) return <h2>Please login to view your profile</h2>
     return (
         <>
             <h1>User Profile</h1>
@@ -49,7 +60,7 @@ const UserProfile = () => {
             </div>
             <div className="userReviews">
                 <h2>My Reviews</h2>
-                {user.reviews.map(product =>
+                {reviewArray.map(product =>
                     <div className="userReviewsContainer">
                         <p className="user_product_name_review">{product.product_id}</p>
                         <div className="UserReview">
@@ -57,8 +68,18 @@ const UserProfile = () => {
                             <p className="user_product_name_review">{product.star_rating}</p>
                         </div>
                         <div className="userButtons">
-                            <button>Update</button>
-                            <button>Delete</button>
+                        <OpenModalButton
+                            buttonText={`Update Review`}
+                            modalComponent={<UpdateReviewModal
+                                product_id={product.product_id}
+                            />}
+                        />
+                            <OpenModalButton
+                            buttonText={`Delete Product`}
+                            modalComponent={<DeleteProductModal
+                                product_id={product.id}
+                            />}
+                        />
                         </div>
                     </div>
                 )}
