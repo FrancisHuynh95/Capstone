@@ -1,12 +1,12 @@
 import { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
+import { NavLink, useHistory } from "react-router-dom"
 import { getAllProductsThunk } from "../../store/product"
-import "./userprofile.css"
-import { NavLink } from "react-router-dom"
 import OpenModalButton from "../OpenModalButton"
 import DeleteProductModal from "../deleteProductModal"
-import { useHistory } from "react-router-dom"
 import UpdateReviewModal2 from "../updateReviewModal2"
+import DeleteReviewModal from "../DeleteReviewModal"
+import "./userprofile.css"
 
 const UserProfile = () => {
     const user = useSelector(state => state.session.user)
@@ -76,9 +76,10 @@ const UserProfile = () => {
                             />}
                         />
                             <OpenModalButton
-                            buttonText={`Delete Product`}
-                            modalComponent={<DeleteProductModal
-                                product_id={product.id}
+                            buttonText={`Delete Review`}
+                            modalComponent={<DeleteReviewModal
+                                review_id={product.id}
+                                product_id={product.product_id}
                             />}
                         />
                         </div>

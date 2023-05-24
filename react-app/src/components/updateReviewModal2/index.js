@@ -11,9 +11,6 @@ const UpdateReviewModal2 = ({product_id, review_id}) => {
     const allProducts = useSelector(state => state.product.products)
     const allProductArray1 = Object.values(allProducts)
 
-    console.log('allProductArray1 ==========>',allProductArray1)
-
-
     let reviewArray
     for(let i = 0; i < allProductArray1.length; i++){
         for(let j = 0; j < allProductArray1[i].reviews.length; j++){
@@ -22,13 +19,10 @@ const UpdateReviewModal2 = ({product_id, review_id}) => {
             }
         }
     }
-    console.log(reviewArray, review_id)
     const {closeModal} = useModal()
     const dispatch = useDispatch()
     const [review, setReview] = useState("")
     const [stars, setStars] = useState(0)
-
-
 
     useEffect(() => {
         if(reviewArray?.review) setReview(reviewArray?.review)
