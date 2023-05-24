@@ -14,14 +14,17 @@ const UserProfile = () => {
     const allProductArray1 = Object.values(allProducts)
     console.log('allProductArray1 ==========>',allProductArray1)
     const reviewArray = []
+    const theProduct = []
     for(let i = 0; i < allProductArray1.length; i++){
         for(let j = 0; j < allProductArray1[i].reviews.length; j++){
             if(allProductArray1[i].reviews[j].reviewer.id === user.id){
                 reviewArray.push(allProductArray1[i].reviews[j])
+                theProduct.push(allProductArray1[i])
             }
         }
     }
-    console.log(reviewArray)
+    console.log('review array ======================>',reviewArray)
+    console.log('review array ======================>',theProduct)
     const filiteredProducts = allProductArray1.filter(product => product.user.id === user.id)
     const history = useHistory()
     const dispatch = useDispatch()
@@ -60,12 +63,17 @@ const UserProfile = () => {
             </div>
             <div className="userReviews">
                 <h2>My Reviews</h2>
-                {reviewArray.map(product =>
+                {reviewArray.map((product,i) =>
                     <div className="userReviewsContainer">
-                        <p className="user_product_name_review">{product.product_id}</p>
-                        <div className="UserReview">
-                            <p className="user_product_name_review">{product.review}</p>
                             <p className="user_product_name_review">{product.star_rating}</p>
+                            {product.star_rating === 5 && <p><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> </p>}
+                                    {product.star_rating === 4 && <p><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>  </p>}
+                                    {product.star_rating === 3 && <p><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>  </p>}
+                                    {product.star_rating === 2 && <p><i class="fas fa-star"></i> <i class="fas fa-star"></i> </p>}
+                                    {product.star_rating === 1 && <p><i class="fas fa-star"></i></p>}
+                        <div className="UserReview">
+                        <p className="user_product_name_review">{theProduct[i].name}</p>
+                            <p className="user_product_name_review">{product.review}</p>
                         </div>
                         <div className="userButtons">
                         <OpenModalButton
