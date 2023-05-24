@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom"
 import OpenModalButton from "../OpenModalButton"
 import DeleteProductModal from "../deleteProductModal"
 import { useHistory } from "react-router-dom"
-import UpdateReviewModal from "../updateReviewModal"
+import UpdateReviewModal2 from "../updateReviewModal2"
 
 const UserProfile = () => {
     const user = useSelector(state => state.session.user)
@@ -70,8 +70,9 @@ const UserProfile = () => {
                         <div className="userButtons">
                         <OpenModalButton
                             buttonText={`Update Review`}
-                            modalComponent={<UpdateReviewModal
+                            modalComponent={<UpdateReviewModal2
                                 product_id={product.product_id}
+                                review_id={product.id}
                             />}
                         />
                             <OpenModalButton
