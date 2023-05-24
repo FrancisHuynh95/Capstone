@@ -20,7 +20,7 @@
 
 .the_big_image {
     height: 325px;
-    width: 500px;
+    width: 550px;
     object-fit: cover;
 }
 
@@ -63,4 +63,21 @@
     display: flex;
     gap: 10px;
 
+}
+
+.singleProduct {
+    display: flex;
+    border: 2px solid red;
+}
+
+.image_and_review {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.product_information{
+    display: flex;
+    flex-direction: column;
+    width: 28%;
 }

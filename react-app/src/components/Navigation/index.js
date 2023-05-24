@@ -12,7 +12,9 @@ function Navigation({ isLoaded }){
 	return (
 		<div className='navBar'>
 			<div className='HomeButton'>
-				<NavLink exact to="/">Home</NavLink>
+				<NavLink exact to="/">
+					<img className='logo' src='./logo.png'></img>
+				</NavLink>
 			</div>
 			<div className='newProduct'>
 				{sessionUser && <NavLink className="NewProductListing" exact to="/products/new">New Product Listing</NavLink>}

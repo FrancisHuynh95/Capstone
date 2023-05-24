@@ -9,6 +9,12 @@
   background-color: rgba(255, 255, 255, 0.755);
   width: 150px;
 }
+
+@media screen and (min-width: 1920px) {
+  .profile-dropdown{
+    right: 350px;
+  }
+}
 .userButtonProfileThingButton{
   width: 80%;
   margin-bottom: 5px;
@@ -20,7 +26,9 @@
 
 .navBar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100px;
   /* border: 1px solid red; */
 }
 
@@ -39,12 +47,12 @@
 
 .UserButton {
   position: fixed;
-  border: 1px solid blue;
 }
 
 #userButtonProfileThing {
   margin-right: 100px;
 }
+
 
 li {
   list-style-type: none;
@@ -58,4 +66,8 @@ li {
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+.logo {
+  width: 225px;
 }

@@ -12,5 +12,10 @@
 body {
     background-color:rgb(255, 234, 206);
     /* background-color: rgb(210, 233, 255); */
+}
 
+@media screen and (min-width: 1920px) {
+    #root{
+        margin: 0px 20rem;
+    }
 }
