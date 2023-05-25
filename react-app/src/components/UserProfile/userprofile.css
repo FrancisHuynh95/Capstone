@@ -29,3 +29,17 @@
     width: 100%;
     object-fit: contain;
 }
+
+.userProfileProduct {
+    text-decoration: none;
+    color: black;
+}
+
+#updateProductUserProfile{
+    background-color: white;
+    color: black
+}
+.userButtons > .buttonName {
+    background-color: black;
+    color: white
+}
