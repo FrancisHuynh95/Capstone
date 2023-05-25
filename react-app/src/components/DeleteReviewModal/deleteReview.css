@@ -1,0 +1,22 @@
+.deleteReviewModal{
+    width: 300px;
+}
+
+.deleteReviewModalH2{
+    text-align: center;
+}
+
+.deleteReviewButtons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+}
+
+.deleteReviewButton {
+    border: none;
+    border-radius: 15px;
+    padding: 5px 20px;
+    color: white;
+    background-color: black;
+}
