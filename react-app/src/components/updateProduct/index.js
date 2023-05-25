@@ -61,9 +61,6 @@ function UpdateProduct() {
             return
         } else {
 
-
-
-
         const formData = new FormData()
         formData.append("name", name)
         formData.append("price", price)

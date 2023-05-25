@@ -1,6 +1,6 @@
-import React, { useState} from "react"
+import React, { useState } from "react"
 import { useSelector, useDispatch } from 'react-redux'
-import { createProductThunk} from "../../store/product"
+import { createProductThunk } from "../../store/product"
 import { useHistory } from "react-router-dom"
 import OpenModalButton from "../OpenModalButton"
 import "./createProduct.css"
@@ -39,42 +39,42 @@ function CreateProductListing() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if(!currentUser){
-            return(
+        if (!currentUser) {
+            return (
                 <OpenModalButton />
             )
         }
         const errorObj = {}
-        if(name.length === 0) {
+        if (name.length === 0) {
             errorObj.name = "Name is required"
         }
-        if(name.length > 30){
+        if (name.length > 30) {
             errorObj.name = "Name must be in between 5 and 30 characters"
         }
-        if(name.length < 5){
+        if (name.length < 5) {
             errorObj.name = "Name must be in between 5 and 30 characters"
         }
-        if(price <= 0) {
+        if (price <= 0) {
             errorObj.price = "Price has to be greater than 0."
         }
-        if(description.length === 0) {
+        if (description.length === 0) {
             errorObj.description = "Description is required."
         }
-        if(description.length > 200) {
+        if (description.length > 200) {
             errorObj.description = "Description must be at most 200 characters"
         }
 
-        if(product_img1 === null){
+        if (product_img1 === null) {
             errorObj.image = "Three images are required"
         }
-        if(product_img2 === null){
+        if (product_img2 === null) {
             errorObj.image = "Three images are required"
         }
-        if(product_img3 === null){
+        if (product_img3 === null) {
             errorObj.image = "Three images are required"
         }
         setError(errorObj)
-        if(Object.values(errorObj).length > 0){
+        if (Object.values(errorObj).length > 0) {
             return
         } else {
 
@@ -87,8 +87,8 @@ function CreateProductListing() {
             formData.append("product_img2", product_img2)
             formData.append("product_img3", product_img3)
             formData.append("uploader_id", currentUser.id)
-            if(product_img4 !== null) formData.append("product_img4", product_img4)
-            if(product_img5 !== null) formData.append("product_img5", product_img5)
+            if (product_img4 !== null) formData.append("product_img4", product_img4)
+            if (product_img5 !== null) formData.append("product_img5", product_img5)
 
             await dispatch(createProductThunk(formData))
             history.push(`/`)
@@ -114,8 +114,9 @@ function CreateProductListing() {
                     <div>Description</div>
                     <textarea rows={10} className="product_description" type="text" value={description} placeholder='Product Description' onChange={(e) => setDescription(e.target.value)} />
                 </label>
-                <label>
-                    <div>First Product Image</div>
+                <div className="img_upload_area">
+                <div className="img_upload_test">
+                    First Product Image
                     <input
                         className="product_img_upload"
                         type='file'
@@ -123,8 +124,8 @@ function CreateProductListing() {
                         accept="image/*"
                         onChange={handleAddImage1}
                     ></input>
-                </label>
-                <label>
+                </div>
+                <div className="img_upload_test">
                     <div>Second Product Image</div>
                     <input
                         className="product_img_upload"
@@ -133,8 +134,8 @@ function CreateProductListing() {
                         accept="image/*"
                         onChange={handleAddImage2}
                     ></input>
-                </label>
-                <label>
+                </div>
+                <div className="img_upload_test">
                     <div>Third Product Image</div>
                     <input
                         className="product_img_upload"
@@ -143,8 +144,8 @@ function CreateProductListing() {
                         accept="image/*"
                         onChange={handleAddImage3}
                     ></input>
-                </label>
-                <label>
+                </div>
+                <div className="img_upload_test">
                     <div>Fourth Product Image</div>
                     <input
                         className="product_img_upload"
@@ -153,8 +154,8 @@ function CreateProductListing() {
                         accept="image/*"
                         onChange={handleAddImage4}
                     ></input>
-                </label>
-                <label>
+                </div>
+                <div className="img_upload_test">
                     <div>Fifth Product Image</div>
                     <input
                         className="product_img_upload"
@@ -163,7 +164,8 @@ function CreateProductListing() {
                         accept="image/*"
                         onChange={handleAddImage5}
                     ></input>
-                </label>
+                </div>
+                </div>
                 <div className="submit_button">
                     <button type="submit">Submit</button>
                 </div>

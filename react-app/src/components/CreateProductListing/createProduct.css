@@ -19,10 +19,8 @@
  width: 30%;
  border: 1px solid black;
 }
-#create-product-form > label > .product_img_upload{
- display:flex;
- gap: 20px;
- width: fit-content;
+div > .product_img_upload{
+width: 170px;
 
 }
 /* #create-product-form > label > ::-webkit-file-upload-button{
@@ -51,4 +49,18 @@
     color: white;
     border-radius: 15px;
     padding: 5px 15px;
+}
+
+.img_upload_area{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 50%;
+
+}
+
+.img_upload_test{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
 }
