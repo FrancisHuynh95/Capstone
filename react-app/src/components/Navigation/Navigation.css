@@ -53,8 +53,16 @@ li {
   list-style-type: none;
 }
 
+.NewProductListing {
+  text-decoration: none;
+  color: black;
+  font-size: larger;
+}
+
 .socials > button {
-  border: none;
+  font-size: large;
+  border-radius: 15px;
+  padding: 5px 15px;
   background-color: transparent;
   cursor: pointer;
 }
