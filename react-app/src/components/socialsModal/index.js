@@ -5,6 +5,14 @@ const SocialsModal = () => {
         <>
         <div className="socials">
             <img className='software_engineer' src="/SoftwareEngineer.png"></img>
+            <div className='whatItsMadeOutOf'>
+                <h3>This website was made with:</h3>
+                <p>JavaScript</p>
+                <p>React.js/Redux</p>
+                <p>Python</p>
+                <p>Flask</p>
+
+            </div>
             <p className="aboutSocial">You can contact me through my social media</p>
             <div className="Socials-icon">
                 <a className="linkedInContainer" href="https://www.linkedin.com/in/francis-huynh-153246161/">
