@@ -31,6 +31,7 @@ function ProductById() {
         imgArray.push(singleProductArray[0].product_img5)
     }
 
+
     useEffect(() => {
         setBigImg(imgArray.length > 0 ? imgArray[0] : "")
         dispatch(getSingleProductThunk(productId))
@@ -90,17 +91,13 @@ function ProductById() {
                                     }
                                 </>
                             )}
-                            {singleProductArray[0].reviews.length === 0 &&
-                                <>
-                                    <p>The Product doesn't have a review yet</p>
+                            {singleProductArray[0].reviews.length === 0 &&<p>The Product doesn't have a review yet</p>}
                                     {user && singleProductArray[0].user.id !== user?.id &&
                                         <OpenModalButton
                                             buttonText="Create Review"
                                             modalComponent={<CreateReviewModal productId={productId} />}
                                         />
                                     }
-                                </>
-                            }
                         </div>
                     </div>
                     <div className="product_information">
