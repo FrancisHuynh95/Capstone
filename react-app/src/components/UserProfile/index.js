@@ -73,20 +73,24 @@ const UserProfile = () => {
                             <p className="user_product_name_review">{product.review}</p>
                         </div>
                         <div className="userButtonsReview">
-                            <OpenModalButton
-                                buttonText={`Update Review`}
-                                modalComponent={<UpdateReviewModal2
-                                    product_id={product.product_id}
-                                    review_id={product.id}
-                                />}
-                            />
-                            <OpenModalButton
-                                buttonText={`Delete Review`}
-                                modalComponent={<DeleteReviewModal
-                                    review_id={product.id}
-                                    product_id={product.product_id}
-                                />}
-                            />
+                            <div className="userUpdateReviewModal">
+                                <OpenModalButton
+                                    buttonText={`Update Review`}
+                                    modalComponent={<UpdateReviewModal2
+                                        product_id={product.product_id}
+                                        review_id={product.id}
+                                    />}
+                                />
+                            </div>
+                            <div className="userDeleteReviewModal">
+                                <OpenModalButton
+                                    buttonText={`Delete Review`}
+                                    modalComponent={<DeleteReviewModal
+                                        review_id={product.id}
+                                        product_id={product.product_id}
+                                    />}
+                                />
+                            </div>
                         </div>
                     </div>
                 )}
