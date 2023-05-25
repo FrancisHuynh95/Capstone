@@ -60,6 +60,9 @@ function CreateProductListing() {
         if(description.length === 0) {
             errorObj.description = "Description is required."
         }
+        if(description.length > 200) {
+            errorObj.description = "Description must be at most 200 characters"
+        }
 
         if(product_img1 === null){
             errorObj.image = "Three images are required"

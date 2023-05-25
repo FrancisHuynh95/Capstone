@@ -14,6 +14,9 @@ const CreateReviewModal = ({productId}) => {
     const dispatch = useDispatch()
     const [review, setReview] = useState('')
     const [stars, setStars] = useState(0)
+    const [errors, setErrors] = useState({})
+    const theError = {}
+
 
     const onChange = (number) => {
         setStars(parseInt(number));
@@ -33,15 +36,21 @@ const CreateReviewModal = ({productId}) => {
         closeModal()
     }
     useEffect(() => {
+        if(review.length < 10) theError.review = "Review must be at least 10 characters"
+        if(!stars) theError.stars = "Please select the stars"
+        setErrors(theError)
         dispatch(getSingleProductThunk(productId))
-    }, [newReview])
+    }, [newReview, review.length, errors.review, stars])
 
     return (
         <>
             <form onSubmit={handleSubmit} method="POST">
                 <h1>Create a Review</h1>
+                <p className="errors">{errors.review}</p>
+                <p className="errors">{errors.stars}</p>
+
                 <div className="review_area">
-                    <textarea rows={8} cols={45} placeholder="Write your review here!" value={review} onChange={e => setReview(e.target.value)}></textarea>
+                    <textarea rows={8} cols={45} placeholder="Write your review here! Review must be at least  10 characters" value={review} onChange={e => setReview(e.target.value)}></textarea>
                     <div className="Stars">
                         <StarRating
                             disabled={false}
