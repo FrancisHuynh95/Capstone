@@ -7,11 +7,19 @@
     width: 300px;
     padding: 0px 20px;
 }
+.socials > p {
+    font-weight: bold;
+    font-size: larger;
+}
 .Socials-icon {
     display: flex;
     justify-content: space-between;
     width: 100px;
     padding-bottom: 15px;
+}
+
+.Socials-icon > a {
+    color: black;
 }
 
 .aboutSocial {
