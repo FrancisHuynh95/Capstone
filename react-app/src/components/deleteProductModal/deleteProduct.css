@@ -1,0 +1,30 @@
+.deleteProductModal{
+    width: 300px;
+}
+
+.deleteProductModalH2{
+    text-align: center;
+}
+
+.deleteProductButtons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+}
+
+.deleteProductButton {
+    border: none;
+    border-radius: 15px;
+    padding: 5px 20px;
+    color: white;
+    background-color: black;
+}
+
+.cancelButton {
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 5px 20px;
+    color: black;
+    background-color: white;
+}
