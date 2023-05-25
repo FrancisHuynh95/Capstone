@@ -1,15 +1,18 @@
 .socials{
-    width: 100%;
+    text-align: center;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
 }
+.Socials-icon {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    padding-bottom: 15px;
+}
+
 .aboutSocial {
     width: 100%
-}
-
-.linkedIn{
-    width: 50px;
-    height: 50px;
-}
-
-.Socials-icon{
-    width: 30%;
 }
