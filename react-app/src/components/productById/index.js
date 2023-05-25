@@ -63,7 +63,7 @@ function ProductById() {
                             </div>
                         </div>
                         <div className="isUserButtons">
-                            {product.user.id === user?.id && <button onClick={() => history.push(`/products/${product.id}/update`)}>Update Product</button>}
+                            {product.user.id === user?.id && <button onClick={() => history.push(`/product/${product.id}/update`)}>Update Product</button>}
                             {product.user.id === user?.id &&
                                 <OpenModalButton
                                     buttonText={`Delete Product`}
