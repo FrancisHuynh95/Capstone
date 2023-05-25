@@ -46,20 +46,21 @@
 }
 
 .product_price_container{
+    display: contents;
     display: flex;
     justify-content: center;
     align-items: center;
     height: fit-content;
-    width: 30%;
+    position: relative;
+    width: 20%;
     left: 35px;
-    bottom: 200px;
+    bottom: 50px;
 
-    background-color: lightgray;
+    background-color: rgb(0, 0, 0);
     border-radius: 5px;
     text-decoration: none;
-    color: black;
-    position: relative;
-    /* transform: translate(35px, -15px); */
+    color: white;
+    font-size: large;
 }
 
 .background_color_behind_images{
