@@ -15,11 +15,6 @@
     align-items: start;
     width: 100%;
 }
-#update-product-form > label > .product_img_update {
-    display:flex;
-    gap: 20px;
-    width: fit-content;
-}
 
 #update-product-form > label > .product_price{
     width: 30%;
@@ -41,3 +36,6 @@
     border-radius: 15px;
     padding: 5px 15px;
 }
+div > .product_img_update{
+    width: 170px;
+    }

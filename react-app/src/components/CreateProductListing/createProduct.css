@@ -21,17 +21,7 @@
 }
 div > .product_img_upload{
 width: 170px;
-
 }
-/* #create-product-form > label > ::-webkit-file-upload-button{
-    background-color: black;
-    color: white;
-    border: none;
-    width: 45%;
-    border-radius: 15px;
-    padding: 5px 0px;
-    cursor: pointer;
-} */
 
 ::-webkit-file-upload-button {
     background-color: black;
@@ -56,7 +46,6 @@ width: 170px;
     flex-direction: column;
     align-items: start;
     width: 50%;
-
 }
 
 .img_upload_test{

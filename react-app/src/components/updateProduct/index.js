@@ -96,7 +96,6 @@ function UpdateProduct() {
                 {error.name && <p className="errors">{error.name}</p>}
                 {error.price && <p className="errors">{error.price}</p>}
                 {error.description && <p className="errors">{error.description}</p>}
-
                     <label>
                         Name
                         <input
@@ -107,8 +106,6 @@ function UpdateProduct() {
                             onChange={(e) => setName(e.target.value)}
                         />
                     </label>
-
-
                     <label>
                         Price
                         <input
@@ -119,8 +116,6 @@ function UpdateProduct() {
                         onChange={(e) => setPrice(e.target.value)}
                         />
                         </label>
-
-
                     <label>
                         Description
                         <textarea
@@ -131,8 +126,8 @@ function UpdateProduct() {
                         onChange={e => setDescription(e.target.value)}
                         ></textarea>
                     </label>
-
-                    <label>
+                    <div className="img_upload_area">
+                    <div className="img_upload_test">
                         <div>First Product Image</div>
                         <input
                             className="product_img_update"
@@ -141,8 +136,8 @@ function UpdateProduct() {
                             accept="image/*"
                             onChange={(e) => setImg1(e.target.files[0])}
                         ></input>
-                    </label>
-                    <label>
+                    </div>
+                    <div className="img_upload_test">
                         <div>Second Product Image</div>
                         <input
                             className="product_img_update"
@@ -151,8 +146,8 @@ function UpdateProduct() {
                             accept="image/*"
                             onChange={(e) => setImg2(e.target.files[0])}
                         ></input>
-                    </label>
-                    <label>
+                    </div>
+                    <div className="img_upload_test">
                         <div>Third Product Image</div>
                         <input
                             className="product_img_update"
@@ -161,8 +156,8 @@ function UpdateProduct() {
                             accept="image/*"
                             onChange={(e) => setImg3(e.target.files[0])}
                         ></input>
-                    </label>
-                    <label>
+                    </div>
+                    <div className="img_upload_test">
                         <div>Fourth Product Image</div>
                         <input
                             className="product_img_update"
@@ -171,8 +166,8 @@ function UpdateProduct() {
                             accept="image/*"
                             onChange={(e) => setImg4(e.target.files[0])}
                         ></input>
-                    </label>
-                    <label>
+                    </div>
+                    <div className="img_upload_test">
                         <div>Fifth Product Image</div>
                         <input
                             className="product_img_update"
@@ -181,8 +176,9 @@ function UpdateProduct() {
                             accept="image/*"
                             onChange={(e) => setImg5(e.target.files[0])}
                         ></input>
-                    </label>
+                    </div>
 
+                </div>
                 <div className="update_submit_button">
                     <button type="submit">Update Product</button>
                 </div>
