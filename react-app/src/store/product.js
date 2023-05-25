@@ -63,6 +63,7 @@ export const getSingleProductThunk = (id) => async (dispatch) => {
     if(response.ok){
         const product = await response.json()
         await dispatch(getSingleProduct(product))
+        return product
     } else {
         return ('RESPONSE IS NOT OK')
     }

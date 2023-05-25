@@ -125,5 +125,10 @@
 }
 
 .productIdReview{
-    width: 90%
+    width: 90%;
+    word-wrap: break-word;
+}
+
+.userProfileProductDescription {
+    word-wrap: break-word;
 }

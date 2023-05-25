@@ -40,14 +40,14 @@ const UserProfile = () => {
             <div className="userProductsEverything">
                 {filiteredProducts.map(product =>
                     <div className="userProductsContainer">
-                        <NavLink className="userProfileProduct" exact to={`/products/${product.id}`}>
+                        <NavLink className="userProfileProduct" exact to={`/product/${product.id}`}>
                             <p className="user_product_name">{product.name}</p>
                             <div className="UserProductPic">
                                 <img className="UserProductImg" src={`${product.product_img1}`}></img>
                             </div>
                         </NavLink>
                         <div className="userButtons">
-                            <button id="updateProductUserProfile" onClick={() => history.push(`/products/${product.id}/update`)}>Update</button>
+                            <button id="updateProductUserProfile" onClick={() => history.push(`/product/${product.id}/update`)}>Update</button>
                             <OpenModalButton
                                 id="deleteProductUserProfile"
                                 buttonText={`Delete Product`}

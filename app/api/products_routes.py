@@ -83,7 +83,6 @@ def create_product():
 
             new_product.product_img5 = product_image5
 
-        print('new_product ========>', new_product)
         db.session.add(new_product)
         db.session.commit()
         return jsonify(new_product.to_dict())
@@ -101,7 +100,6 @@ def delete_product(id):
     return jsonify({
         'message': "Product has been deleted"
     })
-
 
 @product_routes.route("/<int:id>", methods=["PUT"])
 @login_required

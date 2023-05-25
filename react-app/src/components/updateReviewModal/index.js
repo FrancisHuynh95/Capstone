@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useDispatch } from "react-redux"
 import StarRating from "./stars"
-import { updateReviewThunk } from "../../store/product"
+import { getSingleProductThunk, updateReviewThunk } from "../../store/product"
 import { useModal } from "../../context/Modal"
 import { useSelector } from "react-redux"
 
@@ -16,10 +16,6 @@ const UpdateReviewModal = ({product_id, review_id}) => {
     const singleProductObj = Object.values(singleProduct)
     const reviewArray = singleProductObj[0].reviews
 
-
-    useEffect(() => {
-        if(reviewArray[0].review) setReview(reviewArray[0].review)
-    }, [singleProduct])
 
     const onChange = (number) => {
         setStars(parseInt(number));

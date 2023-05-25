@@ -16,12 +16,10 @@ function ProductById() {
     const dispatch = useDispatch()
     const singleProduct = useSelector(state => state.product.singleProduct)
     const singleProductArray = Object.values(singleProduct)
-
     const history = useHistory()
     const user = useSelector(state => state.session.user)
     let imgArray = []
     const [bigImg, setBigImg] = useState("")
-
 
     if (singleProductArray[0]) {
         imgArray.push(singleProductArray[0].product_img1)
@@ -36,6 +34,15 @@ function ProductById() {
         setBigImg(imgArray.length > 0 ? imgArray[0] : "")
         dispatch(getSingleProductThunk(productId))
     }, [dispatch, imgArray.length, singleProductArray.reviews])
+
+    console.log(singleProductArray[0])
+    console.log(singleProductArray[0]?.reviews)
+
+    const hasReview = () => {
+        if(singleProductArray[0]){
+            return (singleProductArray[0].reviews).find(review => review.reviewer.id === user.id)
+        }
+    }
 
     if (!singleProductArray) return <p>oopsies</p>
     return (
@@ -92,7 +99,7 @@ function ProductById() {
                                 </>
                             )}
                             {singleProductArray[0].reviews.length === 0 &&<p>The Product doesn't have a review yet</p>}
-                                    {user && singleProductArray[0].user.id !== user?.id &&
+                                    {user && singleProductArray[0].user.id !== user?.id && !hasReview() &&
                                         <OpenModalButton
                                             buttonText="Create Review"
                                             modalComponent={<CreateReviewModal productId={productId} />}
@@ -103,7 +110,7 @@ function ProductById() {
                     <div className="product_information">
                         <h2>{product.name}</h2>
                         <h3>Price ${(product.price).toFixed(2)}</h3>
-                        <p>Description {product.description}</p>
+                        <p className="userProfileProductDescription">Description {product.description}</p>
                     </div>
                 </div>
             )}

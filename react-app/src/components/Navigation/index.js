@@ -13,11 +13,11 @@ function Navigation({ isLoaded }){
 		<div className='navBar'>
 			<div className='HomeButton'>
 				<NavLink exact to="/">
-					<img className='logo' src='./logo.png'></img>
+					<img className='logo' src='/logo.png'></img>
 				</NavLink>
 			</div>
 			<div className='newProduct'>
-				{sessionUser && <NavLink className="NewProductListing" exact to="/products/new">New Product Listing</NavLink>}
+				{sessionUser && <NavLink className="NewProductListing" exact to="/product/new">New Product Listing</NavLink>}
 			</div>
 			<div className='socials'>
 				<OpenModalButton

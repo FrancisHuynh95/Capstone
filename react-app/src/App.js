@@ -36,13 +36,13 @@ function App() {
           <Route path="/user">
             <UserProfile />
           </Route>
-          <Route path="/products/new">
+          <Route path="/product/new">
             <CreateProductListing />
           </Route>
-          <Route path="/products/:productId/update">
+          <Route path="/product/:productId/update">
             <UpdateProduct />
           </Route>
-          <Route path="/products/:productId">
+          <Route path="/product/:productId">
             <ProductById />
           </Route>
           <Route path="/">

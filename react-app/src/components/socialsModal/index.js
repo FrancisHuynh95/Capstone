@@ -4,7 +4,7 @@ const SocialsModal = () => {
     return (
         <>
         <div className="socials">
-            <img className='software_engineer' src="./SoftwareEngineer.png"></img>
+            <img className='software_engineer' src="/SoftwareEngineer.png"></img>
             <p className="aboutSocial">You can contact me through my social media</p>
             <div className="Socials-icon">
                 <a className="linkedInContainer" href="https://www.linkedin.com/in/francis-huynh-153246161/">
