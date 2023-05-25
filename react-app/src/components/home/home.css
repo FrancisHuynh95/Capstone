@@ -80,3 +80,16 @@
     font-size: 30px;
     font-weight: 600;
 }
+.welcome-back-name {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.welcome_back_prompt{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    color:black;
+}
