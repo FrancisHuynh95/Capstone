@@ -18,6 +18,7 @@
 .userButtonProfileThingButton{
   width: 80%;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 
 .hidden {
@@ -51,6 +52,11 @@
 
 li {
   list-style-type: none;
+}
+
+.your_profile_button{
+  text-decoration: none;
+  color: black;
 }
 
 .NewProductListing {

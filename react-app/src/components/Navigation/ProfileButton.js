@@ -57,7 +57,7 @@ function ProfileButton({ user }) {
           <div className="usernameAndEmail">
             <p>Hello {user.username}</p>
             <div>
-            <NavLink exact to="/user"><i class="far fa-user"></i> Your Profile</NavLink>
+            <NavLink className="your_profile_button" exact to="/user"><i class="far fa-user"></i> Your Profile</NavLink>
             </div>
             <p>{user.email}</p>
           </div>
