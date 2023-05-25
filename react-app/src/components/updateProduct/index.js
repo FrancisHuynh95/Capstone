@@ -52,6 +52,10 @@ function UpdateProduct() {
         if(description.length === 0) {
             errorObj.description = "Description is required."
         }
+
+        if(description.length > 200){
+            errorObj.description = "Description must be less than 200 characters"
+        }
         setError(errorObj)
         if(Object.values(errorObj).length > 0){
             return
@@ -152,7 +156,7 @@ function UpdateProduct() {
                         ></input>
                     </label>
                     <label>
-                        <div>Three Product Image</div>
+                        <div>Third Product Image</div>
                         <input
                             className="product_img_update"
                             type='file'

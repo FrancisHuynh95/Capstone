@@ -26,11 +26,7 @@
     border: 1px solid black;
    }
 
-#update-product-form > label{
-    width: 50%;
-   }
-
-#update-product-form > {
+#update-product-form {
  width: 90%;
 }
 
