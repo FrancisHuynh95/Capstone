@@ -110,7 +110,6 @@
 
 .singleProduct {
     display: flex;
-    border: 2px solid red;
 }
 
 .image_and_review {
