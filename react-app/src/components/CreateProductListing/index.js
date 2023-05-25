@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react"
+import React, { useState} from "react"
 import { useSelector, useDispatch } from 'react-redux'
-import { createProductThunk, getSingleProductThunk } from "../../store/product"
+import { createProductThunk} from "../../store/product"
 import { useHistory } from "react-router-dom"
 import OpenModalButton from "../OpenModalButton"
 import "./createProduct.css"
@@ -101,7 +101,7 @@ function CreateProductListing() {
                 {error.image && <p className="errors">{error.image}</p>}
                 <label>
                     Name
-                    <input className="product_name" type="text" value={name} placeholder='Product Name' onChange={(e) => setName(e.target.value)} />
+                    <input id="create_product_name" className="product_name" type="text" value={name} placeholder='Product Name' onChange={(e) => setName(e.target.value)} />
                 </label>
                 <label>
                     Price
@@ -109,7 +109,7 @@ function CreateProductListing() {
                 </label>
                 <label>
                     <div>Description</div>
-                    <textarea className="product_description" type="text" value={description} placeholder='Product Description' onChange={(e) => setDescription(e.target.value)} />
+                    <textarea rows={10} className="product_description" type="text" value={description} placeholder='Product Description' onChange={(e) => setDescription(e.target.value)} />
                 </label>
                 <label>
                     <div>First Product Image</div>

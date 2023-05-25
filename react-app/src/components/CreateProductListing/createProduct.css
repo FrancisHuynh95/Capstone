@@ -10,7 +10,35 @@
     flex-direction: column;
     align-items: start;
     width: 100%;
+
 }
 #create-product-form > label{
- width: 80%;
+ width: 50%;
+}
+#create-product-form > label > .product_price{
+ width: 30%;
+ border: 1px solid black;
+}
+#create-product-form > label > .product_img_upload{
+ display:flex;
+ gap: 20px;
+ width: fit-content;
+
+}
+#create-product-form > label > ::-webkit-file-upload-button{
+    background-color: black;
+    color: white;
+    border: none;
+    width: 45%;
+    border-radius: 15px;
+    padding: 5px 0px;
+}
+
+.submit_button > button{
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+    padding: 5px 15px;
+
 }
