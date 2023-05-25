@@ -95,7 +95,7 @@ function UpdateProduct() {
                 {error.name && <p className="errors">{error.name}</p>}
                 {error.price && <p className="errors">{error.price}</p>}
                 {error.description && <p className="errors">{error.description}</p>}
-                <div>
+
                     <label>
                         Name
                         <input
@@ -106,8 +106,8 @@ function UpdateProduct() {
                             onChange={(e) => setName(e.target.value)}
                         />
                     </label>
-                </div>
-                <div>
+
+
                     <label>
                         Price
                         <input
@@ -118,19 +118,19 @@ function UpdateProduct() {
                         onChange={(e) => setPrice(e.target.value)}
                         />
                         </label>
-                </div>
-                <div>
+
+
                     <label>
                         Description
                         <textarea
                         className="product_description"
+                        rows={10}
                         value={description}
                         placeholder="Description"
                         onChange={e => setDescription(e.target.value)}
                         ></textarea>
                     </label>
-                </div>
-                <div>
+
                     <label>
                         <div>First Product Image</div>
                         <input
@@ -162,7 +162,7 @@ function UpdateProduct() {
                         ></input>
                     </label>
                     <label>
-                        <div>Four Product Image</div>
+                        <div>Fourth Product Image</div>
                         <input
                             className="product_img_update"
                             type='file'
@@ -172,7 +172,7 @@ function UpdateProduct() {
                         ></input>
                     </label>
                     <label>
-                        <div>Five Product Image</div>
+                        <div>Fifth Product Image</div>
                         <input
                             className="product_img_update"
                             type='file'
@@ -181,7 +181,7 @@ function UpdateProduct() {
                             onChange={(e) => setImg5(e.target.files[0])}
                         ></input>
                     </label>
-                </div>
+
                 <div className="update_submit_button">
                     <button type="submit">Update Product</button>
                 </div>

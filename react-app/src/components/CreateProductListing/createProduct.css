@@ -25,13 +25,24 @@
  width: fit-content;
 
 }
-#create-product-form > label > ::-webkit-file-upload-button{
+/* #create-product-form > label > ::-webkit-file-upload-button{
     background-color: black;
     color: white;
     border: none;
     width: 45%;
     border-radius: 15px;
     padding: 5px 0px;
+    cursor: pointer;
+} */
+
+::-webkit-file-upload-button {
+    background-color: black;
+    color: white;
+    border: none;
+    width: 45%;
+    border-radius: 15px;
+    padding: 5px 0px;
+    cursor: pointer;
 }
 
 .submit_button > button{
@@ -40,5 +51,4 @@
     color: white;
     border-radius: 15px;
     padding: 5px 15px;
-
 }
