@@ -44,8 +44,18 @@
     gap: 10px;
 }
 
-.modalButton{
+.loginSubmitButton{
     padding: 5px;
     width: 80%;
+    color: black;
+    background-color:white;
+    border-radius: 15px;
     /* border: none; */
+}
+.demoUserButton {
+    padding: 5px;
+    width: 80%;
+    background-color: black;
+    color:white;
+    border-radius: 15px;
 }
