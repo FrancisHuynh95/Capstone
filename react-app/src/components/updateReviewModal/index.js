@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useDispatch } from "react-redux"
 import StarRating from "./stars"
-import { getSingleProductThunk, updateReviewThunk } from "../../store/product"
+import { getAllProductsThunk, updateReviewThunk } from "../../store/product"
 import { useModal } from "../../context/Modal"
 import { useSelector } from "react-redux"
 
@@ -12,11 +12,16 @@ const UpdateReviewModal = ({product_id, review_id}) => {
     const dispatch = useDispatch()
     const [review, setReview] = useState("")
     const [stars, setStars] = useState(0)
+    const [error, setError] = useState({})
     const singleProduct = useSelector(state => state.product.singleProduct)
     const singleProductObj = Object.values(singleProduct)
     const reviewArray = singleProductObj[0].reviews
 
-
+    useEffect(() => {
+        const errorObj = {}
+        if(review.length < 10) errorObj.review = "Review must be at least 10 characters!"
+        setError(errorObj)
+    },[review, stars])
     const onChange = (number) => {
         setStars(parseInt(number));
     };
@@ -37,6 +42,7 @@ const UpdateReviewModal = ({product_id, review_id}) => {
         <>
             <form onSubmit={handleSubmit} method="PUT">
                 <h1>Update Review Modal</h1>
+                {error && review.length >=1 && <p className="errors">{error.review}</p>}
                 <div className="review_area">
                     <textarea rows={8} cols={45} placeholder="Write your review here!" value={review} onChange={e => setReview(e.target.value)}></textarea>
                     <div className="Stars">

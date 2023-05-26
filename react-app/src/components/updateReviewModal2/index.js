@@ -25,7 +25,7 @@ const UpdateReviewModal2 = ({product_id, review_id}) => {
     const [review, setReview] = useState("")
     const [stars, setStars] = useState(0)
     const [errors, setErrors] = useState({})
-    const error = {}
+
 
     useEffect(() => {
         if(reviewArray?.review) setReview(reviewArray?.review)
@@ -54,7 +54,8 @@ const UpdateReviewModal2 = ({product_id, review_id}) => {
         <>
             <form onSubmit={handleSubmit} method="PUT">
                 <h1>Update Review Modal</h1>
-                <p className="errors">{errors.review}</p>
+                {review.length < 10 && <p className="errors">Review must be at least 10 characters!</p>}
+
                 <div className="review_area">
                     <textarea rows={8} cols={45} placeholder="Write your review here!" value={review} onChange={e => setReview(e.target.value)}></textarea>
                     <div className="Stars">
