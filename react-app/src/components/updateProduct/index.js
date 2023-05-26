@@ -83,6 +83,7 @@ function UpdateProduct() {
             formData.append("product_img5", product_img5)
         }
         await dispatch(updateProductThunk(formData, productId))
+        await dispatch(getSingleProductThunk(productId))
         history.push(`/product/${productId}`)
     }
     }
