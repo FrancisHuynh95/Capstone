@@ -1,0 +1,28 @@
+.updateReviewModal{
+    display: flex;
+    justify-content: center;
+    width: 400px;
+}
+
+.updateReviewModalH1 {
+    text-align: center;
+}
+
+.updateReviewStars {
+    display: flex;
+    justify-content: center;
+}
+#buttonDiv{
+    text-align: center;
+    padding: 10px 0px;
+}
+
+#submitReviewButton{
+    background-color: black;
+    color: white;
+}
+
+#submitReviewButton:disabled {
+    background-color: white;
+    color: black;
+}
