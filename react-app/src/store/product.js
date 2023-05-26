@@ -100,6 +100,7 @@ export const updateProductThunk = (formData, productId) => async (dispatch) => {
         body: formData
     })
     if(response.ok){
+        await dispatch(getSingleProductThunk(productId))
     } else {
         return
     }
