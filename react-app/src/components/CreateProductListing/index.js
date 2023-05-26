@@ -19,29 +19,39 @@ function CreateProductListing() {
     const [product_img3, setImg3] = useState(null)
     const [product_img4, setImg4] = useState(null)
     const [product_img5, setImg5] = useState(null)
+    const [fileUpload1, setFileUpload1] = useState("No file uploaded")
+    const [fileUpload2, setFileUpload2] = useState("No file uploaded")
+    const [fileUpload3, setFileUpload3] = useState("No file uploaded")
+    const [fileUpload4, setFileUpload4] = useState("No file uploaded")
+    const [fileUpload5, setFileUpload5] = useState("No file uploaded")
     const [error, setError] = useState([])
 
     const handleAddImage1 = (e) => {
         setImg1(e.target.files[0])
+        setFileUpload1("File is ready")
     }
     const handleAddImage2 = (e) => {
         setImg2(e.target.files[0])
+        setFileUpload2("File is ready")
     }
     const handleAddImage3 = (e) => {
         setImg3(e.target.files[0])
+        setFileUpload3("File is ready")
     }
     const handleAddImage4 = (e) => {
         setImg4(e.target.files[0])
+        setFileUpload4("File is ready")
     }
     const handleAddImage5 = (e) => {
         setImg5(e.target.files[0])
+        setFileUpload5("File is ready")
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (!currentUser) {
             return (
-                <OpenModalButton />
+                <h1>Please sign in</h1>
             )
         }
         const errorObj = {}
@@ -115,57 +125,77 @@ function CreateProductListing() {
                     <textarea rows={10} className="product_description" type="text" value={description} placeholder='Product Description' onChange={(e) => setDescription(e.target.value)} />
                 </label>
                 <div className="img_upload_area">
-                <div className="img_upload_test">
-                    First Product Image
-                    <input
-                        className="product_img_upload"
-                        type='file'
-                        name="product_img1"
-                        accept="image/*"
-                        onChange={handleAddImage1}
-                    ></input>
+                    <div className="img_upload_test">
+                        First Product Image
+                        <div className="imgInputAndFileStatus">
+                            <input
+                                className="product_img_upload"
+                                type='file'
+                                name="product_img1"
+                                accept="image/*"
+                                onChange={handleAddImage1}
+                            ></input>
+                            <div className="fileStatus">{fileUpload1}</div>
+                        </div>
+
+                    </div>
+                    <div className="img_upload_test">
+                        <div>Second Product Image</div>
+                        <div className="imgInputAndFileStatus">
+                            <input
+                                className="product_img_upload"
+                                type='file'
+                                name="product_img2"
+                                accept="image/*"
+                                onChange={handleAddImage2}
+                            ></input>
+                            <div className="fileStatus">{fileUpload2}</div>
+                        </div>
+                    </div>
+
+                    <div className="img_upload_test">
+                        <div>Third Product Image</div>
+                        <div className="imgInputAndFileStatus">
+                            <input
+                                className="product_img_upload"
+                                type='file'
+                                name="product_img3"
+                                accept="image/*"
+                                onChange={handleAddImage3}
+                            ></input>
+                            <div className="fileStatus">{fileUpload3}</div>
+                        </div>
+                    </div>
+
+                    <div className="img_upload_test">
+                        <div>Fourth Product Image</div>
+                        <div className="imgInputAndFileStatus">
+                            <input
+                                className="product_img_upload"
+                                type='file'
+                                name="product_img4"
+                                accept="image/*"
+                                onChange={handleAddImage4}
+                            ></input>
+                            <div className="fileStatus">{fileUpload4}</div>
+                        </div>
+                    </div>
+
+                    <div className="img_upload_test">
+                        <div>Fifth Product Image</div>
+                        <div className="imgInputAndFileStatus">
+                            <input
+                                className="product_img_upload"
+                                type='file'
+                                name="product_img5"
+                                accept="image/*"
+                                onChange={handleAddImage5}
+                            ></input>
+                            <div className="fileStatus">{fileUpload5}</div>
+                        </div>
+                    </div>
                 </div>
-                <div className="img_upload_test">
-                    <div>Second Product Image</div>
-                    <input
-                        className="product_img_upload"
-                        type='file'
-                        name="product_img2"
-                        accept="image/*"
-                        onChange={handleAddImage2}
-                    ></input>
-                </div>
-                <div className="img_upload_test">
-                    <div>Third Product Image</div>
-                    <input
-                        className="product_img_upload"
-                        type='file'
-                        name="product_img3"
-                        accept="image/*"
-                        onChange={handleAddImage3}
-                    ></input>
-                </div>
-                <div className="img_upload_test">
-                    <div>Fourth Product Image</div>
-                    <input
-                        className="product_img_upload"
-                        type='file'
-                        name="product_img4"
-                        accept="image/*"
-                        onChange={handleAddImage4}
-                    ></input>
-                </div>
-                <div className="img_upload_test">
-                    <div>Fifth Product Image</div>
-                    <input
-                        className="product_img_upload"
-                        type='file'
-                        name="product_img5"
-                        accept="image/*"
-                        onChange={handleAddImage5}
-                    ></input>
-                </div>
-                </div>
+
                 <div className="submit_button">
                     <button type="submit">Submit</button>
                 </div>
