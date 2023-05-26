@@ -57,7 +57,7 @@ function ProfileButton({ user }) {
           <div className="usernameAndEmail">
             <p>Hello {user.username}</p>
             <div>
-            <NavLink className="your_profile_button" exact to="/user"><i class="fas fa-user-circle fa"></i> Your Profile</NavLink>
+            <NavLink onClick={() => closeMenu()} className="your_profile_button" exact to="/user"><i class="fas fa-user-circle fa"></i> Your Profile</NavLink>
             </div>
             <p>{user.email}</p>
           </div>
