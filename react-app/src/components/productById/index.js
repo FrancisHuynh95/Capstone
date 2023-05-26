@@ -103,12 +103,14 @@ function ProductById() {
                                 </>
                             )}
                             {singleProductArray[0].reviews.length === 0 && <p>The Product doesn't have a review yet</p>}
+                            <div className="createReviewInProductIdPage">
                             {user && singleProductArray[0].user.id !== user?.id && !hasReview() &&
                                 <OpenModalButton
-                                    buttonText="Create Review"
-                                    modalComponent={<CreateReviewModal productId={productId} />}
+                                buttonText="Create Review"
+                                modalComponent={<CreateReviewModal productId={productId} />}
                                 />
                             }
+                            </div>
                         </div>
                     </div>
                     <div className="product_information">
