@@ -86,10 +86,12 @@ function ProductById() {
                                     <p>{review.reviewer.username}</p>
                                     {review.reviewer.id === user?.id &&
                                         <div className="updateReviewButtons">
+                                            <div className="updateReviewButtonInProductPage">
                                             <OpenModalButton
                                                 buttonText="Update Review"
                                                 modalComponent={<UpdateReviewModal product_id={product.id} review_id={review.id} />}
-                                            />
+                                                />
+                                            </div>
                                             <OpenModalButton
                                                 buttonText="Delete Review"
                                                 modalComponent={<DeleteReviewModal product_id={product.id} review_id={review.id} />}
