@@ -102,3 +102,19 @@ li {
   justify-content: center;
   width: 100%;
 }
+.loginButtonModal {
+  border-bottom: 1px solid black;
+}
+
+.loginButtonModal > .buttonName {
+  border: none;
+  background-color: transparent;
+  padding-bottom: 6px;
+}
+
+.signupButtonModal > .buttonName {
+  border: none;
+  padding-top: 6px;
+  background-color: transparent;
+
+}
