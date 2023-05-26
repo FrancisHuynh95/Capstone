@@ -1,16 +1,19 @@
 .userProductsEverything{
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 1.5rem;
+    width: fit-content;
+    border-bottom: 2px solid black;
+    padding-bottom: 15px;
 }
 
 .userProductsContainer {
     display: flex;
     flex-direction: column;
     height: fit-content;
-    width: 400px;
+    width: 23%;
 }
 
 .productImg {
@@ -20,8 +23,8 @@
 }
 
 .UserProductPic{
-    height: 400px;
-    width: 400px;
+    height: 100%;
+    width: 100%;
 }
 
 .UserProductImg{
