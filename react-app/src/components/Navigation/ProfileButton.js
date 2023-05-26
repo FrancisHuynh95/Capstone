@@ -49,7 +49,7 @@ function ProfileButton({ user }) {
   return (
     <>
       <button id="userButtonProfileThing" onClick={openMenu}>
-      <i class="far fa-user"></i>
+      <i class="fas fa-user-circle fa-lg"></i>
       </button>
       <div className={ulClassName} ref={ulRef}>
         {user ? (
@@ -57,12 +57,12 @@ function ProfileButton({ user }) {
           <div className="usernameAndEmail">
             <p>Hello {user.username}</p>
             <div>
-            <NavLink className="your_profile_button" exact to="/user"><i class="far fa-user"></i> Your Profile</NavLink>
+            <NavLink className="your_profile_button" exact to="/user"><i class="fas fa-user-circle fa"></i> Your Profile</NavLink>
             </div>
             <p>{user.email}</p>
           </div>
 
-              <button  className="userButtonProfileThingButton" onClick={handleLogout}>Log Out</button>
+              <button  className="userButtonProfileThingButton" onClick={handleLogout}><i class="fas fa-sign-out-alt fa"></i> Log Out</button>
 
           </>
         ) : (
