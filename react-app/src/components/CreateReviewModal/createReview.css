@@ -1,0 +1,13 @@
+.createReviewModal {
+    display: flex;
+    justify-content: center;
+    width: 400px;
+}
+
+.createReviewH1 {
+    text-align: center;
+}
+.createStars {
+    display: flex;
+    justify-content: center;
+}

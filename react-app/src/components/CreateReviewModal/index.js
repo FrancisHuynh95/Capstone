@@ -5,6 +5,7 @@ import { createReviewThunk } from "../../store/product"
 import { useModal } from "../../context/Modal"
 import { useSelector } from "react-redux"
 import { getSingleProductThunk } from "../../store/product"
+import './createReview.css'
 
 const CreateReviewModal = ({productId}) => {
     const user = useSelector(state => state.session.user)
@@ -43,26 +44,28 @@ const CreateReviewModal = ({productId}) => {
     }, [newReview, review, stars])
 
     return (
-        <>
+        <div className="createReviewModal">
             <form onSubmit={handleSubmit} method="POST">
-                <h1>Create a Review</h1>
+                <h1 className="createReviewH1">Create a Review</h1>
                 {errors && review.length >=1 && <p className="errors">{errors.review}</p>}
 
                 <div className="review_area">
                     <textarea rows={8} cols={45} placeholder="Write your review here! Review must be at least  10 characters" value={review} onChange={e => setReview(e.target.value)}></textarea>
+                    <div className="createStars">
                     <div className="Stars">
                         <StarRating
                             disabled={false}
                             onChange={onChange}
                             rating={stars}
-                        />
+                            />
                     </div>
                 </div>
                 <div id="buttonDiv">
                     <button id="submitReviewButton" disabled={review.length < 10 || stars === 0 ? true : false} type="submit">Submit Your Review</button>
                 </div>
+                            </div>
             </form>
-        </>
+        </div>
     )
 }
 
