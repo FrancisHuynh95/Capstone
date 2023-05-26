@@ -39,7 +39,7 @@ function ProductById() {
     console.log(singleProductArray[0]?.reviews)
 
     const hasReview = () => {
-        if(singleProductArray[0]){
+        if (singleProductArray[0]) {
             return (singleProductArray[0].reviews).find(review => review.reviewer.id === user.id)
         }
     }
@@ -64,13 +64,15 @@ function ProductById() {
                         </div>
                         <div className="isUserButtons">
                             {product.user.id === user?.id && <button onClick={() => history.push(`/product/${product.id}/update`)}>Update Product</button>}
-                            {product.user.id === user?.id &&
-                                <OpenModalButton
-                                    buttonText={`Delete Product`}
-                                    modalComponent={<DeleteProductModal
-                                        product_id={product.id}
+                            <div className="productIdDeleteProductModal">
+                                {product.user.id === user?.id &&
+                                    <OpenModalButton
+                                        buttonText={`Delete Product`}
+                                        modalComponent={<DeleteProductModal
+                                            product_id={product.id}
+                                        />}
                                     />}
-                                />}
+                            </div>
                         </div>
                         <div className="show-reviews">
                             {singleProductArray[0] && singleProductArray[0].reviews.toReversed().map(review =>
@@ -87,9 +89,9 @@ function ProductById() {
                                     {review.reviewer.id === user?.id &&
                                         <div className="updateReviewButtons">
                                             <div className="updateReviewButtonInProductPage">
-                                            <OpenModalButton
-                                                buttonText="Update Review"
-                                                modalComponent={<UpdateReviewModal product_id={product.id} review_id={review.id} />}
+                                                <OpenModalButton
+                                                    buttonText="Update Review"
+                                                    modalComponent={<UpdateReviewModal product_id={product.id} review_id={review.id} />}
                                                 />
                                             </div>
                                             <OpenModalButton
@@ -100,13 +102,13 @@ function ProductById() {
                                     }
                                 </>
                             )}
-                            {singleProductArray[0].reviews.length === 0 &&<p>The Product doesn't have a review yet</p>}
-                                    {user && singleProductArray[0].user.id !== user?.id && !hasReview() &&
-                                        <OpenModalButton
-                                            buttonText="Create Review"
-                                            modalComponent={<CreateReviewModal productId={productId} />}
-                                        />
-                                    }
+                            {singleProductArray[0].reviews.length === 0 && <p>The Product doesn't have a review yet</p>}
+                            {user && singleProductArray[0].user.id !== user?.id && !hasReview() &&
+                                <OpenModalButton
+                                    buttonText="Create Review"
+                                    modalComponent={<CreateReviewModal productId={productId} />}
+                                />
+                            }
                         </div>
                     </div>
                     <div className="product_information">
