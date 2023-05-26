@@ -35,8 +35,6 @@ function ProductById() {
         dispatch(getSingleProductThunk(productId))
     }, [dispatch, imgArray.length, singleProductArray.reviews])
 
-    console.log(singleProductArray[0])
-    console.log(singleProductArray[0]?.reviews)
 
     const hasReview = () => {
         if (singleProductArray[0]) {

@@ -20,6 +20,11 @@ function UpdateProduct() {
     const [product_img3, setImg3] = useState(null)
     const [product_img4, setImg4] = useState(null)
     const [product_img5, setImg5] = useState(null)
+    const [fileUpload1, setFileUpload1] = useState("No file uploaded")
+    const [fileUpload2, setFileUpload2] = useState("No file uploaded")
+    const [fileUpload3, setFileUpload3] = useState("No file uploaded")
+    const [fileUpload4, setFileUpload4] = useState("No file uploaded")
+    const [fileUpload5, setFileUpload5] = useState("No file uploaded")
     const [error, setError] = useState([])
 
     useEffect(() => {
@@ -37,55 +42,59 @@ function UpdateProduct() {
     const handleUpdateButton = async (e) => {
         e.preventDefault()
         const errorObj = {}
-        if(name.length === 0) {
+        if (name.length === 0) {
             errorObj.name = "Name is required"
         }
-        if(name.length > 30){
+        if (name.length > 30) {
             errorObj.name = "Name must be in between 5 and 30 characters"
         }
-        if(name.length < 5){
+        if (name.length < 5) {
             errorObj.name = "Name must be in between 5 and 30 characters"
         }
-        if(price <= 0) {
+        if (price <= 0) {
             errorObj.price = "Price has to be greater than 0."
         }
-        if(description.length === 0) {
+        if (description.length === 0) {
             errorObj.description = "Description is required."
         }
 
-        if(description.length > 200){
+        if (description.length > 200) {
             errorObj.description = "Description must be less than 200 characters"
         }
         setError(errorObj)
-        if(Object.values(errorObj).length > 0){
+        if (Object.values(errorObj).length > 0) {
             return
         } else {
 
-        const formData = new FormData()
-        formData.append("name", name)
-        formData.append("price", price)
+            const formData = new FormData()
+            formData.append("name", name)
+            formData.append("price", price)
 
-        formData.append("description", description)
+            formData.append("description", description)
 
-        if(product_img1){
-            formData.append("product_img1", product_img1)
+            if (product_img1) {
+                formData.append("product_img1", product_img1)
+
+            }
+            if (product_img2) {
+                formData.append("product_img2", product_img2)
+              
+            }
+            if (product_img3) {
+                formData.append("product_img3", product_img3)
+
+            }
+            if (product_img4) {
+                formData.append("product_img4", product_img4)
+
+            }
+            if (product_img5) {
+                formData.append("product_img5", product_img5)
+
+            }
+            await dispatch(updateProductThunk(formData, productId))
+            history.push(`/product/${productId}`)
         }
-        if(product_img2){
-            formData.append("product_img2", product_img2)
-        }
-        if(product_img3){
-            formData.append("product_img3", product_img3)
-        }
-        if(product_img4){
-            formData.append("product_img4", product_img4)
-        }
-        if(product_img5){
-            formData.append("product_img5", product_img5)
-        }
-        await dispatch(updateProductThunk(formData, productId))
-        await dispatch(getSingleProductThunk(productId))
-        history.push(`/product/${productId}`)
-    }
     }
 
 
@@ -97,86 +106,111 @@ function UpdateProduct() {
                 {error.name && <p className="errors">{error.name}</p>}
                 {error.price && <p className="errors">{error.price}</p>}
                 {error.description && <p className="errors">{error.description}</p>}
-                    <label>
-                        Name
-                        <input
-                            className="product_name"
-                            type="text"
-                            value={name || ""}
-                            placeholder="Name"
-                            onChange={(e) => setName(e.target.value)}
-                        />
-                    </label>
-                    <label>
-                        Price
-                        <input
+                <label>
+                    Name
+                    <input
+                        className="product_name"
+                        type="text"
+                        value={name || ""}
+                        placeholder="Name"
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                </label>
+                <label>
+                    Price
+                    <input
                         className="product_price"
                         type="number"
                         value={price || 0}
                         placeholder="Price"
                         onChange={(e) => setPrice(e.target.value)}
-                        />
-                        </label>
-                    <label>
-                        Description
-                        <textarea
+                    />
+                </label>
+                <label>
+                    Description
+                    <textarea
                         className="product_description"
                         rows={10}
                         value={description}
                         placeholder="Description"
                         onChange={e => setDescription(e.target.value)}
-                        ></textarea>
-                    </label>
-                    <div className="img_upload_area">
+                    ></textarea>
+                </label>
+                <div className="img_upload_area">
                     <div className="img_upload_test">
                         <div>First Product Image</div>
-                        <input
-                            className="product_img_update"
-                            type='file'
-                            name="product_img1"
-                            accept="image/*"
-                            onChange={(e) => setImg1(e.target.files[0])}
-                        ></input>
+                        <div className="imgInputAndFileStatus">
+                            <input
+                                className="product_img_update"
+                                type='file'
+                                name="product_img1"
+                                accept="image/*"
+                                onChange={(e) => {
+                                    setFileUpload1("File is ready")
+                                    setImg1(e.target.files[0])}}
+                            ></input>
+                            <div className="fileStatus">{fileUpload1}</div>
+                        </div>
                     </div>
                     <div className="img_upload_test">
                         <div>Second Product Image</div>
-                        <input
-                            className="product_img_update"
-                            type='file'
-                            name="product_img1"
-                            accept="image/*"
-                            onChange={(e) => setImg2(e.target.files[0])}
-                        ></input>
+                        <div className="imgInputAndFileStatus">
+                            <input
+                                className="product_img_update"
+                                type='file'
+                                name="product_img1"
+                                accept="image/*"
+                                onChange={(e) => {
+                                    setFileUpload2("File is ready")
+                                    setImg2(e.target.files[0])}}
+                            ></input>
+                            <div className="fileStatus">{fileUpload2}</div>
+                        </div>
                     </div>
                     <div className="img_upload_test">
                         <div>Third Product Image</div>
-                        <input
-                            className="product_img_update"
-                            type='file'
-                            name="product_img1"
-                            accept="image/*"
-                            onChange={(e) => setImg3(e.target.files[0])}
-                        ></input>
+                        <div className="imgInputAndFileStatus">
+                            <input
+                                className="product_img_update"
+                                type='file'
+                                name="product_img1"
+                                accept="image/*"
+                                onChange={(e) => {
+                                    setFileUpload3("File is ready")
+                                    setImg3(e.target.files[0])}}
+                            ></input>
+                            <div className="fileStatus">{fileUpload3}</div>
+                        </div>
                     </div>
                     <div className="img_upload_test">
                         <div>Fourth Product Image</div>
-                        <input
-                            className="product_img_update"
-                            type='file'
-                            name="product_img1"
-                            accept="image/*"
-                            onChange={(e) => setImg4(e.target.files[0])}
-                        ></input>
+                        <div className="imgInputAndFileStatus">
+                            <input
+                                className="product_img_update"
+                                type='file'
+                                name="product_img1"
+                                accept="image/*"
+                                onChange={(e) => {
+                                    setFileUpload4("File is ready")
+                                    setImg4(e.target.files[0])}}
+                            ></input>
+                            <div className="fileStatus">{fileUpload4}</div>
+                        </div>
                     </div>
                     <div className="img_upload_test">
                         <div>Fifth Product Image</div>
-                        <input
-                            className="product_img_update"
-                            type='file'
-                            name="product_img1"
-                            accept="image/*"
-                            onChange={(e) => setImg5(e.target.files[0])}
-                        ></input>
+                        <div className="imgInputAndFileStatus">
+                            <input
+                                className="product_img_update"
+                                type='file'
+                                name="product_img1"
+                                accept="image/*"
+                                onChange={(e) => {
+                                    setFileUpload5("File is ready")
+                                    setImg5(e.target.files[0])}}
+                            ></input>
+                            <div className="fileStatus">{fileUpload5}</div>
+                        </div>
                     </div>
 
                 </div>
