@@ -146,7 +146,7 @@ function UpdateProduct() {
                                 name="product_img1"
                                 accept="image/*"
                                 onChange={(e) => {
-                                    setFileUpload1("File is ready")
+                                    setFileUpload1(e.target.files[0].name)
                                     setImg1(e.target.files[0])}}
                             ></input>
                             <div className="fileStatus">{fileUpload1}</div>
@@ -161,7 +161,7 @@ function UpdateProduct() {
                                 name="product_img1"
                                 accept="image/*"
                                 onChange={(e) => {
-                                    setFileUpload2("File is ready")
+                                    setFileUpload2(e.target.files[0].name)
                                     setImg2(e.target.files[0])}}
                             ></input>
                             <div className="fileStatus">{fileUpload2}</div>
@@ -176,7 +176,7 @@ function UpdateProduct() {
                                 name="product_img1"
                                 accept="image/*"
                                 onChange={(e) => {
-                                    setFileUpload3("File is ready")
+                                    setFileUpload3(e.target.files[0].name)
                                     setImg3(e.target.files[0])}}
                             ></input>
                             <div className="fileStatus">{fileUpload3}</div>
@@ -191,7 +191,7 @@ function UpdateProduct() {
                                 name="product_img1"
                                 accept="image/*"
                                 onChange={(e) => {
-                                    setFileUpload4("File is ready")
+                                    setFileUpload4(e.target.files[0].name)
                                     setImg4(e.target.files[0])}}
                             ></input>
                             <div className="fileStatus">{fileUpload4}</div>
@@ -206,7 +206,7 @@ function UpdateProduct() {
                                 name="product_img1"
                                 accept="image/*"
                                 onChange={(e) => {
-                                    setFileUpload5("File is ready")
+                                    setFileUpload5(e.target.files[0].name)
                                     setImg5(e.target.files[0])}}
                             ></input>
                             <div className="fileStatus">{fileUpload5}</div>
