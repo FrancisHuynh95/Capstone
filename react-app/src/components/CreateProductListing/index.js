@@ -28,23 +28,23 @@ function CreateProductListing() {
 
     const handleAddImage1 = (e) => {
         setImg1(e.target.files[0])
-        setFileUpload1("File is ready")
+        setFileUpload1(e.target.files[0].name)
     }
     const handleAddImage2 = (e) => {
         setImg2(e.target.files[0])
-        setFileUpload2("File is ready")
+        setFileUpload2(e.target.files[0].name)
     }
     const handleAddImage3 = (e) => {
         setImg3(e.target.files[0])
-        setFileUpload3("File is ready")
+        setFileUpload3(e.target.files[0].name)
     }
     const handleAddImage4 = (e) => {
         setImg4(e.target.files[0])
-        setFileUpload4("File is ready")
+        setFileUpload4(e.target.files[0].name)
     }
     const handleAddImage5 = (e) => {
         setImg5(e.target.files[0])
-        setFileUpload5("File is ready")
+        setFileUpload5(e.target.files[0].name)
     }
 
     const handleSubmit = async (e) => {
