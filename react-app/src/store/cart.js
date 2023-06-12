@@ -11,6 +11,18 @@ const addToCart = (user) => ({
 	user
 })
 
+const normalized = (cart) => {
+    let newObj = {}
+    cart.cart.forEach(cart => {
+        newObj[cart.id] = cart
+    })
+    return newObj
+}
+
+export const getCartThunk = () => async(dispatch) => {
+    const res = await fetch (`/carts`)
+}
+
 
 const initalState = { cart: {}}
 const cartReducer = (state = initalState, action) => {
