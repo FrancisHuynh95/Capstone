@@ -11,6 +11,7 @@ import UpdateProduct from "./components/updateProduct";
 import BackgroundColor from "./components/home/background-color";
 import Footer from "./components/Footer";
 import UserProfile from "./components/UserProfile";
+import UserCart from "./components/userCart";
 
 
 
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/user/:userId/cart">
+            <UserCart />
           </Route>
           <Route path="/user">
             <UserProfile />

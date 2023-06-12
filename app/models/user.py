@@ -1,6 +1,7 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from .cart import user_cart
 
 
 
@@ -31,6 +32,12 @@ class User(db.Model, UserMixin):
         cascade='delete-orphan, all'
     )
 
+    userCart = db.relationship(
+        "Product",
+        secondary= user_cart,
+        back_populates="cartUser"
+    )
+
 
     @property
     def password(self):
@@ -52,7 +59,8 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'profileImage': self.profile_img,
             'reviews': [review.to_dict() for review in self.reviews],
-            'product': [product.to_dict_no_user_no_review() for product in self.products]
+            'product': [product.to_dict_no_user_no_review() for product in self.products],
+            'cart' : [ product.to_dict_no_user_no_review() for product in self.userCart]
         }
     def to_dict_no_review(self):
         return {

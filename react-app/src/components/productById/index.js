@@ -10,6 +10,7 @@ import { useState } from "react"
 import CreateReviewModal from "../CreateReviewModal"
 import DeleteReviewModal from "../DeleteReviewModal"
 import UpdateReviewModal from "../updateReviewModal"
+import { AddToCartThunk } from "../../store/session"
 
 function ProductById() {
     const { productId } = useParams()
@@ -40,6 +41,12 @@ function ProductById() {
         if (singleProductArray[0]) {
             return (singleProductArray[0].reviews).find(review => review.reviewer.id === user.id)
         }
+    }
+
+    const handleAddToCart = (productId) => {
+        console.log('user id',user.id)
+        console.log('productId', productId)
+        dispatch(AddToCartThunk(user.id, productId))
     }
 
     if (!singleProductArray) return <p>oopsies</p>
@@ -110,6 +117,7 @@ function ProductById() {
                             }
                             </div>
                         </div>
+                        <button onClick={() => handleAddToCart(product.id)}>Test</button>
                     </div>
                     <div className="product_information">
                         <h2>{product.name}</h2>

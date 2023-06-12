@@ -1,6 +1,4 @@
 from .db import db, add_prefix_for_prod, environment, SCHEMA
-from .product_review import product_reviews
-
 
 
 class Review(db.Model):

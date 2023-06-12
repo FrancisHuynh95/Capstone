@@ -2,7 +2,7 @@ from .db import db, add_prefix_for_prod, environment, SCHEMA
 
 
 user_cart = db.Table(
-    'product_reviews',
+    'user_carts',
     db.Model.metadata,
     db.Column("users", db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), primary_key=True),
     db.Column("products", db.Integer, db.ForeignKey(add_prefix_for_prod('products.id')), primary_key=True),
