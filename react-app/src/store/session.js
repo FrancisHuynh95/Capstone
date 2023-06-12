@@ -1,7 +1,7 @@
 // constants
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
-const ADD_TO_CART = 'session/ADD_TO_CART'
+
 
 const setUser = (user) => ({
 	type: SET_USER,
@@ -11,11 +11,6 @@ const setUser = (user) => ({
 const removeUser = () => ({
 	type: REMOVE_USER,
 });
-
-const addToCart = (user) => ({
-	type: ADD_TO_CART,
-	user
-})
 
 const initialState = { user: null };
 
@@ -101,25 +96,6 @@ export const signUp = (username, email, password, first_name, last_name) => asyn
 		return ["An error occurred. Please try again."];
 	}
 };
-
-export const AddToCartThunk = (userId, productId) => async (dispatch) => {
-	console.log('userId, productId ==============>', userId, productId)
-	const res = await fetch(`/api/users/${userId}/products/${productId}`, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json"
-		},
-		body: JSON.stringify( userId, productId )
-	})
-	if (res.ok) {
-		console.log('coo')
-		return { "message": "cooo" }
-	} else {
-		console.log('not coo')
-		return { "error": "not coo" }
-	}
-}
-
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_USER:

@@ -1,9 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from .cart import user_cart
-
-
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -33,9 +30,8 @@ class User(db.Model, UserMixin):
     )
 
     userCart = db.relationship(
-        "Product",
-        secondary= user_cart,
-        back_populates="cartUser"
+        "Cart",
+        back_populates="user"
     )
 
 
