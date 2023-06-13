@@ -55,12 +55,14 @@ def update_cart(productId):
     else :
         return jsonify({"error": "Cannot update the cart"})
 
-@cart_routes.route('/<int:cartId>/product/<int:productId>', methods=['DELETE'])
+@cart_routes.route('/product/<int:productId>', methods=['DELETE'])
 @login_required
-def remove_single_product(cartId, productId):
-    cart = Cart.query.get(cartId)
+def remove_single_product(productId):
+    userId = session.get('_user_id')
+    cart = Cart.query.filter(Cart.product_id == productId).filter(Cart.user_id == str(userId)).first()
 
-    db.session.delete(cart[productId])
+
+    db.session.delete(cart)
     db.session.commit()
 
     return jsonify({

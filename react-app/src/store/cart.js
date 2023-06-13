@@ -77,9 +77,9 @@ export const UpdateCartThunk = (productId, amount) => async(dispatch) => {
     }
 }
 
-export const removeFromCartThunk = (cartId, productId) => async(dispatch) => {
-    const res = await fetch(`/carts/${cartId}/product/${productId}`, {
-        methods: 'DELETE'
+export const removeFromCartThunk = (productId) => async(dispatch) => {
+    const res = await fetch(`/carts/product/${productId}`, {
+        method: 'DELETE'
     })
     if(res.ok){
         dispatch(getCartThunk())
