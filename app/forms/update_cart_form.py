@@ -4,4 +4,4 @@ from wtforms.validators import DataRequired
 
 
 class UpdateCartForm(FlaskForm):
-    quantitiy = IntegerField('quantity', validators=[DataRequired()])
+    quantity = IntegerField('quantity', validators=[DataRequired()])

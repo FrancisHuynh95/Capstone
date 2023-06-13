@@ -58,25 +58,27 @@ export const AddToCartThunk = (productId, amount) => async(dispatch) => {
     }
 }
 export const UpdateCartThunk = (productId, amount) => async(dispatch) => {
-    const res = await fetch(`/carts/product/${productId}/${amount}`, {
+    const res = await fetch(`/carts/product/${productId}`, {
         method:"PUT",
         headers: {
-            "Content-Type": 'application/json'
+            "Content-Type": "application/json"
         },
-        body: JSON.stringify(productId, amount)
+        body: JSON.stringify(amount)
     })
     if(res.ok){
+        console.log('res is okay :D')
         const response = await res.json()
         await dispatch(getCartThunk())
         return response
     } else {
+        console.log('res is not okay D:')
         const error = await res.json()
         return error
     }
 }
 
-export const removeFromCart = (productId) => async(dispatch) => {
-    const res = await fetch('/carts/product/${productId}', {
+export const removeFromCartThunk = (cartId, productId) => async(dispatch) => {
+    const res = await fetch(`/carts/${cartId}/product/${productId}`, {
         methods: 'DELETE'
     })
     if(res.ok){
