@@ -7,7 +7,7 @@ import SignupFormModal from "../SignupFormModal";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { NavLink } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -15,6 +15,7 @@ function ProfileButton({ user }) {
   const ulRef = useRef();
   const history = useHistory()
   const {closeModal} = useModal()
+
 
   const openMenu = () => {
     if (showMenu) return;
@@ -58,6 +59,9 @@ function ProfileButton({ user }) {
             <p>Hello {user.username}</p>
             <div>
             <NavLink className="your_profile_button" exact to="/user"><i class="fas fa-user-circle fa"></i> Your Profile</NavLink>
+            </div>
+            <div>
+            <NavLink className="your_profile_button" exact to={`/user/${user.id}/cart`}><i class="fal fa-shopping-cart"></i> Your Cart</NavLink>
             </div>
             <p>{user.email}</p>
           </div>

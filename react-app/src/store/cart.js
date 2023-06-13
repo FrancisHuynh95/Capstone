@@ -1,5 +1,7 @@
 const GET_CART = '/SESSION/GET_CART'
 const ADD_TO_CART = 'session/ADD_TO_CART'
+const UPDATE_CART = 'session/ADD_TO_CART'
+const DELETE_CART = 'session/ADD_TO_CART'
 
 const getCart = (cart) => ({
     type: GET_CART,
@@ -8,6 +10,14 @@ const getCart = (cart) => ({
 
 const addToCart = (user) => ({
 	type: ADD_TO_CART,
+	user
+})
+const UpdateCart = (user) => ({
+	type: UPDATE_CART,
+	user
+})
+const DeleteFromart = (user) => ({
+	type: DELETE_CART,
 	user
 })
 
@@ -47,6 +57,23 @@ export const AddToCartThunk = (productId, amount) => async(dispatch) => {
         return {"Error": "There was an error adding to the cart"}
     }
 }
+export const UpdateCartThunk = (productId, amount) => async(dispatch) => {
+    const res = await fetch(`/carts/product/${productId}/${amount}`, {
+        method:"PUT",
+        headers: {
+            "Content-Type": 'application/json'
+        },
+        body: JSON.stringify(productId, amount)
+    })
+    if(res.ok){
+        const response = await res.json()
+        await dispatch(getCartThunk())
+        return response
+    } else {
+        const error = await res.json()
+        return error
+    }
+}
 
 export const removeFromCart = (productId) => async(dispatch) => {
     const res = await fetch('/carts/product/${productId}', {
@@ -69,19 +96,19 @@ const cartReducer = (state = initalState, action) => {
             newState = {cart: {}}
             action.cart.forEach(cart => { newState.cart[cart.id] = cart})
             return newState
-        // case GET_SINGLE_PRODUCT:
-        //     newState = {products: {}, singleProduct: {}}
-        //     newState.singleProduct[action.product.id] = action.product
-        //     return newState
-        // case CREATE_PRODUCT:
-        //     newState = {products: {...state.products}, singleProduct: {...state.singleProduct}}
-        //     newState.singleProduct[action.product.id] = action.product
-        //     return newState
-        // case DELETE_PRODUCT:
-        //     newState = {products: {...state.products}, singleProduct: {...state.singleProduct}}
-        //     delete newState.singleProduct[action.id]
-        //     delete newState.products[action.id]
-        //     return newState
+    // case GET_SINGLE_PRODUCT:
+    //     newState = {products: {}, singleProduct: {}}
+    //     newState.singleProduct[action.product.id] = action.product
+    //     return newState
+    // case CREATE_PRODUCT:
+    //     newState = {products: {...state.products}, singleProduct: {...state.singleProduct}}
+    //     newState.singleProduct[action.product.id] = action.product
+    //     return newState
+    // case DELETE_PRODUCT:
+    //     newState = {products: {...state.products}, singleProduct: {...state.singleProduct}}
+    //     delete newState.singleProduct[action.id]
+    //     delete newState.products[action.id]
+    //     return newState
         default:
             return state;
     }

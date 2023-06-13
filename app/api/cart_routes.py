@@ -33,7 +33,4 @@ def add_to_cart(productId,amount):
         return (newItem.to_dict())
 
     else:
-        print('in the else statement \n\n\n\n\n\n\n\n')
-        get_item_from_cart.quantity += amount
-        db.session.commit()
-        return get_item_from_cart.to_dict()
+        return jsonify({"error": "cannot add please check"})
