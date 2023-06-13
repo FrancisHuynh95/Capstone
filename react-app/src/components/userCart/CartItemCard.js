@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { UpdateCartThunk, removeFromCartThunk } from "../../store/cart"
 import { useDispatch } from "react-redux"
 
@@ -14,7 +14,7 @@ function CartItemCard({ item, allProducts }) {
     }
 
     const removeCart = () => {
-        console.log('remove')
+        dispatch(removeFromCartThunk(item.product_id))
     }
 
     const filteredProducts = (products) => {
