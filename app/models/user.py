@@ -56,7 +56,7 @@ class User(db.Model, UserMixin):
             'profileImage': self.profile_img,
             'reviews': [review.to_dict() for review in self.reviews],
             'product': [product.to_dict_no_user_no_review() for product in self.products],
-            'cart' : [ product.to_dict_no_user_no_review() for product in self.userCart]
+            'cart' : [ product.to_dict() for product in self.userCart]
         }
     def to_dict_no_review(self):
         return {

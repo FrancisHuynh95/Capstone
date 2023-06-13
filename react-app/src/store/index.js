@@ -8,7 +8,7 @@ import cartReducer from './cart';
 const rootReducer = combineReducers({
   session,
   product: productReducer,
-  card: cartReducer
+  cart: cartReducer
 });
 
 

@@ -17,9 +17,11 @@ def get_carts():
 @login_required
 def add_to_cart(productId,amount):
     userId = session.get('_user_id')
-    get_item_from_cart = Cart.query.filter(Cart.product_id == productId and Cart.user_id == userId)
+    get_item_from_cart = Cart.query.filter(Cart.product_id == productId).filter(Cart.user_id == str(userId)).first()
 
     if get_item_from_cart is None:
+        print('\n\n\n in the if statement')
+
         newItem = Cart(
             user_id=userId,
             product_id=productId,
@@ -31,6 +33,7 @@ def add_to_cart(productId,amount):
         return (newItem.to_dict())
 
     else:
-        get_item_from_cart['quantity']+= amount
+        print('in the else statement \n\n\n\n\n\n\n\n')
+        get_item_from_cart.quantity += amount
         db.session.commit()
-        return (get_item_from_cart.to_dict())
+        return get_item_from_cart.to_dict()

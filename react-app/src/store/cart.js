@@ -20,7 +20,44 @@ const normalized = (cart) => {
 }
 
 export const getCartThunk = () => async(dispatch) => {
-    const res = await fetch (`/carts`)
+    const res = await fetch (`/carts/`)
+
+    if(res.ok){
+        const newRes = await res.json()
+        await dispatch(getCart(newRes))
+        return newRes
+    } else {
+        console.log('error in getting cart')
+        return {"message": "F"}
+    }
+}
+
+export const AddToCartThunk = (productId, amount) => async(dispatch) => {
+    const res = await fetch(`/carts/product/${productId}/${amount}`, {
+        method:"POST",
+        headers: {
+            "Content-Type": 'application/json'
+        },
+        body: JSON.stringify(productId, amount)
+    })
+    if(res.ok){
+        const response = await res.json()
+        await dispatch(getCartThunk())
+    } else {
+        return {"Error": "There was an error adding to the cart"}
+    }
+}
+
+export const removeFromCart = (productId) => async(dispatch) => {
+    const res = await fetch('/carts/product/${productId}', {
+        methods: 'DELETE'
+    })
+    if(res.ok){
+        dispatch(getCartThunk())
+        return {'message': "Successfully deleted"}
+    } else {
+        return {'message': "Error occurred"}
+    }
 }
 
 
@@ -28,7 +65,7 @@ const initalState = { cart: {}}
 const cartReducer = (state = initalState, action) => {
     let newState;
     switch(action.type) {
-        case ADD_TO_CART:
+        case GET_CART:
             newState = {cart: {}}
             action.cart.forEach(cart => { newState.cart[cart.id] = cart})
             return newState
