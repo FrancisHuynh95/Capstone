@@ -10,7 +10,7 @@ import { useState } from "react"
 import CreateReviewModal from "../CreateReviewModal"
 import DeleteReviewModal from "../DeleteReviewModal"
 import UpdateReviewModal from "../updateReviewModal"
-import { AddToCartThunk } from "../../store/cart"
+import { AddToCartThunk, getCartThunk } from "../../store/cart"
 
 
 function ProductById() {
@@ -18,6 +18,9 @@ function ProductById() {
     const dispatch = useDispatch()
     const singleProduct = useSelector(state => state.product.singleProduct)
     const singleProductArray = Object.values(singleProduct)
+    const cart = useSelector(state => state.cart.cart)
+    const cartArray = Object.values(cart)
+    const filteredArray = cartArray.filter(product => product.product_id === +productId)
     const history = useHistory()
     const user = useSelector(state => state.session.user)
     let imgArray = []
@@ -35,6 +38,7 @@ function ProductById() {
     useEffect(() => {
         setBigImg(imgArray.length > 0 ? imgArray[0] : "")
         dispatch(getSingleProductThunk(productId))
+        dispatch(getCartThunk())
     }, [dispatch, imgArray.length, singleProductArray.reviews])
 
 
@@ -45,10 +49,10 @@ function ProductById() {
     }
 
     const handleAddToCart = (productId) => {
-        console.log('user id',user.id)
-        console.log('productId', productId)
-        dispatch(AddToCartThunk(productId, 1))
+        dispatch(AddToCartThunk(productId, 1)) //1 is the amount
     }
+    console.log('cart', cartArray)
+    console.log('filteredArray',filteredArray)
 
     if (!singleProductArray) return <p>oopsies</p>
     return (
@@ -118,7 +122,7 @@ function ProductById() {
                             }
                             </div>
                         </div>
-                        {product.user.id !== user?.id && <button onClick={() => handleAddToCart(product.id)}>Test</button>}
+                        {product.user.id !== user?.id && filteredArray.length === 0 ? <button onClick={() => handleAddToCart(product.id)}>Test</button> : null}
                     </div>
                     <div className="product_information">
                         <h2>{product.name}</h2>
