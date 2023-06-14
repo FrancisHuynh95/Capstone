@@ -1,17 +1,29 @@
 import { useState, useEffect } from "react"
-import { UpdateCartThunk, removeFromCartThunk } from "../../store/cart"
+import { AddToCartThunk, UpdateCartThunk, removeFromCartThunk } from "../../store/cart"
 import { useDispatch } from "react-redux"
 
 
 function CartItemCard({ item, allProducts }) {
     const [quantity, setQuantity] = useState(item.quantity)
+    const [errors, setErrors] = useState({})
     const dispatch = useDispatch()
 
     const updateCart = () => {
-        const updateCartObj = {
-            "quantity": +quantity
+        let errorObj = {}
+        if(+quantity <= 0){
+            errorObj.price = "The quantity must be at least 1."
         }
-        dispatch(UpdateCartThunk(item.product_id, updateCartObj))
+        if(Object.values(errorObj).length === 0){
+            setErrors(errorObj)
+            const updateCartObj = {
+                "quantity": +quantity
+            }
+            dispatch(UpdateCartThunk(item.product_id, updateCartObj))
+        } else {
+            setErrors(errorObj)
+            setQuantity(item.quantity)
+
+        }
     }
 
     const removeCart = () => {
@@ -22,14 +34,15 @@ function CartItemCard({ item, allProducts }) {
         const singleProduct = Object.values(allProducts)?.filter(product => product.id === products.product_id)
         return (
             <>
-                <p>{singleProduct[0]?.name}</p>
+                {errors.price && <p className="errors">{`${errors.price}`}</p>}
+                <p className="product_name">{singleProduct[0]?.name}</p>
+                <p className="quantityxprice">$ {`${(singleProduct[0]?.price * item.quantity).toFixed(2)} `}</p>
             </>
         )
     }
     return (<div className="each-product">
         {filteredProducts(item)}
         <div>
-
         Quantity <input type="number" onChange={e => setQuantity(e.target.value)} value={quantity}></input>
         <div className="update-remove">
             <button onClick={() => updateCart(item.product_id, item.id)}>Update</button>

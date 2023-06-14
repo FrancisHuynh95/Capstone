@@ -23,6 +23,20 @@ function UserCart() {
     }, [dispatch])
 
 
+    function getTotalPrice(){
+        let total = {}
+        let allTotal = 0;
+        cartArray.forEach(product => {
+            let productId = product.product_id
+            total[product.product_id] = allProducts[productId]?.price * product.quantity
+        })
+        for(let price in total){
+            allTotal += total[price]
+        }
+        return allTotal
+    }
+    console.log('PRICE HAHAHAHAHA',getTotalPrice())
+
     if (!cartObj || !allProducts) return <p>Loading</p>
     if (isPurchase) return <p>Thank You For Your Purchase!</p>
     return (
@@ -35,6 +49,7 @@ function UserCart() {
                 ) : <p>There are no items in your cart</p>}
             </div>
             {cartArray.length > 0 ? <button onClick={() => purchase()}>Make the purchase</button> : null}
+            <p className="totalPrice">Cart Total: ${`${getTotalPrice()}`}</p>
         </>
     )
 }
