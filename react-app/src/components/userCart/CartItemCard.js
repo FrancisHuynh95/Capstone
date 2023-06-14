@@ -22,7 +22,7 @@ function CartItemCard({ item, allProducts }) {
         return (
             <>
                 <p>{singleProduct[0]?.name}</p>
-                <p>$ {(singleProduct[0]?.price)?.toFixed(2)}</p>
+                <p>$ {(singleProduct[0]?.price * item.quantity)?.toFixed(2)}</p>
             </>
         )
     }
