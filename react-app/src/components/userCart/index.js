@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getCartThunk, removeAllFromCartThunk } from "../../store/cart"
-import {getAllProductsThunk} from "../../store/product"
+import { getAllProductsThunk } from "../../store/product"
 import CartItemCard from "./CartItemCard"
 
 function UserCart() {
@@ -24,17 +24,17 @@ function UserCart() {
 
 
     if (!cartObj || !allProducts) return <p>Loading</p>
-    if(isPurchase) return <p>Thank You For Your Purchase!</p>
+    if (isPurchase) return <p>Thank You For Your Purchase!</p>
     return (
         <>
             <h1>User Cart</h1>
             <p>Products</p>
-            <p>{user?.firstName}</p>
-
-            {user && cartArray.map(cart =>
-                <CartItemCard item={cart} allProducts={allProducts} />
-                )}
-            <button onClick={() => purchase()}>Make the purchase</button>
+            <div>
+                {user && cartArray.length > 0 ? cartArray.map(cart =>
+                    <CartItemCard item={cart} allProducts={allProducts} />
+                ) : <p>There are no items in your cart</p>}
+            </div>
+            {cartArray.length > 0 ? <button onClick={() => purchase()}>Make the purchase</button> : null}
         </>
     )
 }
