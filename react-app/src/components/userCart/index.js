@@ -25,7 +25,7 @@ function UserCart() {
 
 
     let res = {}
-    function getTotalPrice(){
+    function getTotalPrice() {
         let total = {}
         let allTotal = 0;
         let totalQ = 0
@@ -34,7 +34,7 @@ function UserCart() {
             total[product.product_id] = allProducts[productId]?.price * product.quantity
             totalQ += product.quantity
         })
-        for(let price in total){
+        for (let price in total) {
             allTotal += total[price]
         }
         res.allTotal = totalQ
@@ -47,14 +47,14 @@ function UserCart() {
         <>
             <h1>User Cart</h1>
             <h2>Products</h2>
-            <p className="totalPrice">Cart Total: ${`${getTotalPrice()} (${res.allTotal} items) `}</p>
             <div className="cartProductCardContainer">
                 {user && cartArray.length > 0 ? cartArray.map(cart =>
                     <CartItemCard item={cart} allProducts={allProducts} />
                 ) : <p>There are no items in your cart</p>}
             </div>
+            <p className="totalPrice">Cart Total: ${`${getTotalPrice()} (${res.allTotal} items) `}</p>
             <div className="purchaseButtonContainer">
-            {cartArray.length > 0 ? <button className="purchaseButton" onClick={() => purchase()}>Make the purchase</button> : null}
+                {cartArray.length > 0 ? <button className="purchaseButton" onClick={() => purchase()}>Make the purchase</button> : null}
             </div>
         </>
     )

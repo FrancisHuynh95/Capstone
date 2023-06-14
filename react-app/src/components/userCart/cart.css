@@ -65,3 +65,7 @@
 .quantitySelector{
     font-weight: bold;
 }
+
+.totalPrice {
+    text-align: end;
+}
