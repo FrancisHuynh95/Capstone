@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { useSelector, useDispatch } from 'react-redux'
 import { getSingleProductThunk } from "../../store/product"
 import { useParams } from "react-router-dom"
@@ -6,11 +6,11 @@ import OpenModalButton from "../OpenModalButton"
 import DeleteProductModal from "../deleteProductModal"
 import { useHistory } from "react-router-dom"
 import "./productById.css"
-import { useState } from "react"
 import CreateReviewModal from "../CreateReviewModal"
 import DeleteReviewModal from "../DeleteReviewModal"
 import UpdateReviewModal from "../updateReviewModal"
 import { AddToCartThunk, getCartThunk } from "../../store/cart"
+
 
 
 function ProductById() {
@@ -18,13 +18,17 @@ function ProductById() {
     const dispatch = useDispatch()
     const singleProduct = useSelector(state => state.product.singleProduct)
     const singleProductArray = Object.values(singleProduct)
+
     const cart = useSelector(state => state.cart.cart)
     const cartArray = Object.values(cart)
     const filteredArray = cartArray.filter(product => product.product_id === +productId)
+
+
     const history = useHistory()
     const user = useSelector(state => state.session.user)
     let imgArray = []
     const [bigImg, setBigImg] = useState("")
+    const [submitted, setSubmitted] = useState(false)
 
     if (singleProductArray[0]) {
         imgArray.push(singleProductArray[0].product_img1)
@@ -48,8 +52,9 @@ function ProductById() {
         }
     }
 
-    const handleAddToCart = (productId) => {
-        dispatch(AddToCartThunk(productId, 1)) //1 is the amount
+    const handleAddToCart = async (productId) => {
+       await dispatch(AddToCartThunk(productId, 1)) //1 is the amount
+       setSubmitted(true)
     }
 
 
@@ -127,6 +132,7 @@ function ProductById() {
                         <h3>Price ${(product.price).toFixed(2)}</h3>
                         <p className="userProfileProductDescription">Description {product.description}</p>
                         {product.user.id !== user?.id && filteredArray.length === 0 ? <button onClick={() => handleAddToCart(product.id)}>Add To Cart</button> : null}
+                        {submitted ? <p>{`${product.name} has been successfully added to the cart`}</p> : null}
                     </div>
                 </div>
             )}
