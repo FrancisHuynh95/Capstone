@@ -22,7 +22,6 @@ def add_to_cart(productId,amount):
 
 
     if get_item_from_cart is None:
-        print('\n\n\n in the if statement')
 
         newItem = Cart(
             user_id=userId,
@@ -63,6 +62,20 @@ def remove_single_product(productId):
 
 
     db.session.delete(cart)
+    db.session.commit()
+
+    return jsonify({
+        'message': "Item from cart has been removed"
+    })
+
+@cart_routes.route('/product/purchase', methods=['DELETE'])
+@login_required
+def remove_all_products():
+    userId = session.get('_user_id')
+    cart = Cart.query.filter(Cart.user_id == str(userId)).all()
+
+
+    [db.session.delete(product) for product in cart]
     db.session.commit()
 
     return jsonify({

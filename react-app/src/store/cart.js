@@ -89,6 +89,18 @@ export const removeFromCartThunk = (productId) => async(dispatch) => {
     }
 }
 
+export const removeAllFromCartThunk = () => async(dispatch) => {
+    const res = await fetch(`/carts/product/purchase`, {
+        method: 'DELETE'
+    })
+    if(res.ok){
+        dispatch(getCartThunk())
+        return {'message': "Successfully deleted"}
+    } else {
+        return {'message': "Error occurred"}
+    }
+}
+
 
 const initalState = { cart: {}}
 const cartReducer = (state = initalState, action) => {
