@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { getCartThunk, removeAllFromCartThunk } from "../../store/cart"
 import { getAllProductsThunk } from "../../store/product"
 import CartItemCard from "./CartItemCard"
+import './cart.css'
 
 function UserCart() {
     const user = useSelector(state => state.session.user)
@@ -42,8 +43,8 @@ function UserCart() {
     return (
         <>
             <h1>User Cart</h1>
-            <p>Products</p>
-            <div>
+            <h2>Products</h2>
+            <div className="cartProductCardContainer">
                 {user && cartArray.length > 0 ? cartArray.map(cart =>
                     <CartItemCard item={cart} allProducts={allProducts} />
                 ) : <p>There are no items in your cart</p>}

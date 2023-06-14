@@ -42,11 +42,11 @@ function CartItemCard({ item, allProducts }) {
     }
     return (<div className="each-product">
         {filteredProducts(item)}
-        <div>
+        <div className="userInteraction">
         Quantity <input type="number" onChange={e => setQuantity(e.target.value)} value={quantity}></input>
         <div className="update-remove">
-            <button onClick={() => updateCart(item.product_id, item.id)}>Update</button>
-            <button onClick={() => removeCart(item.product_id)}>Remove</button>
+            <button className="updateCartButton" onClick={() => updateCart(item.product_id, item.id)}>Update</button>
+            <button className="removeCartButton" onClick={() => removeCart(item.product_id)}>Remove</button>
         </div>
         </div>
     </div>)
