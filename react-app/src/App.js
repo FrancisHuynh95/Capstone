@@ -12,6 +12,7 @@ import BackgroundColor from "./components/home/background-color";
 import Footer from "./components/Footer";
 import UserProfile from "./components/UserProfile";
 import UserCart from "./components/userCart";
+import Uhoh from "./components/uhoh";
 
 
 
@@ -49,10 +50,10 @@ function App() {
           <Route path="/product/:productId">
             <ProductById />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <BackgroundColor />
-            {/* <Footer/> */}
           </Route>
+          < Uhoh />
         </Switch>
         </>
       )}
