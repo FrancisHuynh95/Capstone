@@ -46,7 +46,6 @@ function CartItemCard({item}) {
 
     const filteredProducts = (products) => {
         const singleProduct = Object.values(allProducts)?.filter(product => product.id === products.product_id)
-        console.log('SINGLE PRODUCT',singleProduct)
         return (
             <>
                 <div className="productInfo">
