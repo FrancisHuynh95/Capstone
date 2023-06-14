@@ -51,8 +51,7 @@ function ProductById() {
     const handleAddToCart = (productId) => {
         dispatch(AddToCartThunk(productId, 1)) //1 is the amount
     }
-    console.log('cart', cartArray)
-    console.log('filteredArray',filteredArray)
+
 
     if (!singleProductArray) return <p>oopsies</p>
     return (
@@ -122,12 +121,12 @@ function ProductById() {
                             }
                             </div>
                         </div>
-                        {product.user.id !== user?.id && filteredArray.length === 0 ? <button onClick={() => handleAddToCart(product.id)}>Test</button> : null}
                     </div>
                     <div className="product_information">
                         <h2>{product.name}</h2>
                         <h3>Price ${(product.price).toFixed(2)}</h3>
                         <p className="userProfileProductDescription">Description {product.description}</p>
+                        {product.user.id !== user?.id && filteredArray.length === 0 ? <button onClick={() => handleAddToCart(product.id)}>Add To Cart</button> : null}
                     </div>
                 </div>
             )}
