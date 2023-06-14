@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { UpdateCartThunk, removeFromCartThunk } from "../../store/cart"
 import { useDispatch } from "react-redux"
 
+
 function CartItemCard({ item, allProducts }) {
     const [quantity, setQuantity] = useState(item.quantity)
     const dispatch = useDispatch()
@@ -22,18 +23,18 @@ function CartItemCard({ item, allProducts }) {
         return (
             <>
                 <p>{singleProduct[0]?.name}</p>
-                <p>$ {(singleProduct[0]?.price * item.quantity)?.toFixed(2)}</p>
             </>
         )
     }
     return (<div className="each-product">
         {filteredProducts(item)}
-        <p>productId {item.product_id}</p>
-        <p>quantity {item.quantity}</p>
-        <input type="number" onChange={e => setQuantity(e.target.value)} value={quantity}></input>
+        <div>
+
+        Quantity <input type="number" onChange={e => setQuantity(e.target.value)} value={quantity}></input>
         <div className="update-remove">
             <button onClick={() => updateCart(item.product_id, item.id)}>Update</button>
             <button onClick={() => removeCart(item.product_id)}>Remove</button>
+        </div>
         </div>
     </div>)
 }

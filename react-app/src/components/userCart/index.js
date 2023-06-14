@@ -4,13 +4,11 @@ import { getCartThunk, removeAllFromCartThunk } from "../../store/cart"
 import {getAllProductsThunk} from "../../store/product"
 import CartItemCard from "./CartItemCard"
 
-
 function UserCart() {
     const user = useSelector(state => state.session.user)
     const cartObj = useSelector(state => state.cart.cart)
     const allProducts = useSelector(state => state.product.products)
     const [isPurchase, setIsPurchase] = useState(false)
-    const state = useSelector(state => state)
     const cartArray = Object.values(cartObj)
     const dispatch = useDispatch()
 
@@ -24,6 +22,7 @@ function UserCart() {
         dispatch(getAllProductsThunk())
     }, [dispatch])
 
+
     if (!cartObj || !allProducts) return <p>Loading</p>
     if(isPurchase) return <p>Thank You For Your Purchase!</p>
     return (
@@ -31,9 +30,10 @@ function UserCart() {
             <h1>User Cart</h1>
             <p>Products</p>
             <p>{user?.firstName}</p>
+
             {user && cartArray.map(cart =>
                 <CartItemCard item={cart} allProducts={allProducts} />
-            )}
+                )}
             <button onClick={() => purchase()}>Make the purchase</button>
         </>
     )
