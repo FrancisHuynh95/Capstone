@@ -172,3 +172,13 @@
     margin-top: 10px;
     cursor: pointer;
 }
+
+.userReviewsContainer {
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+.productIdReviews {
+    border-bottom: 1px solid black;
+
+}

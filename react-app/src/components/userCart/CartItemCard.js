@@ -32,18 +32,22 @@ function CartItemCard({ item, allProducts }) {
 
     const filteredProducts = (products) => {
         const singleProduct = Object.values(allProducts)?.filter(product => product.id === products.product_id)
+        console.log('SINGLE PRODUCT',singleProduct)
         return (
             <>
+                <div className="productInfo">
                 {errors.price && <p className="errors">{`${errors.price}`}</p>}
                 <p className="product_name">{singleProduct[0]?.name}</p>
                 <p className="quantityxprice">$ {`${(singleProduct[0]?.price * item.quantity).toFixed(2)} `}</p>
+                <img className="cartImg" src={`${singleProduct[0]?.product_img1}`}></img>
+                </div>
             </>
         )
     }
     return (<div className="each-product">
         {filteredProducts(item)}
         <div className="userInteraction">
-        Quantity <input className="quantitySelector" type="number" onChange={e => setQuantity(e.target.value)} value={quantity}></input>
+        Quantity: <input className="quantitySelector" type="number" onChange={e => setQuantity(e.target.value)} value={quantity}></input>
         <div className="update-remove">
             <button className="updateCartButton" onClick={() => updateCart(item.product_id, item.id)}>Update</button>
             <button className="removeCartButton" onClick={() => removeCart(item.product_id)}>Remove</button>

@@ -90,7 +90,7 @@ function ProductById() {
                         </div>
                         <div className="show-reviews">
                             {singleProductArray[0] && singleProductArray[0].reviews.toReversed().map(review =>
-                                <>
+                                <div className="productIdReviews">
                                     <div className="reviewer_and_star_rating">
                                         {review.star_rating === 5 && <p><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> </p>}
                                         {review.star_rating === 4 && <p><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>  </p>}
@@ -114,7 +114,7 @@ function ProductById() {
                                             />
                                         </div >
                                     }
-                                </>
+                                </div>
                             )}
                             {singleProductArray[0].reviews.length === 0 && <p>The Product doesn't have a review yet</p>}
                             <div className="createReviewInProductIdPage">

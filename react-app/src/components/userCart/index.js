@@ -45,8 +45,7 @@ function UserCart() {
     if (isPurchase) return <p>Thank You For Your Purchase!</p>
     return (
         <>
-            <h1>User Cart</h1>
-            <h2>Products</h2>
+            <h1 className="userCartHeading">User Cart</h1>
             <div className="cartProductCardContainer">
                 {user && cartArray.length > 0 ? cartArray.map(cart =>
                     <CartItemCard item={cart} allProducts={allProducts} />

@@ -1,26 +1,38 @@
 .cartProductCardContainer {
     /* border: 1px solid red; */
+    font-size: larger;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .each-product {
     /* border: 2px solid blue; */
+    padding-bottom: 25px;
+    border-bottom: 1px solid black;
 }
 
 .userInteraction{
     /* border: 2px solid black; */
     width: fit-content;
+    width: 100%;
 }
 
 .update-remove{
+    /* border: 1px solid red; */
     display: flex;
+    justify-content: center;
+    width: 100%;
     gap: 5px;
+    margin-top: 10px;
 }
 
 .updateCartButton {
     color:black;
     background-color: white;
     border-radius: 50px;
-    padding: 3px 20px;
+    padding: 6px 20px;
     font-size: 15px;
     margin-top: 10px;
     cursor: pointer;
@@ -64,8 +76,18 @@
 
 .quantitySelector{
     font-weight: bold;
+    width: 60px;
 }
 
-.totalPrice {
-    text-align: end;
+.totalPrice,
+.userCartHeading {
+    text-align: center;
+    font-weight: bolder;
+}
+
+.cartImg{
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
 }
