@@ -1,9 +1,9 @@
 .cartProductCardContainer {
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .each-product {
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
 }
 
 .userInteraction{
@@ -50,4 +50,18 @@
     font-size: 15px;
     margin-top: 10px;
     cursor: pointer;
+}
+
+.product_name{
+    font-weight:bolder;
+    margin-left: 5px;
+}
+
+.quantityxprice{
+    font-weight:bolder;
+    margin-left: 5px;
+}
+
+.quantitySelector{
+    font-weight: bold;
 }
