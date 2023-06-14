@@ -1,5 +1,5 @@
 .cartProductCardContainer {
-    /* border: 1px solid red; */
+    border: 1px solid red;
 }
 
 .each-product {
@@ -31,6 +31,22 @@
     color: white;
     border-radius: 50px;
     padding: 6px 40px;
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.purchaseButtonContainer{
+    display: flex;
+    justify-content: center;
+
+}
+
+.purchaseButton{
+    color:black;
+    background-color: white;
+    border-radius: 50px;
+    padding: 3px 20px;
     font-size: 15px;
     margin-top: 10px;
     cursor: pointer;

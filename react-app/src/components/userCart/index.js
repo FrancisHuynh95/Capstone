@@ -36,7 +36,6 @@ function UserCart() {
         }
         return allTotal
     }
-    console.log('PRICE HAHAHAHAHA',getTotalPrice())
 
     if (!cartObj || !allProducts) return <p>Loading</p>
     if (isPurchase) return <p>Thank You For Your Purchase!</p>
@@ -44,13 +43,15 @@ function UserCart() {
         <>
             <h1>User Cart</h1>
             <h2>Products</h2>
+            <p className="totalPrice">Cart Total: ${`${getTotalPrice()}`}</p>
             <div className="cartProductCardContainer">
                 {user && cartArray.length > 0 ? cartArray.map(cart =>
                     <CartItemCard item={cart} allProducts={allProducts} />
                 ) : <p>There are no items in your cart</p>}
             </div>
-            {cartArray.length > 0 ? <button onClick={() => purchase()}>Make the purchase</button> : null}
-            <p className="totalPrice">Cart Total: ${`${getTotalPrice()}`}</p>
+            <div className="purchaseButtonContainer">
+            {cartArray.length > 0 ? <button className="purchaseButton" onClick={() => purchase()}>Make the purchase</button> : null}
+            </div>
         </>
     )
 }
