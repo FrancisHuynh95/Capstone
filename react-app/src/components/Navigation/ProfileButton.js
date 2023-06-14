@@ -60,9 +60,6 @@ function ProfileButton({ user }) {
             <div>
             <NavLink className="your_profile_button" exact to="/user"><i class="fas fa-user-circle fa"></i> Your Profile</NavLink>
             </div>
-            <div>
-            <NavLink className="your_profile_button" exact to={`/user/${user.id}/cart`}><i class="fal fa-shopping-cart"></i> Your Cart</NavLink>
-            </div>
             <p>{user.email}</p>
           </div>
 

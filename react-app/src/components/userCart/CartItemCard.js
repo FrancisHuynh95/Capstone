@@ -1,12 +1,25 @@
 import { useState, useEffect } from "react"
-import { AddToCartThunk, UpdateCartThunk, removeFromCartThunk } from "../../store/cart"
+import { AddToCartThunk, UpdateCartThunk, getCartThunk, removeFromCartThunk } from "../../store/cart"
 import { useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
+import { getAllProductsThunk } from "../../store/product"
 
 
-function CartItemCard({ item, allProducts }) {
+function CartItemCard({item}) {
+    const allProductsObj = useSelector(state => state.product.products)
+    const cartObj = useSelector(state => state.cart.cart)
+    const cartArray = Object.values(cartObj)
+    const allProducts = Object.values(allProductsObj)
     const [quantity, setQuantity] = useState(item.quantity)
     const [errors, setErrors] = useState({})
     const dispatch = useDispatch()
+
+    console.log(allProducts)
+
+    useEffect(() => {
+        dispatch(getAllProductsThunk())
+        setQuantity(item.quantity)
+    }, [dispatch, cartArray.length])
 
     const updateCart = () => {
         let errorObj = {}
@@ -26,8 +39,9 @@ function CartItemCard({ item, allProducts }) {
         }
     }
 
-    const removeCart = () => {
-        dispatch(removeFromCartThunk(item.product_id))
+    const removeCart = async () => {
+        await dispatch(removeFromCartThunk(item.product_id))
+        dispatch(getCartThunk())
     }
 
     const filteredProducts = (products) => {

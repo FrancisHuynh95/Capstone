@@ -21,7 +21,7 @@ function UserCart() {
     useEffect(() => {
         dispatch(getCartThunk())
         dispatch(getAllProductsThunk())
-    }, [dispatch])
+    }, [dispatch, cartArray.length])
 
 
     let res = {}
@@ -48,7 +48,7 @@ function UserCart() {
             <h1 className="userCartHeading">User Cart</h1>
             <div className="cartProductCardContainer">
                 {user && cartArray.length > 0 ? cartArray.map(cart =>
-                    <CartItemCard item={cart} allProducts={allProducts} />
+                    <CartItemCard item={cart}/>
                 ) : <p>There are no items in your cart</p>}
             </div>
             <p className="totalPrice">Cart Total: ${`${getTotalPrice()} (${res.allTotal} items) `}</p>

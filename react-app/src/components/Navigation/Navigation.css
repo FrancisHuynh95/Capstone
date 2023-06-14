@@ -102,3 +102,16 @@ li {
   justify-content: center;
   width: 100%;
 }
+.cart_button {
+  text-decoration: none;
+  color: black;
+  position: relative;
+  bottom: 35px;
+}
+
+.cartAmount{
+  position: relative;
+  bottom: 15px;
+  left: 20px;
+
+}
