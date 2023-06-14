@@ -131,7 +131,7 @@ function ProductById() {
                         <h2>{product.name}</h2>
                         <h3>Price ${(product.price).toFixed(2)}</h3>
                         <p className="userProfileProductDescription">Description {product.description}</p>
-                        {product.user.id !== user?.id && filteredArray.length === 0 ? <button onClick={() => handleAddToCart(product.id)}>Add To Cart</button> : null}
+                        {product.user.id !== user?.id && filteredArray.length === 0 ? <button className="addToCart" onClick={() => handleAddToCart(product.id)}>Add To Cart</button> : null}
                         {submitted ? <p>{`${product.name} has been successfully added to the cart`}</p> : null}
                     </div>
                 </div>
