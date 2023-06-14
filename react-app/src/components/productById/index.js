@@ -118,7 +118,7 @@ function ProductById() {
                             }
                             </div>
                         </div>
-                        <button onClick={() => handleAddToCart(product.id)}>Test</button>
+                        {product.user.id !== user?.id && <button onClick={() => handleAddToCart(product.id)}>Test</button>}
                     </div>
                     <div className="product_information">
                         <h2>{product.name}</h2>
