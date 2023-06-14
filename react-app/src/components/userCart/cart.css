@@ -91,3 +91,7 @@
     object-fit: cover;
     margin-bottom: 10px;
 }
+
+.purchaseMsg{
+    text-align: center;
+}

@@ -42,7 +42,7 @@ function UserCart() {
     }
 
     if (!cartObj || !allProducts) return <p>Loading</p>
-    if (isPurchase) return <p>Thank You For Your Purchase!</p>
+    if (isPurchase) return <h1 className="purchaseMsg">Thank You For Your Purchase!</h1>
     return (
         <>
             <h1 className="userCartHeading">User Cart</h1>
@@ -53,7 +53,7 @@ function UserCart() {
             </div>
             <p className="totalPrice">Cart Total: ${`${getTotalPrice()} (${res.allTotal} items) `}</p>
             <div className="purchaseButtonContainer">
-                {cartArray.length > 0 ? <button className="purchaseButton" onClick={() => purchase()}>Make the purchase</button> : null}
+                {cartArray.length > 0 ? <button className="purchaseButton" onClick={() => purchase()}>Purchase</button> : null}
             </div>
         </>
     )
