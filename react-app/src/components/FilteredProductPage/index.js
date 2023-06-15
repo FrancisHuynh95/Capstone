@@ -1,17 +1,10 @@
 import { useSelector, useDispatch } from "react-redux"
-import { useEffect } from "react"
-import { getAllProductsThunk, getFilteredProductThunk } from "../../store/product"
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min"
 
 
 function FilteredProduct() {
-    const dispatch = useDispatch()
-    const unfilteredProducts = useSelector(state => state.product.filteredProduct)
+    const unfilteredProducts = useSelector(state => state.product.products)
     const productSet = new Set()
-
-    useEffect(() => {
-        dispatch(getAllProductsThunk())
-    }, [dispatch])
 
     for (let product in unfilteredProducts) {
         productSet.add(unfilteredProducts[product])

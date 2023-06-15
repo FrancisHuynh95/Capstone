@@ -22,7 +22,6 @@ def get_product_by_id(id):
 @product_routes.route('/<string:keyword>')
 def get_filtered_product_by_id(keyword):
 
-
     singleKeywords = keyword.split()
 
     productList = [Product.query.filter(Product.name.ilike(f'%{keyword}%' or Product.description.ilike(f'%{keyword}%'))).all()
