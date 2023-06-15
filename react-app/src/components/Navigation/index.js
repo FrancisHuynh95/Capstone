@@ -7,6 +7,7 @@ import OpenModalButton from '../OpenModalButton';
 import SocialsModal from '../socialsModal';
 import { useDispatch } from 'react-redux';
 import { getCartThunk } from '../../store/cart';
+import Search from './search';
 
 function Navigation({ isLoaded }){
 	const dispatch = useDispatch()
@@ -26,6 +27,9 @@ function Navigation({ isLoaded }){
 				<NavLink exact to="/">
 					<img className='logo' src='/logo.png'></img>
 				</NavLink>
+			</div>
+			<div className='searchBarContainer'>
+				<Search />
 			</div>
 			<div className='newProduct'>
 				{sessionUser && <NavLink className="NewProductListing" exact to="/product/new">New Product Listing</NavLink>}

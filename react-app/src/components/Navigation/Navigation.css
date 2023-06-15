@@ -40,8 +40,8 @@
 
 .newProduct {
   display: flex;
-  width: 100%;
   justify-content: center;
+  width: 30%;
 }
 
 .UserButton {
@@ -113,5 +113,12 @@ li {
   position: relative;
   bottom: 15px;
   left: 20px;
+}
 
+.searchBarContainer {
+  width: 100%;
+}
+
+.searchBar {
+  width: 80%;
 }
