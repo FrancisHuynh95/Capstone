@@ -4,10 +4,17 @@ const CREATE_PRODUCT = "/CREATEPRODUCT"
 const DELETE_PRODUCT = "/DELETEPRODUCT"
 const ALL_REVIEWS = '/ALLREVIEW'
 const UPDATE_REVIEWS = '/UPDATEREVIEW'
+const GET_FILTERED_PRODUCTS = '/GET_FILTERED_PRODUCTS'
 
 const getProducts = (products) => {
     return {
         type: GET_ALL_PRODUCTS,
+        products: products
+    }
+}
+const getFilteredProducts = (products) => {
+    return {
+        type: GET_FILTERED_PRODUCTS,
         products: products
     }
 }
@@ -77,6 +84,18 @@ export const createProductThunk = (product) => async (dispatch) => {
     if(response.ok){
         const newProduct = await response.json()
         await dispatch(createProduct(newProduct))
+    } else {
+        return ("Response is not okay!!!!!!!")
+    }
+}
+export const getFilteredProductThunk = (keyword) => async (dispatch) => {
+    const response = await fetch(`/products/new`, {
+        method: 'POST',
+        body: keyword
+    })
+    if(response.ok){
+        const newProduct = await response.json()
+        await dispatch(getFilteredProductThunk(newProduct))
     } else {
         return ("Response is not okay!!!!!!!")
     }
@@ -155,6 +174,10 @@ const productReducer = (state = initalState, action) => {
     let newState;
     switch(action.type) {
         case GET_ALL_PRODUCTS:
+            newState = {products: {}, singleProduct: {}}
+            action.products.forEach(product => { newState.products[product.id] = product})
+            return newState
+        case GET_FILTERED_PRODUCTS:
             newState = {products: {}, singleProduct: {}}
             action.products.forEach(product => { newState.products[product.id] = product})
             return newState

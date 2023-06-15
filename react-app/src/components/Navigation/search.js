@@ -3,6 +3,9 @@ import { useState } from "react"
 
 function Search() {
     const [search, setSearch] = useState("")
+    const handleSubmit = () => {
+        
+    }
     return (
         <>
             <div className="searchContainer">

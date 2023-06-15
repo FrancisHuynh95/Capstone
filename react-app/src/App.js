@@ -13,7 +13,7 @@ import Footer from "./components/Footer";
 import UserProfile from "./components/UserProfile";
 import UserCart from "./components/userCart";
 import Uhoh from "./components/uhoh";
-
+import FilteredProduct from "./components/FilteredProductPage";
 
 
 function App() {
@@ -49,6 +49,9 @@ function App() {
           </Route>
           <Route path="/product/:productId">
             <ProductById />
+          </Route>
+          <Route path="/search">
+            <FilteredProduct />
           </Route>
           <Route exact path="/">
             <BackgroundColor />
