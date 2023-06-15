@@ -97,6 +97,10 @@
     cursor: pointer;
 }
 
+.updateReviewButtons {
+    padding-bottom: 10px;
+}
+
 .isUserButtons{
     display: flex;
     gap: 10px;
