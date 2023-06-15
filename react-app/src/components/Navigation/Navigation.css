@@ -117,8 +117,27 @@ li {
 
 .searchBarContainer {
   width: 100%;
+  /* border: 1px solid black; */
+  text-align: center;
 }
 
 .searchBar {
   width: 80%;
+  border: none;
+  flex-grow: 1;
+  border-radius: 3px;
+  padding: 5px;
+}
+.searchBar:focus{
+  outline: none;
+}
+
+.searchSubmit{
+  height: 100%;
+  background-color: white;
+  border: none;
+  position: relative;
+  right: 25px;
+  border-radius: 3px;
+
 }

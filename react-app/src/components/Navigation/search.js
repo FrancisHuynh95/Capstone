@@ -8,7 +8,7 @@ function Search() {
             <div className="searchContainer">
                 <span>
                     <input className="searchBar" placeholder="Search for an item" value={search} onChange={e => setSearch(e.target.value)}></input>
-                    <button className="searchSubmit"></button>
+                    <button className="searchSubmit"><i class="fas fa-search"></i></button>
                 </span>
             </div>
         </>
