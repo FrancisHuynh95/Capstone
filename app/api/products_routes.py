@@ -19,6 +19,30 @@ def get_product_by_id(id):
     products = Product.query.get(id)
     return products.to_dict()
 
+@product_routes.route('/<string:keyword>')
+def get_filtered_product_by_id(keyword):
+
+
+    singleKeywords = keyword.split()
+
+    productList = [Product.query.filter(Product.name.ilike(f'%{keyword}%' or Product.description.ilike(f'%{keyword}%'))).all()
+    for keyword in singleKeywords]
+
+    def new_array(productList):
+        array = []
+        for product in productList:
+            if isinstance(product, list):
+                array.extend(new_array(product))
+            else:
+                array.append(product)
+        return array
+
+    newProductList = new_array(productList)
+
+    res = [product.to_dict_no_user_no_review() for product in newProductList]
+    return res
+
+
 @product_routes.route('/new', methods=['POST'])
 @login_required
 def create_product():

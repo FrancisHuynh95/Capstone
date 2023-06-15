@@ -89,13 +89,10 @@ export const createProductThunk = (product) => async (dispatch) => {
     }
 }
 export const getFilteredProductThunk = (keyword) => async (dispatch) => {
-    const response = await fetch(`/products/new`, {
-        method: 'POST',
-        body: keyword
-    })
+    const response = await fetch(`/products/${keyword}`)
     if(response.ok){
         const newProduct = await response.json()
-        await dispatch(getFilteredProductThunk(newProduct))
+        dispatch(getFilteredProducts(newProduct))
     } else {
         return ("Response is not okay!!!!!!!")
     }
@@ -169,17 +166,17 @@ export const updateReviewThunk = (reviewData, productId, id ) => async (dispatch
     }
 }
 
-const initalState = { products: {}, singleProduct: {}}
+const initalState = { products: {}, singleProduct: {}, filteredProduct: {}}
 const productReducer = (state = initalState, action) => {
     let newState;
     switch(action.type) {
         case GET_ALL_PRODUCTS:
-            newState = {products: {}, singleProduct: {}}
+            newState = {products: {}, singleProduct: {}, filteredProduct: {...state.filteredProduct}}
             action.products.forEach(product => { newState.products[product.id] = product})
             return newState
         case GET_FILTERED_PRODUCTS:
-            newState = {products: {}, singleProduct: {}}
-            action.products.forEach(product => { newState.products[product.id] = product})
+            newState = {products: {}, singleProduct: {}, filteredProduct: {}}
+            action.products.forEach(product => { newState.filteredProduct[product.id] = product})
             return newState
         case GET_SINGLE_PRODUCT:
             newState = {products: {}, singleProduct: {}}
