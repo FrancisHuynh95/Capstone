@@ -9,7 +9,6 @@ const DeleteReviewModal = ({ review_id, product_id }) => {
 
     const handleYes = async () => {
         await dispatch(deleteReviewThunk(review_id, product_id))
-        dispatch(getAllProductsThunk())
         closeModal()
     }
     return (

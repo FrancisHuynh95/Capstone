@@ -40,7 +40,6 @@ const CreateReviewModal = ({productId}) => {
         if(review.length < 10) theError.review = "Review must be at least 10 characters"
         if(!stars) theError.stars = "Please select the stars"
         setErrors(theError)
-        dispatch(getAllProductsThunk())
     }, [newReview, review, stars])
 
     return (

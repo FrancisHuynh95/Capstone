@@ -48,7 +48,6 @@ const UpdateReviewModal = ({ product_id, review_id }) => {
             "user_id": user.id
         }
         await dispatch(updateReviewThunk(reviewData, product_id, review_id))
-        dispatch(getAllProductsThunk())
         closeModal()
     }
     return (

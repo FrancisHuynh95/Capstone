@@ -98,6 +98,7 @@ export const deleteProductThunk = (id) => async (dispatch) => {
     if(response.ok){
         const deleted = await response.json()
         await dispatch(deleteProduct(id))
+        dispatch(getAllProductsThunk())
     } else {
         return "DID NOT DELETE"
     }
@@ -109,7 +110,7 @@ export const updateProductThunk = (formData, productId) => async (dispatch) => {
         body: formData
     })
     if(response.ok){
-        await dispatch(getSingleProductThunk(productId))
+        await dispatch(getAllProductsThunk())
     } else {
         return
     }
@@ -124,7 +125,7 @@ export const createReviewThunk = (review, productId) => async (dispatch) => {
     })
     if(res.ok){
         const response = await res.json()
-        await dispatch(getSingleProductThunk(productId))
+        await dispatch(getAllProductsThunk())
         return response;
     } else {
         return "CREATE REVIEW THUNK ERROR"
