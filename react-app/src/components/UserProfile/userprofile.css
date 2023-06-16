@@ -1,4 +1,4 @@
-.userProductsEverything{
+@media screen and (min-width: 861px){.userProductsEverything{
     display: flex;
     justify-content: start;
     align-items: center;
@@ -90,4 +90,106 @@
 .user_product_name {
     font-size: larger;
     font-weight: 700;
+}
+}
+@media screen and (max-width: 860px){
+    .userProductsEverything{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    width: fit-content;
+    border-bottom: 2px solid black;
+    padding-bottom: 15px;
+}
+
+.userProductsContainer {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: 23%;
+}
+
+.UserProductImg {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.UserProductPic{
+    height: 100%;
+    width: 100%;
+}
+
+.UserProductImg{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    background-color: white;
+}
+
+.userProfileProduct {
+    text-decoration: none;
+    color: black;
+}
+
+#updateProductUserProfile{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    padding: 5px 15px;
+    border-radius: 15px;
+}
+.userButtons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+.userButtonsReview{
+    width: 100%;
+    gap: 25px;
+}
+.userButtons > .buttonName {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+.userUpdateReviewModal > .buttonName{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    padding: 5px 20px;
+    border-radius: 15px;
+}
+.userDeleteReviewModal > .buttonName{
+    background-color:black;
+    color: white;
+    cursor: pointer;
+    padding: 5px 20px;
+    border-radius: 15px;
+}
+.userButtonsReview {
+    display: flex;
+}
+
+.user_product_name_review{
+    word-break: break-all;
+}
+
+.user_product_name {
+    font-size: larger;
+    font-weight: 700;
+}
+}
+
+.userProfileH1,
+.userProfileH2 {
+    text-align: center;
 }

@@ -35,8 +35,8 @@ const UserProfile = () => {
     if (!user) return <h2>Please login to view your profile</h2>
     return (
         <>
-            <h1>User Profile</h1>
-            <h2>My Products</h2>
+            <h1 className="userProfileH1">User Profile</h1>
+            <h2 className="userProfileH2">My Products</h2>
             <div className="userProductsEverything">
                 {filiteredProducts.map(product =>
                     <div className="userProductsContainer">
