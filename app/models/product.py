@@ -1,5 +1,6 @@
 from .db import db, add_prefix_for_prod, environment, SCHEMA
-from .product_review import product_reviews
+
+
 
 
 class Product(db.Model):
@@ -28,6 +29,10 @@ class Product(db.Model):
     reviews = db.relationship(
         "Review",
         back_populates="product"
+    )
+    cartUser = db.relationship(
+        "Cart",
+        back_populates="products"
     )
 
     def to_dict(self):

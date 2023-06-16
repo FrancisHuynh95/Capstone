@@ -11,7 +11,9 @@ import UpdateProduct from "./components/updateProduct";
 import BackgroundColor from "./components/home/background-color";
 import Footer from "./components/Footer";
 import UserProfile from "./components/UserProfile";
-
+import UserCart from "./components/userCart";
+import Uhoh from "./components/uhoh";
+import FilteredProduct from "./components/FilteredProductPage";
 
 
 function App() {
@@ -33,6 +35,9 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route path="/user/:userId/cart">
+            <UserCart />
+          </Route>
           <Route path="/user">
             <UserProfile />
           </Route>
@@ -45,10 +50,13 @@ function App() {
           <Route path="/product/:productId">
             <ProductById />
           </Route>
-          <Route path="/">
-            <BackgroundColor />
-            {/* <Footer/> */}
+          <Route path="/search">
+            <FilteredProduct />
           </Route>
+          <Route exact path="/">
+            <BackgroundColor />
+          </Route>
+          < Uhoh />
         </Switch>
         </>
       )}

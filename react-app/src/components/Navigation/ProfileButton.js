@@ -7,7 +7,7 @@ import SignupFormModal from "../SignupFormModal";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { NavLink } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -15,6 +15,7 @@ function ProfileButton({ user }) {
   const ulRef = useRef();
   const history = useHistory()
   const {closeModal} = useModal()
+
 
   const openMenu = () => {
     if (showMenu) return;

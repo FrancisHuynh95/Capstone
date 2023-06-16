@@ -40,8 +40,8 @@
 
 .newProduct {
   display: flex;
-  width: 100%;
   justify-content: center;
+  width: 30%;
 }
 
 .UserButton {
@@ -102,19 +102,42 @@ li {
   justify-content: center;
   width: 100%;
 }
-.loginButtonModal {
-  border-bottom: 1px solid black;
+.cart_button {
+  text-decoration: none;
+  color: black;
+  position: relative;
+  bottom: 35px;
 }
 
-.loginButtonModal > .buttonName {
-  border: none;
-  background-color: transparent;
-  padding-bottom: 6px;
+.cartAmount{
+  position: relative;
+  bottom: 15px;
+  left: 20px;
 }
 
-.signupButtonModal > .buttonName {
+.searchBarContainer {
+  width: 100%;
+  /* border: 1px solid black; */
+  text-align: center;
+}
+
+.searchBar {
+  width: 80%;
   border: none;
-  padding-top: 6px;
-  background-color: transparent;
+  flex-grow: 1;
+  border-radius: 3px;
+  padding: 5px;
+}
+.searchBar:focus{
+  outline: none;
+}
+
+.searchSubmit{
+  height: 100%;
+  background-color: white;
+  border: none;
+  position: relative;
+  right: 25px;
+  border-radius: 3px;
 
 }

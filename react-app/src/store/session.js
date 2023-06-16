@@ -2,6 +2,7 @@
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
 
+
 const setUser = (user) => ({
 	type: SET_USER,
 	payload: user,
@@ -95,7 +96,6 @@ export const signUp = (username, email, password, first_name, last_name) => asyn
 		return ["An error occurred. Please try again."];
 	}
 };
-
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_USER:

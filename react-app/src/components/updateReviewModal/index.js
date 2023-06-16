@@ -9,20 +9,31 @@ import "./updateReview.css"
 
 const UpdateReviewModal = ({ product_id, review_id }) => {
     const user = useSelector(state => state.session.user)
+    const allProducts = useSelector(state => state.product.products)
+    const singleProduct = useSelector(state => state.product.singleProduct)
+    const allProductArray1 = Object.values(allProducts)
+
+    let reviewArray
+    for (let i = 0; i < allProductArray1.length; i++) {
+        for (let j = 0; j < allProductArray1[i].reviews.length; j++) {
+            if (allProductArray1[i].reviews[j].id === review_id) {
+                reviewArray = (allProductArray1[i].reviews[j])
+            }
+        }
+    }
     const { closeModal } = useModal()
     const dispatch = useDispatch()
     const [review, setReview] = useState("")
     const [stars, setStars] = useState(0)
-    const [error, setError] = useState({})
-    const singleProduct = useSelector(state => state.product.singleProduct)
-    const singleProductObj = Object.values(singleProduct)
-    const reviewArray = singleProductObj[0].reviews
+    const [error, setErrors] = useState({})
+
 
     useEffect(() => {
-        const errorObj = {}
-        if (review.length < 10) errorObj.review = "Review must be at least 10 characters!"
-        setError(errorObj)
-    }, [review, stars])
+        if (reviewArray?.review) setReview(reviewArray?.review)
+        if (reviewArray?.star_rating) setStars(reviewArray?.star_rating)
+
+    }, [allProducts, dispatch])
+
     const onChange = (number) => {
         setStars(parseInt(number));
     };

@@ -97,6 +97,10 @@
     cursor: pointer;
 }
 
+.updateReviewButtons {
+    padding-bottom: 10px;
+}
+
 .isUserButtons{
     display: flex;
     gap: 10px;
@@ -151,7 +155,16 @@
     font-size: 15px;
     margin-top: 10px;
     cursor: pointer;
+}
 
+.addToCart{
+    background-color: black;
+    color: white;
+    border-radius: 50px;
+    padding: 6px 40px;
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
 }
 
 .createReviewInProductIdPage > .buttonName {
@@ -162,4 +175,14 @@
     font-size: 15px;
     margin-top: 10px;
     cursor: pointer;
+}
+
+.userReviewsContainer {
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+.productIdReviews {
+    border-bottom: 1px solid black;
+
 }
