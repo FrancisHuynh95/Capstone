@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import StarRating from "./stars"
-import { createReviewThunk } from "../../store/product"
+import { createReviewThunk, getAllProductsThunk } from "../../store/product"
 import { useModal } from "../../context/Modal"
 import { useSelector } from "react-redux"
 import { getSingleProductThunk } from "../../store/product"
@@ -9,7 +9,7 @@ import './createReview.css'
 
 const CreateReviewModal = ({productId}) => {
     const user = useSelector(state => state.session.user)
-    const singleSpot = useSelector(state => state.product.singleProduct)
+    const allProducts = useSelector(state => state.product.products)
     const newReview = useSelector(state => state.review)
     const {closeModal} = useModal()
     const dispatch = useDispatch()
@@ -40,7 +40,7 @@ const CreateReviewModal = ({productId}) => {
         if(review.length < 10) theError.review = "Review must be at least 10 characters"
         if(!stars) theError.stars = "Please select the stars"
         setErrors(theError)
-        dispatch(getSingleProductThunk(productId))
+        dispatch(getAllProductsThunk())
     }, [newReview, review, stars])
 
     return (

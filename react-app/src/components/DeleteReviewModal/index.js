@@ -1,6 +1,6 @@
 import { useModal } from "../../context/Modal"
 import { useDispatch } from "react-redux"
-import { deleteReviewThunk } from "../../store/product"
+import { deleteReviewThunk, getAllProductsThunk } from "../../store/product"
 import './deleteReview.css'
 
 const DeleteReviewModal = ({ review_id, product_id }) => {
@@ -9,6 +9,7 @@ const DeleteReviewModal = ({ review_id, product_id }) => {
 
     const handleYes = async () => {
         await dispatch(deleteReviewThunk(review_id, product_id))
+        dispatch(getAllProductsThunk())
         closeModal()
     }
     return (

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useSelector, useDispatch } from 'react-redux'
-import { getSingleProductThunk } from "../../store/product"
+import { getAllProductsThunk, getSingleProductThunk } from "../../store/product"
 import { useParams } from "react-router-dom"
 import OpenModalButton from "../OpenModalButton"
 import DeleteProductModal from "../deleteProductModal"
@@ -16,8 +16,12 @@ import { AddToCartThunk, getCartThunk } from "../../store/cart"
 function ProductById() {
     const { productId } = useParams()
     const dispatch = useDispatch()
-    const singleProduct = useSelector(state => state.product.singleProduct)
-    const singleProductArray = Object.values(singleProduct)
+    // const singleProduct = useSelector(state => state.product.singleProduct)
+    // const singleProductArray = Object.values(singleProduct)
+    const allProducts = useSelector(state => state.product.products)
+    const allProductsArray = Object.values(allProducts)
+    const singleProductArray = allProductsArray.filter(product => product.id === +productId)
+    console.log(singleProductArray)
 
     const cart = useSelector(state => state.cart.cart)
     const cartArray = Object.values(cart)
@@ -38,10 +42,13 @@ function ProductById() {
         imgArray.push(singleProductArray[0].product_img5)
     }
 
+    useEffect(() => {
+        dispatch(getAllProductsThunk())
+    }, [dispatch])
+
 
     useEffect(() => {
         setBigImg(imgArray.length > 0 ? imgArray[0] : "")
-        dispatch(getSingleProductThunk(productId))
         dispatch(getCartThunk())
     }, [dispatch, imgArray.length, singleProductArray.reviews])
 
@@ -89,6 +96,14 @@ function ProductById() {
                             </div>
                         </div>
                         <div className="show-reviews">
+                        {singleProductArray[0].reviews.length === 0 && <p>The Product doesn't have a review yet</p>}
+                            <div className="createReviewInProductIdPage">
+                            {user && singleProductArray[0].user.id !== user?.id && !hasReview() &&
+                                <OpenModalButton
+                                buttonText="Create Review"
+                                modalComponent={<CreateReviewModal productId={productId} />}
+                                />
+                            }
                             {singleProductArray[0] && singleProductArray[0].reviews.toReversed().map(review =>
                                 <div className="productIdReviews">
                                     <div className="reviewer_and_star_rating">
@@ -116,14 +131,7 @@ function ProductById() {
                                     }
                                 </div>
                             )}
-                            {singleProductArray[0].reviews.length === 0 && <p>The Product doesn't have a review yet</p>}
-                            <div className="createReviewInProductIdPage">
-                            {user && singleProductArray[0].user.id !== user?.id && !hasReview() &&
-                                <OpenModalButton
-                                buttonText="Create Review"
-                                modalComponent={<CreateReviewModal productId={productId} />}
-                                />
-                            }
+
                             </div>
                         </div>
                     </div>
