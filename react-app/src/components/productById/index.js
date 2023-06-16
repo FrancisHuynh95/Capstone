@@ -68,7 +68,7 @@ function ProductById() {
     if (!singleProductArray) return <p>oopsies</p>
     if (!user) return <p>oopsies</p>
     return (
-        <>
+        <div className="singleProductContainer">
             {singleProductArray.map(product =>
                 <div className="singleProduct">
                     <div className="image_and_review">
@@ -145,7 +145,7 @@ function ProductById() {
                     </div>
                 </div>
             )}
-        </>
+        </div>
     )
 }
 

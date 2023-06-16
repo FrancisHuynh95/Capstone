@@ -1,34 +1,308 @@
-.product_img_product_page{
-    display:flex;
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+@media screen and (min-width: 861px) {
+    .product_img_product_page {
+        display: flex;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+
+    .product_img_product_page:hover {
+        cursor: pointer;
+        box-shadow: 1px 2px 15px 5px gray;
+        translate: 5px;
+    }
+
+    .pics-carasol {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        width: fit-content;
+    }
+
+    .the_big_image {
+        height: 325px;
+        width: 550px;
+        object-fit: cover;
+    }
+
+    .image_container {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .the_big_image_container {
+        width: fit-content;
+        height: fit-content;
+    }
+
+    .isUserButtons>button {
+        background-color: white;
+        color: black;
+        border-radius: 50px;
+        padding: 6px 40px;
+        font-size: 15px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .updateReviewButtons>button {
+        background-color: black;
+        color: white;
+        border-radius: 50px;
+        padding: 3px 20px;
+        font-size: 15px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .updateReviewButtons {
+        padding-bottom: 10px;
+    }
+
+    .isUserButtons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .updateReviewButtons {
+        display: flex;
+        gap: 10px;
+
+    }
+
+    .singleProduct {
+        display: flex;
+    }
+
+    .image_and_review {
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+    }
+
+    .product_information {
+        display: flex;
+        flex-direction: column;
+        width: 28%;
+    }
+
+    .productIdReview {
+        width: 90%;
+        word-wrap: break-word;
+    }
+
+    .userProfileProductDescription {
+        word-wrap: break-word;
+    }
+
+    .updateReviewButtonInProductPage>.buttonName {
+        color: black;
+        background-color: white;
+        border-radius: 50px;
+        padding: 3px 20px;
+        font-size: 15px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .productIdDeleteProductModal>.buttonName {
+        background-color: black;
+        color: white;
+        border-radius: 50px;
+        padding: 6px 40px;
+        font-size: 15px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .addToCart {
+        background-color: black;
+        color: white;
+        border-radius: 50px;
+        padding: 6px 40px;
+        font-size: 15px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .createReviewInProductIdPage>.buttonName {
+        color: black;
+        background-color: white;
+        border-radius: 50px;
+        padding: 3px 20px;
+        font-size: 15px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .userReviewsContainer {
+        padding-bottom: 10px;
+        border-bottom: 1px solid black;
+    }
+
+    .productIdReviews {
+        border-bottom: 1px solid black;
+
+    }
 }
 
-.product_img_product_page:hover {
-    cursor: pointer;
-    box-shadow: 1px 2px 15px 5px gray;
-    translate: 5px;
-}
+@media screen and (max-width: 860px) {
 
-.pics-carasol{
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-    width: fit-content;
-}
+    .product_img_product_page {
+        display: flex;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
 
-.the_big_image {
-    height: 325px;
-    width: 550px;
-    object-fit: cover;
+    .product_img_product_page:hover {
+        cursor: pointer;
+        box-shadow: 1px 2px 15px 5px gray;
+        translate: 5px;
+    }
+
+    .pics-carasol {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        width: fit-content;
+    }
+
+    .the_big_image {
+        height: 325px;
+        width: 550px;
+        object-fit: cover;
+    }
+
+    .image_container {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .the_big_image_container {
+        width: fit-content;
+        height: fit-content;
+    }
+
+    .isUserButtons>button {
+        background-color: white;
+        color: black;
+        border-radius: 50px;
+        padding: 6px 40px;
+        font-size: 15px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .updateReviewButtons>button {
+        background-color: black;
+        color: white;
+        border-radius: 50px;
+        padding: 3px 20px;
+        font-size: 15px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .updateReviewButtons {
+        padding-bottom: 10px;
+    }
+
+    .isUserButtons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .updateReviewButtons {
+        display: flex;
+        gap: 10px;
+
+    }
+
+    .singleProduct {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .image_and_review {
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    .product_information {
+        grid-row-start: 0;
+        grid-row-end: 1;
+
+    }
+
+    .productIdReview {
+        width: 90%;
+        word-wrap: break-word;
+    }
+
+    .userProfileProductDescription {
+        word-wrap: break-word;
+    }
+
+    .updateReviewButtonInProductPage>.buttonName {
+        color: black;
+        background-color: white;
+        border-radius: 50px;
+        padding: 3px 20px;
+        font-size: 15px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .productIdDeleteProductModal>.buttonName {
+        background-color: black;
+        color: white;
+        border-radius: 50px;
+        padding: 6px 40px;
+        font-size: 15px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .addToCart {
+        background-color: black;
+        color: white;
+        border-radius: 50px;
+        padding: 6px 40px;
+        font-size: 15px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .createReviewInProductIdPage>.buttonName {
+        color: black;
+        background-color: white;
+        border-radius: 50px;
+        padding: 3px 20px;
+        font-size: 15px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .userReviewsContainer {
+        padding-bottom: 10px;
+        border-bottom: 1px solid black;
+    }
+
+    .productIdReviews {
+        border-bottom: 1px solid black;
+
+    }
 }
 
 @media screen and (max-width: 1095px) {
     .image_container {
         width: 90%
     }
-    .the_big_image{
+
+    .the_big_image {
         height: 100%;
         width: 100%;
         object-fit: cover;
@@ -42,147 +316,32 @@
         box-shadow: 1px 2px 15px 5px gray;
         translate: 5px;
     }
-    .product_img_product_page{
-        display:flex;
+
+    .product_img_product_page {
+        display: flex;
         width: 75%;
         height: 75%;
         object-fit: cover;
     }
+
     .pics-carasol {
         width: 30%
     }
+
     .image_container {
         width: 100%
     }
-    .the_big_image{
+
+    .the_big_image {
         height: 70%;
         width: 70%;
         object-fit: cover;
     }
+
     .the_big_image_container {
         display: flex;
         justify-content: center;
         align-items: center;
 
     }
-}
-
-.image_container {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
-.the_big_image_container {
-    width: fit-content;
-    height: fit-content;
-}
-
-.isUserButtons > button {
-    background-color: white;
-    color: black;
-    border-radius: 50px;
-    padding: 6px 40px;
-    font-size: 15px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-.updateReviewButtons > button {
-    background-color: black;
-    color: white;
-    border-radius: 50px;
-    padding: 3px 20px;
-    font-size: 15px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.updateReviewButtons {
-    padding-bottom: 10px;
-}
-
-.isUserButtons{
-    display: flex;
-    gap: 10px;
-}
-
-.updateReviewButtons{
-    display: flex;
-    gap: 10px;
-
-}
-
-.singleProduct {
-    display: flex;
-}
-
-.image_and_review {
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-}
-
-.product_information{
-    display: flex;
-    flex-direction: column;
-    width: 28%;
-}
-
-.productIdReview{
-    width: 90%;
-    word-wrap: break-word;
-}
-
-.userProfileProductDescription {
-    word-wrap: break-word;
-}
-
-.updateReviewButtonInProductPage > .buttonName{
-    color:black;
-    background-color: white;
-    border-radius: 50px;
-    padding: 3px 20px;
-    font-size: 15px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.productIdDeleteProductModal > .buttonName {
-    background-color: black;
-    color: white;
-    border-radius: 50px;
-    padding: 6px 40px;
-    font-size: 15px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.addToCart{
-    background-color: black;
-    color: white;
-    border-radius: 50px;
-    padding: 6px 40px;
-    font-size: 15px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.createReviewInProductIdPage > .buttonName {
-    color:black;
-    background-color: white;
-    border-radius: 50px;
-    padding: 3px 20px;
-    font-size: 15px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.userReviewsContainer {
-    padding-bottom: 10px;
-    border-bottom: 1px solid black;
-}
-
-.productIdReviews {
-    border-bottom: 1px solid black;
-
 }

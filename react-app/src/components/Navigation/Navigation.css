@@ -11,6 +11,12 @@
   width: 150px;
 }
 
+.socialsAndProfile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .userButtonProfileThingButton {
   width: 80%;
   margin-bottom: 5px;
