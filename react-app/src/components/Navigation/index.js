@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 import { getCartThunk } from '../../store/cart';
 import Search from './search';
 
-function Navigation({ isLoaded }){
+function Navigation({ isLoaded }) {
 	const dispatch = useDispatch()
 	const sessionUser = useSelector(state => state.session.user);
 	const cart = useSelector(state => state.cart.cart)
@@ -19,7 +19,7 @@ function Navigation({ isLoaded }){
 
 	useEffect(() => {
 		dispatch(getCartThunk())
-	},[dispatch])
+	}, [dispatch])
 
 	return (
 		<div className='navBar'>
@@ -36,20 +36,22 @@ function Navigation({ isLoaded }){
 			</div>
 			<div className='cartIcon'>
 				<p className="cartAmount">{`${amount}`}</p>
-            <NavLink className="cart_button" exact to={`/user/${sessionUser?.id}/cart`}><i class="fas fa-shopping-cart fa-lg"></i></NavLink>
-            </div>
-			<div className='socials'>
-				<OpenModalButton
-				className="socialsButton"
-				buttonText="Contact Me"
-				modalComponent={<SocialsModal />}
-				/>
+				<NavLink className="cart_button" exact to={`/user/${sessionUser?.id}/cart`}><i class="fas fa-shopping-cart fa-lg"></i></NavLink>
 			</div>
-			{isLoaded && (
-				<div>
-					<ProfileButton user={sessionUser} />
+			<div className='socialsAndProfile'>
+				<div className='socials'>
+					<OpenModalButton
+						className="socialsButton"
+						buttonText="Contact Me"
+						modalComponent={<SocialsModal />}
+					/>
 				</div>
-			)}
+				{isLoaded && (
+					<div className='profileButtonContainer'>
+						<ProfileButton user={sessionUser} />
+					</div>
+				)}
+			</div>
 		</div>
 	);
 }
