@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom/cjs/react-router-dom.min"
 
 
 function FilteredProduct() {
-    const unfilteredProducts = useSelector(state => state.product.products)
+    const unfilteredProducts = useSelector(state => state.product.filteredProduct)
     const productSet = new Set()
 
     for (let product in unfilteredProducts) {

@@ -38,7 +38,7 @@ function UserCart() {
             allTotal += total[price]
         }
         res.allTotal = totalQ
-        return allTotal
+        return (allTotal).toFixed(2)
     }
 
     if (!cartObj || !allProducts) return <p>Loading</p>

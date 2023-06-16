@@ -15,12 +15,13 @@ import { AddToCartThunk, getCartThunk } from "../../store/cart"
 
 function ProductById() {
     const { productId } = useParams()
+    const user = useSelector(state => state.session.user)
     const dispatch = useDispatch()
     // const singleProduct = useSelector(state => state.product.singleProduct)
     // const singleProductArray = Object.values(singleProduct)
     const allProducts = useSelector(state => state.product.products)
     const allProductsArray = Object.values(allProducts)
-    const singleProductArray = allProductsArray.filter(product => product.id === +productId)
+    const singleProductArray = allProductsArray?.filter(product => product.id === +productId)
     console.log(singleProductArray)
 
     const cart = useSelector(state => state.cart.cart)
@@ -29,7 +30,6 @@ function ProductById() {
 
 
     const history = useHistory()
-    const user = useSelector(state => state.session.user)
     let imgArray = []
     const [bigImg, setBigImg] = useState("")
     const [submitted, setSubmitted] = useState(false)
@@ -55,7 +55,7 @@ function ProductById() {
 
     const hasReview = () => {
         if (singleProductArray[0]) {
-            return (singleProductArray[0].reviews).find(review => review.reviewer.id === user.id)
+            return (singleProductArray[0].reviews)?.find(review => review.reviewer.id === user.id)
         }
     }
 
@@ -66,6 +66,7 @@ function ProductById() {
 
 
     if (!singleProductArray) return <p>oopsies</p>
+    if (!user) return <p>oopsies</p>
     return (
         <>
             {singleProductArray.map(product =>
@@ -84,9 +85,9 @@ function ProductById() {
                             </div>
                         </div>
                         <div className="isUserButtons">
-                            {product.user.id === user?.id && <button onClick={() => history.push(`/product/${product.id}/update`)}>Update Product</button>}
+                            {product.user?.id === user?.id && <button onClick={() => history.push(`/product/${product.id}/update`)}>Update Product</button>}
                             <div className="productIdDeleteProductModal">
-                                {product.user.id === user?.id &&
+                                {product.user?.id === user?.id &&
                                     <OpenModalButton
                                         buttonText={`Delete Product`}
                                         modalComponent={<DeleteProductModal
@@ -96,15 +97,15 @@ function ProductById() {
                             </div>
                         </div>
                         <div className="show-reviews">
-                        {singleProductArray[0].reviews.length === 0 && <p>The Product doesn't have a review yet</p>}
+                        {singleProductArray[0].reviews?.length === 0 && <p>The Product doesn't have a review yet</p>}
                             <div className="createReviewInProductIdPage">
-                            {user && singleProductArray[0].user.id !== user?.id && !hasReview() &&
+                            {user && singleProductArray[0].user?.id !== user?.id && !hasReview() &&
                                 <OpenModalButton
                                 buttonText="Create Review"
                                 modalComponent={<CreateReviewModal productId={productId} />}
                                 />
                             }
-                            {singleProductArray[0] && singleProductArray[0].reviews.toReversed().map(review =>
+                            {singleProductArray[0] && singleProductArray[0].reviews?.toReversed().map(review =>
                                 <div className="productIdReviews">
                                     <div className="reviewer_and_star_rating">
                                         {review.star_rating === 5 && <p><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> </p>}
