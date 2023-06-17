@@ -92,6 +92,9 @@
     font-weight: 700;
 }
 }
+.user_product_name {
+    text-align: center;
+}
 @media screen and (max-width: 860px){
     .userProductsEverything{
     display: flex;
@@ -109,7 +112,7 @@
     display: flex;
     flex-direction: column;
     height: fit-content;
-    width: 23%;
+    width: 80%;
 }
 
 .UserProductImg {
