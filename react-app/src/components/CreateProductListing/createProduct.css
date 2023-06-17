@@ -1,26 +1,30 @@
-#create-product-form{
+@media screen and (max-width: 860px) {
+#create-product-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     gap: 15px;
+    height: 100%;
 }
 
-#create-product-form > label > * {
+#create-product-form>label>* {
     display: flex;
     flex-direction: column;
     align-items: start;
     width: 100%;
+}
 
+#create-product-form>label>.product_price {
+    width: 30%;
+    border: 1px solid black;
 }
-#create-product-form > label{
- width: 50%;
+
+#create-product-form > label  {
+    width: 90%;
 }
-#create-product-form > label > .product_price{
- width: 30%;
- border: 1px solid black;
-}
-div > .product_img_upload{
-width: 170px;
+
+div>.product_img_upload {
+    width: 170px;
 }
 
 ::-webkit-file-upload-button {
@@ -33,7 +37,7 @@ width: 170px;
     cursor: pointer;
 }
 
-.submit_button > button{
+.submit_button>button {
     border: none;
     background-color: black;
     color: white;
@@ -41,7 +45,7 @@ width: 170px;
     padding: 5px 15px;
 }
 
-.img_upload_area{
+.img_upload_area {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -49,7 +53,7 @@ width: 170px;
     gap: 10px;
 }
 
-.img_upload_test{
+.img_upload_test {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -57,13 +61,86 @@ width: 170px;
     gap: 5px;
 }
 
-input.product_img_upload{
+input.product_img_upload {
     width: 80px;
 }
 
 .imgInputAndFileStatus {
     display: flex;
-    width: 1000px;
+    width: fit-content;
     gap: 10px;
 }
+}
+@media screen and (min-width: 861px) {
+    #create-product-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
 
+    #create-product-form>label>* {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        width: 100%;
+
+    }
+
+    #create-product-form>label {
+        width: 50%;
+    }
+
+    #create-product-form>label>.product_price {
+        width: 30%;
+        border: 1px solid black;
+    }
+
+    div>.product_img_upload {
+        width: 170px;
+    }
+
+    ::-webkit-file-upload-button {
+        background-color: black;
+        color: white;
+        border: none;
+        width: 80px;
+        border-radius: 15px;
+        padding: 5px 0px;
+        cursor: pointer;
+    }
+
+    .submit_button>button {
+        border: none;
+        background-color: black;
+        color: white;
+        border-radius: 15px;
+        padding: 5px 15px;
+    }
+
+    .img_upload_area {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        width: 50%;
+        gap: 10px;
+    }
+
+    .img_upload_test {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        width: 300px;
+        gap: 5px;
+    }
+
+    input.product_img_upload {
+        width: 80px;
+    }
+
+    .imgInputAndFileStatus {
+        display: flex;
+        width: 1000px;
+        gap: 10px;
+    }
+}

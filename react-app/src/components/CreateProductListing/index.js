@@ -107,7 +107,7 @@ function CreateProductListing() {
     return (
         <div className="create-product-rapper">
             <form id="create-product-form" encType="multipart/form-data" onSubmit={handleSubmit} method="POST" >
-                <h1>Create Product Listing Component</h1>
+                <h1>Create Product Listing</h1>
                 {error.name && <p className="errors">{error.name}</p>}
                 {error.price && <p className="errors">{error.price}</p>}
                 {error.description && <p className="errors">{error.description}</p>}
