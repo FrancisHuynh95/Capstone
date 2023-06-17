@@ -42,7 +42,7 @@
 
 .newProduct {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   width: 30%;
 }
 
@@ -78,7 +78,7 @@ li {
 .NewProductListing {
   text-decoration: none;
   color: black;
-  font-size: larger;
+  font-size: 1.5rem;
 }
 
 .socials>button {
@@ -147,6 +147,12 @@ li {
 
 }}
 
+@media screen and (max-width: 1035px){
+  .socialsAndProfile > .socials{
+    width: fit-content;
+  }
+}
+
 @media screen and (min-width: 1920px) {
   .profile-dropdown {
     right: 350px;
@@ -197,7 +203,7 @@ li {
 .NewProductListing {
   text-decoration: none;
   color: black;
-  font-size: larger;
+  font-size: 1.5rem;
 }
 .socials>button {
   border-radius: 15px;
