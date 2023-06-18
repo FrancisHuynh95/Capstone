@@ -49,7 +49,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button id="userButtonProfileThing" onClick={openMenu}>
+      <button id={!user ? "userButtonProfileThingLoggedOut" : "userButtonProfileThing"}onClick={openMenu}>
       <i class="fas fa-user-circle fa-lg"></i>
       </button>
       <div className={ulClassName} ref={ulRef}>

@@ -200,6 +200,17 @@ li {
     background-color: transparent;
   }
 
+  #userButtonProfileThingLoggedOut{
+    display: flex;
+    position: absolute;
+    top: 220px;
+  }
+  #userButtonProfileThing{
+    display: flex;
+    position: absolute;
+    top: 245px;
+  }
+
 .NewProductListing {
   text-decoration: none;
   color: black;
@@ -232,6 +243,8 @@ li {
   border: 1px solid black;
   background-color: rgba(255, 255, 255, 0.755);
   width: 150px;
+  padding: 10px 0px;
+  gap: 5px;
 }
 }
 
