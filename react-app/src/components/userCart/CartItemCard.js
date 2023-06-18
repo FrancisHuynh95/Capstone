@@ -50,7 +50,7 @@ function CartItemCard({item}) {
             <>
                 <div className="productInfo">
                 {errors.price && <p className="errors">{`${errors.price}`}</p>}
-                <p className="product_name">{singleProduct[0]?.name}</p>
+                <p className="cart_product_name">{singleProduct[0]?.name}</p>
                 <p className="quantityxprice">$ {`${(singleProduct[0]?.price * item.quantity).toFixed(2)} `}</p>
                 <img className="cartImg" src={`${singleProduct[0]?.product_img1}`}></img>
                 </div>

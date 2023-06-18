@@ -114,7 +114,7 @@ function CreateProductListing() {
                 {error.image && <p className="errors">{error.image}</p>}
                 <label>
                     Name
-                    <input id="create_product_name" className="product_name" type="text" value={name} placeholder='Product Name' onChange={(e) => setName(e.target.value)} />
+                    <input id="create_product_name" className="product_name mediaSize" type="text" value={name} placeholder='Product Name' onChange={(e) => setName(e.target.value)} />
                 </label>
                 <label>
                     Price
