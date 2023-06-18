@@ -78,7 +78,7 @@ function UpdateProduct() {
             }
             if (product_img2) {
                 formData.append("product_img2", product_img2)
-              
+
             }
             if (product_img3) {
                 formData.append("product_img3", product_img3)
@@ -102,7 +102,7 @@ function UpdateProduct() {
     return (
         <>
             <form id="update-product-form" method="PUT" onSubmit={handleUpdateButton} encType="multipart/form-data">
-                <h1>Update Product</h1>
+                <h1 className="updateProductH1">Update Product</h1>
                 {error.name && <p className="errors">{error.name}</p>}
                 {error.price && <p className="errors">{error.price}</p>}
                 {error.description && <p className="errors">{error.description}</p>}
