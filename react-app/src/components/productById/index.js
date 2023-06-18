@@ -131,7 +131,6 @@ function ProductById() {
                                     }
                                 </div>
                             )}
-
                             </div>
                         </div>
                     </div>
