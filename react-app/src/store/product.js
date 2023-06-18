@@ -161,7 +161,7 @@ export const updateReviewThunk = (reviewData, productId, id ) => async (dispatch
     console.log('checking the res', res)
     if(res.ok){
         const response = await res.json()
-        await dispatch(getSingleProductThunk(productId))
+        await dispatch(getAllProductsThunk())
         return response
     } else {
         console.log('RES IS NOT OKAY')

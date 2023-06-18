@@ -23,10 +23,8 @@ function Search() {
     return (
         <>
             <div className="searchContainer">
-                <span>
                     <input className="searchBar" placeholder="Search for an item" value={search} onKeyPress={e => handleEnter(e)} onChange={e => setSearch(e.target.value)}></input>
                     <button onClick={() => handleSubmit()}  className="searchSubmit"><i class="fas fa-search"></i></button>
-                </span>
             </div>
         </>
     )
