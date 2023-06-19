@@ -10,6 +10,12 @@
   background-color: rgba(255, 255, 255, 0.755);
   width: 150px;
 }
+.loginButtonModal > button {
+  color: black
+}
+.signupButtonModal > button {
+  color: black
+}
 
 .profileButtonContainer{
   position: relative;
@@ -41,6 +47,7 @@
   cursor: pointer;
   border: none;
   background-color: transparent;
+  color: black;
 }
 
 .hidden {
@@ -71,13 +78,15 @@
   margin-right: 100px;
   background-color: transparent;
   border: none;
-  padding: .5rem
+  padding: .5rem;
+  color: black;
 }
 #userButtonProfileThingLoggedOut {
   margin-right: 100px;
   background-color: transparent;
   border: none;
   padding: .5rem;
+  color: black;
 }
 
 .fa-lg {
@@ -209,7 +218,9 @@ li {
     align-items: center;
     border-bottom: 1px solid black;
     padding-bottom: 15px;
-
+  }
+  .signupButtonModal > button {
+    color: black
   }
   .logo{
     height: 100px;
@@ -243,6 +254,7 @@ li {
     cursor: pointer;
     border: none;
     background-color: transparent;
+    color: black;
   }
 
   #userButtonProfileThingLoggedOut{
@@ -255,6 +267,11 @@ li {
     display: flex;
     position: absolute;
     top: 200px;
+    color: black;
+  }
+
+  .loginButtonModal > button {
+    color: black
   }
 
 .NewProductListing {
