@@ -279,7 +279,7 @@ li {
   .loginButtonModal > button {
     color: black;
     border: none;
-    background-color: white;
+    background-color: transparent;
   }
 
 .NewProductListing {
