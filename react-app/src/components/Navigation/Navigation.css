@@ -11,10 +11,14 @@
   width: 150px;
 }
 .loginButtonModal > button {
-  color: black
+  color: black;
+  border: none;
+  background-color: white;
 }
 .signupButtonModal > button {
-  color: black
+  color: black;
+  border: none;
+  background-color: white;
 }
 
 .profileButtonContainer{
@@ -220,7 +224,9 @@ li {
     padding-bottom: 15px;
   }
   .signupButtonModal > button {
-    color: black
+    color: black;
+    border: none;
+    background-color: white;
   }
   .logo{
     height: 100px;
@@ -271,7 +277,9 @@ li {
   }
 
   .loginButtonModal > button {
-    color: black
+    color: black;
+    border: none;
+    background-color: white;
   }
 
 .NewProductListing {
