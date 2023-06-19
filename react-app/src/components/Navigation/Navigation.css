@@ -10,7 +10,12 @@
   background-color: rgba(255, 255, 255, 0.755);
   width: 150px;
 }
-  .profile-dropdown-logged-out {
+
+.profileButtonContainer{
+  border: 5px solid blue;
+  position: relative;
+}
+.profile-dropdown-logged-out {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -73,7 +78,7 @@
   margin-right: 100px;
   background-color: transparent;
   border: none;
-  padding: .5rem
+  padding: .5rem;
 }
 
 .fa-lg {
@@ -169,6 +174,21 @@ li {
 }
 .searchBarWithButton {
   width: 100%;
+}
+}
+
+@media screen and (min-width: 861px){
+  .profile-dropdown {
+    position: absolute;
+    left: 0px;
+  }
+  .profile-dropdown-logged-out{
+    position: absolute;
+    left: 0px;
+  }
+  .profileButtonContainer{
+  border: 5px solid blue;
+  position: relative;
 }
 }
 
