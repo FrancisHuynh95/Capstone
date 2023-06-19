@@ -13,12 +13,12 @@
 .loginButtonModal > button {
   color: black;
   border: none;
-  background-color: white;
+  background-color: transparent;
 }
 .signupButtonModal > button {
   color: black;
   border: none;
-  background-color: white;
+  background-color: transparent;
 }
 
 .profileButtonContainer{
@@ -226,7 +226,7 @@ li {
   .signupButtonModal > button {
     color: black;
     border: none;
-    background-color: white;
+    background-color: transparent;
   }
   .logo{
     height: 100px;
