@@ -35,10 +35,10 @@ function Navigation({ isLoaded }) {
 				{sessionUser && <NavLink className="NewProductListing" exact to="/product/new">New Product Listing</NavLink>}
 			</div>
 			<div className='socialsAndProfile'>
-			<div className='cartIcon'>
+			{sessionUser && <div className='cartIcon'>
 				<p className="cartAmount">{`${amount}`}</p>
 				<NavLink className="cart_button" exact to={`/user/${sessionUser?.id}/cart`}><i class="fas fa-shopping-cart fa-lg"></i></NavLink>
-			</div>
+			</div>}
 				<div className='socials'>
 					<OpenModalButton
 						className="socialsButton"

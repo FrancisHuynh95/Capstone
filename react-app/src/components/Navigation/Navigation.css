@@ -12,7 +12,6 @@
 }
 
 .profileButtonContainer{
-  border: 5px solid blue;
   position: relative;
 }
 .profile-dropdown-logged-out {
@@ -187,7 +186,6 @@ li {
     left: 0px;
   }
   .profileButtonContainer{
-  border: 5px solid blue;
   position: relative;
 }
 }
@@ -220,6 +218,7 @@ li {
     display: flex;
     justify-content: end;
     align-items: center;
+    margin-top: 10px;
   }
   .socialsAndProfile > div{
     width: 50px;
@@ -249,7 +248,8 @@ li {
   #userButtonProfileThingLoggedOut{
     display: flex;
     position: absolute;
-    top: 170px;
+    top: 160px;
+    color: black;
   }
   #userButtonProfileThing{
     display: flex;
