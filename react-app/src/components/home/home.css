@@ -143,11 +143,13 @@
         font-weight: 500;
     }
     .welcome-back-prompt-no-name{
-        position: absolute;
-        top: 0px;
-        left: 100px;
+        text-align: center;
         font-size: 30px;
         font-weight: 500;
+        /* position: absolute;
+        top: 0px;
+        left: 80px;
+        */
     }
     .welcome-back-name {
         position: absolute;
