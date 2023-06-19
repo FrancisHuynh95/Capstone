@@ -263,6 +263,7 @@ li {
   font-size: 1.5rem;
 }
 .socials>button {
+  color: black;
   border-radius: 15px;
   background-color: transparent;
   cursor: pointer;
@@ -336,6 +337,7 @@ li {
   position: relative;
   right: 25px;
   border-radius: 3px;
+  color: black;
 }
 }
 
