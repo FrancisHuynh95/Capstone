@@ -146,7 +146,8 @@ export const deleteReviewThunk = (id, productId) => async(dispatch) => {
     })
     if(res.ok){
         const response = await res.json()
-        await dispatch(getSingleProductThunk(productId))
+        // await dispatch(getSingleProductThunk(productId))
+        await dispatch(getAllProductsThunk())
     }
 }
 
@@ -162,7 +163,7 @@ export const updateReviewThunk = (reviewData, productId, id ) => async (dispatch
         const response = await res.json()
         await dispatch(getAllProductsThunk())
         return response
-    } 
+    }
 }
 
 const initalState = { products: {}, singleProduct: {}, filteredProduct: {}}

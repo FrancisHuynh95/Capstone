@@ -10,7 +10,6 @@ import "./updateReview.css"
 const UpdateReviewModal = ({ product_id, review_id }) => {
     const user = useSelector(state => state.session.user)
     const allProducts = useSelector(state => state.product.products)
-    const singleProduct = useSelector(state => state.product.singleProduct)
     const allProductArray1 = Object.values(allProducts)
 
     let reviewArray
