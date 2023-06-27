@@ -22,7 +22,6 @@ function ProductById() {
     const allProducts = useSelector(state => state.product.products)
     const allProductsArray = Object.values(allProducts)
     const singleProductArray = allProductsArray?.filter(product => product.id === +productId)
-    console.log(singleProductArray)
 
     const cart = useSelector(state => state.cart.cart)
     const cartArray = Object.values(cart)

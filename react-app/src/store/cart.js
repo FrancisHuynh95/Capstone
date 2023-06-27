@@ -21,7 +21,6 @@ export const getCartThunk = () => async(dispatch) => {
         await dispatch(getCart(newRes))
         return newRes
     } else {
-        console.log('error in getting cart')
         return {"message": "F"}
     }
 }
@@ -50,12 +49,10 @@ export const UpdateCartThunk = (productId, amount) => async(dispatch) => {
         body: JSON.stringify(amount)
     })
     if(res.ok){
-        console.log('res is okay :D')
         const response = await res.json()
         await dispatch(getCartThunk())
         return response
     } else {
-        console.log('res is not okay D:')
         const error = await res.json()
         return error
     }

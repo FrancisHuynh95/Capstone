@@ -158,14 +158,11 @@ export const updateReviewThunk = (reviewData, productId, id ) => async (dispatch
         },
         body: JSON.stringify(reviewData)
     })
-    console.log('checking the res', res)
     if(res.ok){
         const response = await res.json()
         await dispatch(getAllProductsThunk())
         return response
-    } else {
-        console.log('RES IS NOT OKAY')
-    }
+    } 
 }
 
 const initalState = { products: {}, singleProduct: {}, filteredProduct: {}}

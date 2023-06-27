@@ -10,8 +10,6 @@ function DeleteProductModal({ product_id }) {
     const history = useHistory()
     const dispatch = useDispatch()
 
-
-    console.log('INSIDE DELETE PRODUCT MODAL', product_id)
     async function handleOnClick() {
         await dispatch(deleteProductThunk(product_id))
         closeModal()

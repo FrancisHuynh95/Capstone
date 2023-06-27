@@ -14,7 +14,6 @@ function CartItemCard({item}) {
     const [errors, setErrors] = useState({})
     const dispatch = useDispatch()
 
-    console.log(allProducts)
 
     useEffect(() => {
         dispatch(getAllProductsThunk())
