@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import StarRating from "./stars"
-import { createReviewThunk, getAllProductsThunk } from "../../store/product"
+import { createReviewThunk } from "../../store/product"
 import { useModal } from "../../context/Modal"
-import { useSelector } from "react-redux"
-import { getSingleProductThunk } from "../../store/product"
 import './createReview.css'
 
 const CreateReviewModal = ({productId}) => {

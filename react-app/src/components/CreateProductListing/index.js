@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { useSelector, useDispatch } from 'react-redux'
-import { createProductThunk } from "../../store/product"
 import { useHistory } from "react-router-dom"
+import { createProductThunk } from "../../store/product"
 import OpenModalButton from "../OpenModalButton"
 import "./createProduct.css"
 

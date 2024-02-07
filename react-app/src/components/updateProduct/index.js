@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useParams } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 import { getSingleProductThunk, updateProductThunk } from "../../store/product"
-import { useHistory } from "react-router-dom"
 import "./updateproduct.css"
 
 function UpdateProduct() {

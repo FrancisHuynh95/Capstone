@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { AddToCartThunk, UpdateCartThunk, getCartThunk, removeFromCartThunk } from "../../store/cart"
-import { useDispatch } from "react-redux"
-import { useSelector } from "react-redux"
 import { getAllProductsThunk } from "../../store/product"
 
 

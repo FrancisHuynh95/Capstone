@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react"
 import { useSelector, useDispatch } from 'react-redux'
 import { getAllProductsThunk } from "../../store/product"
-import { useParams } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 import OpenModalButton from "../OpenModalButton"
 import DeleteProductModal from "../deleteProductModal"
-import { useHistory } from "react-router-dom"
-import "./productById.css"
 import CreateReviewModal from "../CreateReviewModal"
 import DeleteReviewModal from "../DeleteReviewModal"
 import UpdateReviewModal from "../updateReviewModal"
 import { AddToCartThunk, getCartThunk } from "../../store/cart"
+import "./productById.css"
 
 
 
