@@ -1,8 +1,7 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { useSelector, useDispatch } from 'react-redux'
-import { getAllProductsThunk } from "../../store/product"
+import { getAllProductsThunk, clearAllProductsThunk } from "../../store/product"
 import { NavLink } from "react-router-dom"
-import OpenModalButton from "../OpenModalButton"
 import "./home.css"
 
 
@@ -11,12 +10,18 @@ function Home() {
     const allProductArray1 = Object.values(allProducts)
     const dispatch = useDispatch()
 
-    const allProductArray = allProductArray1.sort((a, b) => Math.random() - Math.random())
+    let allProductArray = allProductArray1.sort((a, b) => Math.random() - Math.random())
+
+    // useEffect(() => {
+    //     allProductArray = [];
+    //     dispatch(clearAllProductsThunk());
+    // },[])
 
     useEffect(() => {
-        dispatch(getAllProductsThunk())
+            dispatch(getAllProductsThunk());
     }, [dispatch])
-    return (
+
+    return allProductArray.length ?  (
         <>
             <div className="product_card_container">
                 {allProductArray.map(product =>
@@ -32,7 +37,7 @@ function Home() {
                 }
             </div>
         </>
-    )
+    ) : <h1>Loading...</h1>
 }
 
 export default Home

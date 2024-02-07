@@ -4,6 +4,13 @@ const CREATE_PRODUCT = "/CREATEPRODUCT"
 const DELETE_PRODUCT = "/DELETEPRODUCT"
 const ALL_REVIEWS = '/ALLREVIEW'
 const GET_FILTERED_PRODUCTS = '/GET_FILTERED_PRODUCTS'
+const CLEAR_PRODUCTS = "/CLEAR_PRODUCTS"
+
+const clearProducts = () => {
+    return {
+        type: CLEAR_PRODUCTS
+    }
+}
 
 const getProducts = (products) => {
     return {
@@ -45,6 +52,10 @@ const deleteProduct = (id) => {
         type: DELETE_PRODUCT,
         id
     }
+}
+
+export const clearAllProductsThunk = () => async(dispatch) => {
+    await dispatch(clearProducts())
 }
 
 export const getAllProductsThunk = () => async (dispatch) => {
@@ -191,6 +202,9 @@ const productReducer = (state = initalState, action) => {
             delete newState.singleProduct[action.id]
             delete newState.products[action.id]
             return newState
+        case CLEAR_PRODUCTS:
+            newState = {products: {}, singleProduct: {}}
+            return newState;
         default:
             return state;
     }

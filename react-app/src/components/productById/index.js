@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useSelector, useDispatch } from 'react-redux'
-import { getAllProductsThunk, getSingleProductThunk } from "../../store/product"
+import { getAllProductsThunk } from "../../store/product"
 import { useParams } from "react-router-dom"
 import OpenModalButton from "../OpenModalButton"
 import DeleteProductModal from "../deleteProductModal"
@@ -17,8 +17,6 @@ function ProductById() {
     const { productId } = useParams()
     const user = useSelector(state => state.session.user)
     const dispatch = useDispatch()
-    // const singleProduct = useSelector(state => state.product.singleProduct)
-    // const singleProductArray = Object.values(singleProduct)
     const allProducts = useSelector(state => state.product.products)
     const allProductsArray = Object.values(allProducts)
     const singleProductArray = allProductsArray?.filter(product => product.id === +productId)
