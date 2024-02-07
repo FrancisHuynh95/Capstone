@@ -204,6 +204,7 @@ const productReducer = (state = initalState, action) => {
             return newState
         case CLEAR_PRODUCTS:
             newState = {products: {}, singleProduct: {}}
+            console.log('clearing state')
             return newState;
         default:
             return state;

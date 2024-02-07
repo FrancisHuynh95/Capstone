@@ -7,10 +7,13 @@ import OpenModalButton from '../OpenModalButton';
 import SocialsModal from '../socialsModal';
 import { getCartThunk } from '../../store/cart';
 import Search from './search';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { clearAllProductsThunk } from '../../store/product';
 
 
 function Navigation({ isLoaded }) {
 	const dispatch = useDispatch()
+	const history = useHistory()
 	const sessionUser = useSelector(state => state.session.user);
 	const cart = useSelector(state => state.cart.cart)
 	const cartArray = Object.values(cart)
@@ -21,12 +24,20 @@ function Navigation({ isLoaded }) {
 		dispatch(getCartThunk())
 	}, [dispatch])
 
+	async function click(){
+		await dispatch(clearAllProductsThunk())
+		history.push('/')
+	}
+
 	return (
 		<div className='navBar'>
 			<div className='HomeButton'>
-				<NavLink exact to="/" >
+				{/* <NavLink exact to="/" >
 					<img className='logo'src='/logo.png'></img>
-				</NavLink>
+				</NavLink> */}
+				<div onClick={() => click()}>
+					<img className='logo'src='/logo.png'></img>
+				</div>
 			</div>
 			<div className='searchBarContainer'>
 				<Search />

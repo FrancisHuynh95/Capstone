@@ -11,7 +11,6 @@ import { AddToCartThunk, getCartThunk } from "../../store/cart"
 import "./productById.css"
 
 
-
 function ProductById() {
     const { productId } = useParams()
     const user = useSelector(state => state.session.user)
@@ -39,7 +38,9 @@ function ProductById() {
     }
 
     useEffect(() => {
-        dispatch(getAllProductsThunk())
+        // if(!Object.keys(allProducts).length){
+            dispatch(getAllProductsThunk())
+        // }
     }, [dispatch])
 
 
@@ -61,7 +62,7 @@ function ProductById() {
     }
 
 
-    if (!singleProductArray) return <p>oopsies</p>
+    if (!singleProductArray.length) return <h1>Loading...</h1>
     return (
         <div className="singleProductContainer">
             {singleProductArray.map(product =>

@@ -8,6 +8,7 @@ import "./home.css"
 function Home() {
     const allProducts = useSelector(state => state.product.products)
     const allProductArray1 = Object.values(allProducts)
+    const [isLoading, setIsLoading] = useState(true)
     const dispatch = useDispatch()
 
     let allProductArray = allProductArray1.sort((a, b) => Math.random() - Math.random())
@@ -19,9 +20,10 @@ function Home() {
 
     useEffect(() => {
             dispatch(getAllProductsThunk());
+            setIsLoading(false);
     }, [dispatch])
 
-    return allProductArray.length ?  (
+    return !isLoading ? (
         <>
             <div className="product_card_container">
                 {allProductArray.map(product =>
