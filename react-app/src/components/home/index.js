@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useSelector, useDispatch } from 'react-redux'
-import { getAllProductsThunk, clearAllProductsThunk } from "../../store/product"
+import { getAllProductsThunk } from "../../store/product"
 import { NavLink } from "react-router-dom"
 import "./home.css"
 
@@ -12,11 +12,6 @@ function Home() {
     const dispatch = useDispatch()
 
     let allProductArray = allProductArray1.sort((a, b) => Math.random() - Math.random())
-
-    // useEffect(() => {
-    //     allProductArray = [];
-    //     dispatch(clearAllProductsThunk());
-    // },[])
 
     useEffect(() => {
             dispatch(getAllProductsThunk());

@@ -2,12 +2,11 @@ import React, { useState } from "react"
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from "react-router-dom"
 import { createProductThunk } from "../../store/product"
-import OpenModalButton from "../OpenModalButton"
 import "./createProduct.css"
 
 function CreateProductListing() {
     const currentUser = useSelector(state => state.session.user)
-    const product = useSelector(state => state.product.singleProduct)
+    // const product = useSelector(state => state.product.singleProduct)
     const history = useHistory()
     const dispatch = useDispatch()
 
@@ -25,6 +24,7 @@ function CreateProductListing() {
     const [fileUpload4, setFileUpload4] = useState("No file uploaded")
     const [fileUpload5, setFileUpload5] = useState("No file uploaded")
     const [error, setError] = useState([])
+    const [loading, setLoading] = useState(false)
 
     const handleAddImage1 = (e) => {
         setImg1(e.target.files[0])
@@ -74,20 +74,19 @@ function CreateProductListing() {
             errorObj.description = "Description must be at most 200 characters"
         }
 
-        if (product_img1 === null) {
+        if (product_img1 === null || product_img2 === null || product_img3 === null) {
             errorObj.image = "Three images are required"
         }
-        if (product_img2 === null) {
-            errorObj.image = "Three images are required"
-        }
-        if (product_img3 === null) {
-            errorObj.image = "Three images are required"
-        }
+        // if (product_img2 === null) {
+        //     errorObj.image = "Three images are required"
+        // }
+        // if (product_img3 === null) {
+        //     errorObj.image = "Three images are required"
+        // }
         setError(errorObj)
         if (Object.values(errorObj).length > 0) {
             return
         } else {
-
             let price1 = ((+price).toFixed(2)).toString()
             const formData = new FormData()
             formData.append("name", name)
@@ -99,8 +98,9 @@ function CreateProductListing() {
             formData.append("uploader_id", currentUser.id)
             if (product_img4 !== null) formData.append("product_img4", product_img4)
             if (product_img5 !== null) formData.append("product_img5", product_img5)
-
+            setLoading(true)
             await dispatch(createProductThunk(formData))
+            setLoading(false)
             history.push(`/`)
         }
     }
@@ -195,10 +195,15 @@ function CreateProductListing() {
                         </div>
                     </div>
                 </div>
-
+            {!loading ?
                 <div className="submit_button">
                     <button type="submit">Submit</button>
                 </div>
+                :
+                <div className="submit_button">
+                    <img src="../spinner.svg"></img>
+                </div>
+            }
             </form>
         </div>
     )
