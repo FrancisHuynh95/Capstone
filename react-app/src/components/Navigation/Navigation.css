@@ -15,6 +15,10 @@
   border: none;
   background-color: transparent;
 }
+
+.logo:hover {
+  cursor: pointer;
+}
 .signupButtonModal > button {
   color: black;
   border: none;

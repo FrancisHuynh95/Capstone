@@ -25,7 +25,9 @@ function Navigation({ isLoaded }) {
 	}, [dispatch])
 
 	async function click(){
-		await dispatch(clearAllProductsThunk())
+		if(history.location.pathname !== "/"){
+			await dispatch(clearAllProductsThunk())
+		}
 		history.push('/')
 	}
 
