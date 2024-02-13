@@ -33,7 +33,7 @@ const UserProfile = () => {
 
     if (!allProducts) return <p>Loading</p>
     if (!user) return <h2>Please login to view your profile</h2>
-    return (
+    return allProducts ? (
         <>
             <h1 className="userProfileH1">User Profile</h1>
             <h2 className="userProfileH2">My Products</h2>
@@ -96,7 +96,8 @@ const UserProfile = () => {
                 )}
             </div>
         </>
-    )
+    ) :
+    <img src="../spinner.svg"></img>
 }
 
 export default UserProfile

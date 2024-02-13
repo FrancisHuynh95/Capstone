@@ -196,3 +196,7 @@
 .userProfileH2 {
     text-align: center;
 }
+
+.userReviews > h2 {
+    text-align: center;
+}

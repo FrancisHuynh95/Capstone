@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { AddToCartThunk, UpdateCartThunk, getCartThunk, removeFromCartThunk } from "../../store/cart"
+import { UpdateCartThunk, getCartThunk, removeFromCartThunk } from "../../store/cart"
 import { getAllProductsThunk } from "../../store/product"
 
 
-function CartItemCard({item}) {
+function CartItemCard({ item }) {
     const allProductsObj = useSelector(state => state.product.products)
     const cartObj = useSelector(state => state.cart.cart)
     const cartArray = Object.values(cartObj)
@@ -21,10 +21,10 @@ function CartItemCard({item}) {
 
     const updateCart = () => {
         let errorObj = {}
-        if(+quantity <= 0){
+        if (+quantity <= 0) {
             errorObj.price = "The quantity must be at least 1."
         }
-        if(Object.values(errorObj).length === 0){
+        if (Object.values(errorObj).length === 0) {
             setErrors(errorObj)
             const updateCartObj = {
                 "quantity": +quantity
@@ -47,24 +47,26 @@ function CartItemCard({item}) {
         return (
             <>
                 <div className="productInfo">
-                {errors.price && <p className="errors">{`${errors.price}`}</p>}
-                <p className="cart_product_name">{singleProduct[0]?.name}</p>
-                <p className="quantityxprice">$ {`${(singleProduct[0]?.price * item.quantity).toFixed(2)} `}</p>
-                <img className="cartImg" src={`${singleProduct[0]?.product_img1}`}></img>
+                    {errors.price && <p className="errors">{`${errors.price}`}</p>}
+                    <p className="cart_product_name">{singleProduct[0]?.name}</p>
+                    <p className="quantityxprice">$ {`${(singleProduct[0]?.price * item.quantity).toFixed(2)} `}</p>
+                    <img className="cartImg" src={`${singleProduct[0]?.product_img1}`}></img>
                 </div>
             </>
         )
     }
-    return (<div className="each-product">
-        {filteredProducts(item)}
-        <div className="userInteraction">
-        Quantity: <input className="quantitySelector" type="number" onChange={e => setQuantity(e.target.value)} value={quantity}></input>
-        <div className="update-remove">
-            <button className="updateCartButton" onClick={() => updateCart(item.product_id, item.id)}>Update</button>
-            <button className="removeCartButton" onClick={() => removeCart(item.product_id)}>Remove</button>
+    return (
+        <div className="each-product">
+            {filteredProducts(item)}
+            <div className="userInteraction">
+                Quantity: <input className="quantitySelector" type="number" onChange={e => setQuantity(e.target.value)} value={quantity}></input>
+                <div className="update-remove">
+                    <button className="updateCartButton" onClick={() => updateCart(item.product_id, item.id)}>Update</button>
+                    <button className="removeCartButton" onClick={() => removeCart(item.product_id)}>Remove</button>
+                </div>
+            </div>
         </div>
-        </div>
-    </div>)
+    )
 }
 
 export default CartItemCard
