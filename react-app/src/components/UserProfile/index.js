@@ -97,7 +97,7 @@ const UserProfile = () => {
             </div>
         </>
     ) :
-    <img src="../spinner.svg"></img>
+        <img src="../spinner.svg"></img>
 }
 
 export default UserProfile
