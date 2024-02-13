@@ -20,6 +20,7 @@ const SocialsModal = () => {
                 <a className="githubContainer" target="_blank" href="https://github.com/FrancisHuynh95">
                     <i className='githubIcon' class="fab fa-github fa-lg"></i></a>
             </div>
+            <a className="portfolio" target="_blank" href="https://francishuynh95.github.io/">Portfolio</a>
         </div>
         </>
     )
