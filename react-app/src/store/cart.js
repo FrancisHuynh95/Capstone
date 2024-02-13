@@ -21,7 +21,7 @@ export const getCartThunk = () => async(dispatch) => {
         await dispatch(getCart(newRes))
         return newRes
     } else {
-        return {"message": "F"}
+        return {"Error": "Failed to retrieve cart"}
     }
 }
 
@@ -53,8 +53,7 @@ export const UpdateCartThunk = (productId, amount) => async(dispatch) => {
         await dispatch(getCartThunk())
         return response
     } else {
-        const error = await res.json()
-        return error
+        return {"Error": "There was a problem updating the cart"}
     }
 }
 
