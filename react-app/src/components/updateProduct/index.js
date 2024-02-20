@@ -5,94 +5,96 @@ import { getSingleProductThunk, updateProductThunk } from "../../store/product"
 import "./updateproduct.css"
 
 function UpdateProduct() {
-    const currentProduct = useSelector(state => state.product.singleProduct)
-    const currentProductArray = Object.values(currentProduct)
-    const history = useHistory()
-    const dispatch = useDispatch()
-    const { productId } = useParams()
+    const currentProduct = useSelector(state => state.product.singleProduct);
+    const currentProductArray = Object.values(currentProduct);
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const { productId } = useParams();
 
-    const [name, setName] = useState("")
-    const [price, setPrice] = useState(0)
-    const [description, setDescription] = useState("")
-    const [product_img1, setImg1] = useState(null)
-    const [product_img2, setImg2] = useState(null)
-    const [product_img3, setImg3] = useState(null)
-    const [product_img4, setImg4] = useState(null)
-    const [product_img5, setImg5] = useState(null)
-    const [fileUpload1, setFileUpload1] = useState("No file uploaded")
-    const [fileUpload2, setFileUpload2] = useState("No file uploaded")
-    const [fileUpload3, setFileUpload3] = useState("No file uploaded")
-    const [fileUpload4, setFileUpload4] = useState("No file uploaded")
-    const [fileUpload5, setFileUpload5] = useState("No file uploaded")
-    const [error, setError] = useState([])
+    const [name, setName] = useState("");
+    const [price, setPrice] = useState(0);
+    const [description, setDescription] = useState("");
+    const [product_img1, setImg1] = useState(null);
+    const [product_img2, setImg2] = useState(null);
+    const [product_img3, setImg3] = useState(null);
+    const [product_img4, setImg4] = useState(null);
+    const [product_img5, setImg5] = useState(null);
+    const [fileUpload1, setFileUpload1] = useState("No file uploaded");
+    const [fileUpload2, setFileUpload2] = useState("No file uploaded");
+    const [fileUpload3, setFileUpload3] = useState("No file uploaded");
+    const [fileUpload4, setFileUpload4] = useState("No file uploaded");
+    const [fileUpload5, setFileUpload5] = useState("No file uploaded");
+    const [error, setError] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        dispatch(getSingleProductThunk(productId))
+        dispatch(getSingleProductThunk(productId));
     }, [dispatch, productId])
 
     useEffect(() => {
         if (currentProductArray.length > 0) {
-            setName(currentProductArray[0].name)
-            setPrice(currentProductArray[0].price)
-            setDescription(currentProductArray[0].description)
+            setName(currentProductArray[0].name);
+            setPrice(currentProductArray[0].price);
+            setDescription(currentProductArray[0].description);
         }
     }, [productId, currentProduct])
 
     const handleUpdateButton = async (e) => {
         e.preventDefault()
-        const errorObj = {}
+        const errorObj = {};
         if (name.length === 0) {
-            errorObj.name = "Name is required"
+            errorObj.name = "Name is required";
         }
         if (name.length > 30) {
-            errorObj.name = "Name must be in between 5 and 30 characters"
+            errorObj.name = "Name must be in between 5 and 30 characters";
         }
         if (name.length < 5) {
-            errorObj.name = "Name must be in between 5 and 30 characters"
+            errorObj.name = "Name must be in between 5 and 30 characters";
         }
         if (price <= 0) {
-            errorObj.price = "Price has to be greater than 0."
+            errorObj.price = "Price has to be greater than 0.";
         }
         if (description.length === 0) {
-            errorObj.description = "Description is required."
+            errorObj.description = "Description is required.";
         }
 
         if (description.length > 200) {
-            errorObj.description = "Description must be less than 200 characters"
+            errorObj.description = "Description must be less than 200 characters";
         }
         setError(errorObj)
         if (Object.values(errorObj).length > 0) {
-            return
+            return;
         } else {
-
+            setLoading(true)
             const formData = new FormData()
-            formData.append("name", name)
-            formData.append("price", price)
+            formData.append("name", name);
+            formData.append("price", price);
 
-            formData.append("description", description)
+            formData.append("description", description);
 
             if (product_img1) {
-                formData.append("product_img1", product_img1)
+                formData.append("product_img1", product_img1);
 
             }
             if (product_img2) {
-                formData.append("product_img2", product_img2)
+                formData.append("product_img2", product_img2);
 
             }
             if (product_img3) {
-                formData.append("product_img3", product_img3)
+                formData.append("product_img3", product_img3);
 
             }
             if (product_img4) {
-                formData.append("product_img4", product_img4)
+                formData.append("product_img4", product_img4);
 
             }
             if (product_img5) {
-                formData.append("product_img5", product_img5)
+                formData.append("product_img5", product_img5);
 
             }
-            await dispatch(updateProductThunk(formData, productId))
-            history.push(`/product/${productId}`)
+            await dispatch(updateProductThunk(formData, productId));
+            setLoading(false)
+            history.push(`/product/${productId}`);
         }
     }
 
@@ -214,7 +216,7 @@ function UpdateProduct() {
 
                 </div>
                 <div className="update_submit_button">
-                    <button type="submit">Update Product</button>
+                    {!loading ? <button type="submit">Update Product</button> : <img src="/spinner.svg"></img>}
                 </div>
             </form>
         </>
