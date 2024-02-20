@@ -17,7 +17,7 @@ function LoginFormModal() {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
-      setErrors(data);
+      setErrors(["errors : No such user exists"]);
     } else {
       closeModal()
     }
@@ -38,7 +38,7 @@ function LoginFormModal() {
           <h1 className="modalH1">Log In</h1>
           <ul>
             {errors.map((error, idx) => (
-              <li className="errors" key={idx}>{error}</li>
+              <li className="errors" key={idx}>{error.split(":")[1]}</li>
             ))}
           </ul>
           <div className="userInputs">
