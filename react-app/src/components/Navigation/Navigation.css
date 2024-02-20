@@ -58,6 +58,10 @@
   color: black;
 }
 
+.usernameAndEmail > p {
+  text-align: center;
+}
+
 .hidden {
   display: none;
 }
