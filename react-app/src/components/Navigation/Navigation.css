@@ -58,8 +58,16 @@
   color: black;
 }
 
+.usernameAndEmail{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .usernameAndEmail > p {
   text-align: center;
+  margin: auto;
 }
 
 .hidden {
