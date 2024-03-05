@@ -70,11 +70,11 @@ function ProductById() {
                     <div className="image_and_review">
                         <div className="image_container">
                             <div className="pics-carasol">
-                                <img onClick={() => setBigImg(imgArray[0])} className="product_img_product_page" src={`${product.product_img1}`}></img>
-                                <img onClick={() => setBigImg(imgArray[1])} className="product_img_product_page" src={`${product.product_img2}`}></img>
-                                <img onClick={() => setBigImg(imgArray[2])} className="product_img_product_page" src={`${product.product_img3}`}></img>
-                                {product.product_img4 && <img onClick={() => setBigImg(imgArray[3])} className="product_img_product_page" src={`${product.product_img4}`}></img>}
-                                {product.product_img5 && <img onClick={() => setBigImg(imgArray[4])} className="product_img_product_page" src={`${product.product_img5}`}></img>}
+                                <img onClick={() => setBigImg(imgArray[0])} className="product_img_product_page" src={`${product.product_img1}`} alt="Product image 1"></img>
+                                <img onClick={() => setBigImg(imgArray[1])} className="product_img_product_page" src={`${product.product_img2}`} alt="Product image 2"></img>
+                                <img onClick={() => setBigImg(imgArray[2])} className="product_img_product_page" src={`${product.product_img3}`}  alt="Product image 3"></img>
+                                {product.product_img4 && <img onClick={() => setBigImg(imgArray[3])} className="product_img_product_page" src={`${product.product_img4}`}  alt="Product image 4"></img>}
+                                {product.product_img5 && <img onClick={() => setBigImg(imgArray[4])} className="product_img_product_page" src={`${product.product_img5}`}  alt="Product image 5"></img>}
                             </div>
                             <div className="the_big_image_container">
                                 <img className="the_big_image" src={bigImg}></img>
