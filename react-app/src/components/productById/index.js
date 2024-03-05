@@ -77,7 +77,7 @@ function ProductById() {
                                 {product.product_img5 && <img onClick={() => setBigImg(imgArray[4])} className="product_img_product_page" src={`${product.product_img5}`}  alt="Product 5"></img>}
                             </div>
                             <div className="the_big_image_container">
-                                <img className="the_big_image" src={bigImg}></img>
+                                <img className="the_big_image" src={bigImg} alt="main img"></img>
                             </div>
                         </div>
                         <div className="isUserButtons">

@@ -38,7 +38,7 @@ function Navigation({ isLoaded }) {
 					<img className='logo'src='/logo.png'></img>
 				</NavLink> */}
 				<div onClick={() => click()}>
-					<img className='logo'src='/logo.png'></img>
+					<img className='logo'src='/logo.png' alt='Logo'></img>
 				</div>
 			</div>
 			<div className='searchBarContainer'>

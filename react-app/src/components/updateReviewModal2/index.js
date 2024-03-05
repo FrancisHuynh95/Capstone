@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useDispatch } from "react-redux"
 import StarRating from "../updateReviewModal/stars"
-import { getSingleProductThunk, updateReviewThunk } from "../../store/product"
+import { updateReviewThunk } from "../../store/product"
 import { useModal } from "../../context/Modal"
 import { useSelector } from "react-redux"
 
@@ -9,7 +9,6 @@ import { useSelector } from "react-redux"
 const UpdateReviewModal2 = ({ product_id, review_id }) => {
     const user = useSelector(state => state.session.user)
     const allProducts = useSelector(state => state.product.products)
-    const singleProduct = useSelector(state => state.product.singleProduct)
     const allProductArray1 = Object.values(allProducts)
 
     let reviewArray

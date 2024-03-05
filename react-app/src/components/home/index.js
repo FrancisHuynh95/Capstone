@@ -25,7 +25,7 @@ function Home() {
                     <>
                         <div title={`${product.name}`} className="product_card">
                             <NavLink className="Home_NavLink" to={`/product/${product.id}`}>
-                                <img className="product_img" src={product.product_img1}></img>
+                                <img className="product_img" src={product.product_img1} alt="Product"></img>
                                 <p className="product_price_container">${(product.price).toFixed(2)}</p>
                             </NavLink>
                         </div>

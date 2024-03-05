@@ -8,7 +8,7 @@ function Uhoh() {
     return (
         <>
             <div className="uhohPage">
-                <img src="./cat404.jpg"></img>
+                <img src="./cat404.jpg" alt="error"></img>
             </div>
                 <button onClick={() => handleRedirect()}>Take me back!</button>
         </>

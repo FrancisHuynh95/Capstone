@@ -43,7 +43,7 @@ const UserProfile = () => {
                         <NavLink className="userProfileProduct" exact to={`/product/${product.id}`}>
                             <p className="user_product_name">{product.name}</p>
                             <div className="UserProductPic">
-                                <img className="UserProductImg" src={`${product.product_img1}`}></img>
+                                <img className="UserProductImg" src={`${product.product_img1}`} alt="product"></img>
                             </div>
                         </NavLink>
                         <div className="userButtons">
@@ -97,7 +97,7 @@ const UserProfile = () => {
             </div>
         </>
     ) :
-        <img src="../spinner.svg"></img>
+        <img src="../spinner.svg" alt="Loading"></img>
 }
 
 export default UserProfile

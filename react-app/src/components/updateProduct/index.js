@@ -216,7 +216,7 @@ function UpdateProduct() {
 
                 </div>
                 <div className="update_submit_button">
-                    {!loading ? <button type="submit">Update Product</button> : <img src="/spinner.svg"></img>}
+                    {!loading ? <button type="submit">Update Product</button> : <img src="/spinner.svg" alt="Loading"></img>}
                 </div>
             </form>
         </>

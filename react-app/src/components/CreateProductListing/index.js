@@ -201,7 +201,7 @@ function CreateProductListing() {
                 </div>
                 :
                 <div className="submit_button">
-                    <img src="../spinner.svg"></img>
+                    <img src="../spinner.svg" alt="Loading"></img>
                 </div>
             }
             </form>

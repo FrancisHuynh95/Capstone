@@ -7,7 +7,6 @@ import './createReview.css'
 
 const CreateReviewModal = ({productId}) => {
     const user = useSelector(state => state.session.user)
-    const allProducts = useSelector(state => state.product.products)
     const newReview = useSelector(state => state.review)
     const {closeModal} = useModal()
     const dispatch = useDispatch()

@@ -7,7 +7,6 @@ import SignupFormModal from "../SignupFormModal";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();

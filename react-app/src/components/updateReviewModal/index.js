@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useDispatch } from "react-redux"
 import StarRating from "./stars"
-import { getAllProductsThunk, updateReviewThunk } from "../../store/product"
+import { updateReviewThunk } from "../../store/product"
 import { useModal } from "../../context/Modal"
 import { useSelector } from "react-redux"
 import "./updateReview.css"
