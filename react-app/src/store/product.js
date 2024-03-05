@@ -115,7 +115,6 @@ export const deleteProductThunk = (id) => async (dispatch) => {
         method: "DELETE"
     })
     if(response.ok){
-        const deleted = await response.json()
         await dispatch(deleteProduct(id))
         dispatch(getAllProductsThunk())
     } else {
@@ -156,8 +155,6 @@ export const deleteReviewThunk = (id, productId) => async(dispatch) => {
         method:"DELETE"
     })
     if(res.ok){
-        const response = await res.json()
-        // await dispatch(getSingleProductThunk(productId))
         await dispatch(getAllProductsThunk())
     }
 }

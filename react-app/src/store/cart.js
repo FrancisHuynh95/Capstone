@@ -5,13 +5,13 @@ const getCart = (cart) => ({
     cart
 })
 
-const normalized = (cart) => {
-    let newObj = {}
-    cart.cart.forEach(cart => {
-        newObj[cart.id] = cart
-    })
-    return newObj
-}
+// const normalized = (cart) => {
+//     let newObj = {}
+//     cart.cart.forEach(cart => {
+//         newObj[cart.id] = cart
+//     })
+//     return newObj
+// }
 
 export const getCartThunk = () => async(dispatch) => {
     const res = await fetch (`/carts/`)
@@ -34,7 +34,6 @@ export const AddToCartThunk = (productId, amount) => async(dispatch) => {
         body: JSON.stringify(productId, amount)
     })
     if(res.ok){
-        const response = await res.json()
         await dispatch(getCartThunk())
     } else {
         return {"Error": "There was an error adding to the cart"}
