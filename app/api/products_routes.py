@@ -131,7 +131,7 @@ def edit_product(id):
     form = UpdateProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        print(form.data)
+        # print(form.data)
         if form.data['product_img1']:
             image = form.data['product_img1']
             image.filename = get_unique_filename(image.filename)
@@ -197,5 +197,5 @@ def edit_product(id):
         db.session.commit()
         return product.to_dict()
     else:
-        print('BAD DATA WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO')
+        # print('BAD DATA WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO')
         return form.errors
