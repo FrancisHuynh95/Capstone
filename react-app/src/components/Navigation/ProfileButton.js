@@ -7,6 +7,8 @@ import SignupFormModal from "../SignupFormModal";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { NavLink } from "react-router-dom";
+import DarkMode from "./darkMode";
+import Cookies from 'js-cookie'
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -14,6 +16,10 @@ function ProfileButton({ user }) {
   const ulRef = useRef();
   const history = useHistory()
   const {closeModal} = useModal()
+
+  //retrieving cookie for if the user set dark mode, if nothing then default to light mode
+  const darkModeEnabled = Cookies.get("theme")
+  console.log("darkModeEnabled", darkModeEnabled)
 
 
   const openMenu = () => {
@@ -65,9 +71,10 @@ function ProfileButton({ user }) {
             <NavLink onClick={() => closeMenu()} className="your_profile_button" exact to="/user"><i class="fas fa-user-circle fa"></i> Your Profile</NavLink>
             </div>
             <p>{user.email}</p>
+            <DarkMode />
           </div>
-
               <button  className="userButtonProfileThingButton" onClick={handleLogout}><i class="fas fa-sign-out-alt fa"></i> Log Out</button>
+
 
           </>
         ) : (

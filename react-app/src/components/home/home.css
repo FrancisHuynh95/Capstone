@@ -85,6 +85,10 @@
     text-decoration: underline;
 }
 
+.welcome-back-name:hover{
+    cursor: pointer;
+}
+
 .welcome_back_prompt{
     display: flex;
     justify-content: center;

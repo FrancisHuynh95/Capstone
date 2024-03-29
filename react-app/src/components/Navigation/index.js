@@ -34,9 +34,6 @@ function Navigation({ isLoaded }) {
 	return (
 		<div className='navBar'>
 			<div className='HomeButton'>
-				{/* <NavLink exact to="/" >
-					<img className='logo'src='/logo.png'></img>
-				</NavLink> */}
 				<div onClick={() => click()}>
 					<img className='logo'src='/logo.png' alt='Logo'></img>
 				</div>
