@@ -4,7 +4,7 @@ const SocialsModal = () => {
     return (
         <>
         <div className="socials">
-            <img className='software_engineer' src="/SoftwareEngineer.png"></img>
+            <img className='software_engineer' src="/SoftwareEngineer.png" alt='logo'></img>
             <div className='whatItsMadeOutOf'>
                 <h3>This website was made with:</h3>
                 <p>JavaScript</p>
@@ -15,12 +15,12 @@ const SocialsModal = () => {
             </div>
             <p className="aboutSocial">You can contact me through my social media</p>
             <div className="Socials-icon">
-                <a className="linkedInContainer" target="_blank" href="https://www.linkedin.com/in/francis-huynh-153246161/">
+                <a className="linkedInContainer" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/francis-huynh-153246161/">
                     <i className="linkedinIcon" class="fab fa-linkedin fa-lg"></i></a>
-                <a className="githubContainer" target="_blank" href="https://github.com/FrancisHuynh95">
+                <a className="githubContainer" target="_blank" rel="noreferrer" href="https://github.com/FrancisHuynh95">
                     <i className='githubIcon' class="fab fa-github fa-lg"></i></a>
             </div>
-            <a className="portfolio" target="_blank" href="https://francishuynh95.github.io/">Portfolio</a>
+            <a className="portfolio" target="_blank" rel="noreferrer" href="https://francishuynh95.github.io/">Portfolio</a>
         </div>
         </>
     )
