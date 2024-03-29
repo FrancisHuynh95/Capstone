@@ -9,10 +9,17 @@ import { getCartThunk } from '../../store/cart';
 import Search from './search';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { clearAllProductsThunk } from '../../store/product';
-
+import Cookies from 'js-cookie'
+import { useState } from 'react';
 
 function Navigation({ isLoaded }) {
-	const dispatch = useDispatch()
+	//retrieving cookie for if the user set dark mode, if nothing then default to light mode
+	const darkModeEnabled = Cookies.get("theme")
+	if(darkModeEnabled === undefined){
+		Cookies.set("theme", "false")
+	}
+	const [dark, setDark] = useState(darkModeEnabled)
+const dispatch = useDispatch()
 	const history = useHistory()
 	const sessionUser = useSelector(state => state.session.user);
 	const cart = useSelector(state => state.cart.cart)
@@ -58,7 +65,7 @@ function Navigation({ isLoaded }) {
 				</div>
 				{isLoaded && (
 					<div className='profileButtonContainer'>
-						<ProfileButton user={sessionUser} />
+						<ProfileButton user={sessionUser} dark={setDark} darkStatus={dark} />
 					</div>
 				)}
 			</div>

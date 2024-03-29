@@ -1,6 +1,10 @@
-function DarkMode({dark}){
+function DarkMode({dark, darkStatus}){
+    function onClick(){
+        dark(!darkStatus)
+        console.log(darkStatus)
+    }
     return (
-        <button>Dark Mode</button>
+        <button onClick={() => onClick()}>{darkStatus ? "Light" : "Dark"}</button>
     )
 }
 
