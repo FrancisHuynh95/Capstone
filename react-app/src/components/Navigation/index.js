@@ -31,7 +31,7 @@ function Navigation({ isLoaded }) {
 	useEffect(() => {
 		dispatch(getCartThunk())
 	}, [dispatch])
-	
+
 	async function click() {
 		if (history.location.pathname !== "/") {
 			await dispatch(clearAllProductsThunk())
