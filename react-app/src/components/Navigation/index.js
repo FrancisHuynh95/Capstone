@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
@@ -13,13 +13,14 @@ import Cookies from 'js-cookie'
 import { useState } from 'react';
 
 function Navigation({ isLoaded }) {
+
 	//retrieving cookie for if the user set dark mode, if nothing then default to light mode
 	const darkModeEnabled = Cookies.get("theme")
-	if(darkModeEnabled === undefined){
+	if (darkModeEnabled === undefined) {
 		Cookies.set("theme", "false")
 	}
 	const [dark, setDark] = useState(darkModeEnabled)
-const dispatch = useDispatch()
+	const dispatch = useDispatch()
 	const history = useHistory()
 	const sessionUser = useSelector(state => state.session.user);
 	const cart = useSelector(state => state.cart.cart)
@@ -30,9 +31,9 @@ const dispatch = useDispatch()
 	useEffect(() => {
 		dispatch(getCartThunk())
 	}, [dispatch])
-
-	async function click(){
-		if(history.location.pathname !== "/"){
+	
+	async function click() {
+		if (history.location.pathname !== "/") {
 			await dispatch(clearAllProductsThunk())
 		}
 		history.push('/')
@@ -42,7 +43,7 @@ const dispatch = useDispatch()
 		<div className='navBar'>
 			<div className='HomeButton'>
 				<div onClick={() => click()}>
-					<img className='logo'src='/logo.png' alt='Logo'></img>
+					<img className='logo' src='/logo.png' alt='Logo'></img>
 				</div>
 			</div>
 			<div className='searchBarContainer'>
@@ -52,10 +53,10 @@ const dispatch = useDispatch()
 				{sessionUser && <NavLink className="NewProductListing" exact to="/product/new">New Product Listing</NavLink>}
 			</div>
 			<div className='socialsAndProfile'>
-			{sessionUser && <div className='cartIcon'>
-				<p className="cartAmount">{`${amount}`}</p>
-				<NavLink className="cart_button" exact to={`/user/${sessionUser?.id}/cart`}><i class="fas fa-shopping-cart fa-lg"></i></NavLink>
-			</div>}
+				{sessionUser && <div className='cartIcon'>
+					<p className="cartAmount">{`${amount}`}</p>
+					<NavLink className="cart_button" exact to={`/user/${sessionUser?.id}/cart`}><i class="fas fa-shopping-cart fa-lg"></i></NavLink>
+				</div>}
 				<div className='socials'>
 					<OpenModalButton
 						className="socialsButton"

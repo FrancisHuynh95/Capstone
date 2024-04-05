@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux"
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min"
+import "./filteredProduct.css"
 
 
 function FilteredProduct() {
@@ -16,7 +17,7 @@ function FilteredProduct() {
     if(filteredProducts.length === 0) return <h1 className="userCartHeading">Product could not be found</h1>
     if(!unfilteredProducts) return <h1 className="userCartHeading">loading</h1>
     return (
-        <>
+        <div className="search-container">
             <h1 className="userCartHeading">Search Results</h1>
             <div className="product_card_container">
             {filteredProducts.map(product =>
@@ -28,7 +29,7 @@ function FilteredProduct() {
                     </div>
             )}
             </div>
-        </>
+        </div>
     )
 }
 
