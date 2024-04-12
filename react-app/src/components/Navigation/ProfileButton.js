@@ -7,10 +7,10 @@ import SignupFormModal from "../SignupFormModal";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { NavLink } from "react-router-dom";
-import DarkMode from "./darkMode";
+import ThemeButton from "./themeButton";
 
 
-function ProfileButton({ user, dark, darkStatus }) {
+function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
@@ -66,7 +66,7 @@ function ProfileButton({ user, dark, darkStatus }) {
             <NavLink onClick={() => closeMenu()} className="your_profile_button" exact to="/user"><i class="fas fa-user-circle fa"></i> Your Profile</NavLink>
             </div>
             <p>{user.email}</p>
-            <DarkMode dark= {dark} darkStatus = {darkStatus}/>
+            <ThemeButton />
           </div>
               <button  className="userButtonProfileThingButton" onClick={handleLogout}><i class="fas fa-sign-out-alt fa"></i> Log Out</button>
 
