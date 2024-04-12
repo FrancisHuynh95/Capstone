@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "./components/Navigation/darkMode";
 
 import { ModalProvider, Modal } from "./context/Modal";
 import configureStore from "./store";
@@ -24,10 +25,12 @@ function Root() {
 	return (
 		<ModalProvider>
 			<Provider store={store}>
-				<BrowserRouter>
-					<App className="App" />
-					<Modal />
-				</BrowserRouter>
+				<ThemeProvider>
+					<BrowserRouter>
+						<App className="App" />
+						<Modal />
+					</BrowserRouter>
+				</ThemeProvider>
 			</Provider>
 		</ModalProvider>
 	);

@@ -1,32 +1,26 @@
-import React, {useContext, useState} from 'react'
-import Cookie from 'js-cookie'
+// src/ThemeContext.js
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import Cookies from 'js-cookie';
 
-function DarkMode({dark, darkStatus}){
-    function onClick(){
-        dark(!darkStatus)
-    }
-    return (
-        <button onClick={() => onClick()}>
-            {darkStatus ? "Light" : "Dark"}
-        </button>
-    )
-}
-const ThemeContext = React.createContext()
+const ThemeContext = createContext();
 
-export function ThemeProvider( {children} ){
-    let theme = Cookie.get("theme")
-    if(theme === undefined) Cookie.set("theme",'false')
-    const [dark, setDark ] = useState(dark)
+export const useTheme = () => useContext(ThemeContext);
 
-    function toggleDark(){
-        setDark(dark => !dark)
-    }
+export const ThemeProvider = ({ children }) => {
+    const [theme, setTheme] = useState(Cookies.get('theme') || 'light');
+
+    useEffect(() => {
+        Cookies.set('theme', theme);
+        document.body.className = theme; // Optionally, manage body class for CSS styling
+    }, [theme]);
+
+    const toggleTheme = () => {
+        setTheme(prev => prev === 'light' ? 'dark' : 'light');
+    };
 
     return (
-        <ThemeContext.Provider value={dark}>
-            <children></children>
+        <ThemeContext.Provider value={{ theme, toggleTheme }}>
+            {children}
         </ThemeContext.Provider>
-    )
-}
-
-export default DarkMode
+    );
+};
