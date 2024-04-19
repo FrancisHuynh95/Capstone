@@ -8,6 +8,8 @@ import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { NavLink } from "react-router-dom";
 import ThemeButton from "./themeButton";
+import { useTheme } from "./darkMode";
+
 
 
 function ProfileButton({ user }) {
@@ -16,6 +18,11 @@ function ProfileButton({ user }) {
   const ulRef = useRef();
   const history = useHistory()
   const {closeModal} = useModal()
+  const { theme } = useTheme()
+
+  const style = {
+    color: "black"
+  }
 
   const openMenu = () => {
     if (showMenu) return;
@@ -61,11 +68,11 @@ function ProfileButton({ user }) {
         {user ? (
           <>
           <div className="usernameAndEmail">
-            <p>Hello {user.username}</p>
+            <p style={style}>Hello {user.username}</p>
             <div>
             <NavLink onClick={() => closeMenu()} className="your_profile_button" exact to="/user"><i class="fas fa-user-circle fa"></i> Your Profile</NavLink>
             </div>
-            <p>{user.email}</p>
+            <p style={style}>{user.email}</p>
             <ThemeButton />
           </div>
               <button  className="userButtonProfileThingButton" onClick={handleLogout}><i class="fas fa-sign-out-alt fa"></i> Log Out</button>
