@@ -2,7 +2,7 @@ import './socials.css'
 import { useTheme } from '../Navigation/darkMode'
 
 const SocialsModal = () => {
-    const {theme, toggleTheme} = useTheme()
+    const {theme} = useTheme()
     console.log(theme)
 
     const stylesLight = {
