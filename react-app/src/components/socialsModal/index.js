@@ -15,12 +15,9 @@ const SocialsModal = () => {
     const backgroundDark = {
         backgroundColor: "black"
     }
-    console.log(backgroundDark)
-    // styles = {theme === 'light' ? null: backgroundDark}
-
     return (
         <div className="socials" style = {theme === 'light' ? null: backgroundDark}>
-            <img className='software_engineer' src="/SoftwareEngineer.png" alt='logo'></img>
+            <img className='software_engineer' src={theme === 'light' ? "/SoftwareEngineer.png" : "/SoftwareEngineerWhite.png"} alt='logo'></img>
             <div className='whatItsMadeOutOf'>
                 <h3 style={theme === "light" ? stylesLight : stylesDark}>This website was made with:</h3>
                 <p style={theme === "light" ? stylesLight : stylesDark}>JavaScript</p>
