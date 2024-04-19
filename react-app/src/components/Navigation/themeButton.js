@@ -1,15 +1,12 @@
 import React from "react"
 import { useTheme } from "./darkMode"
-import { DarkModeSwitch } from 'react-toggle-dark-mode'
+import Cookies from "js-cookie"
 
 function ThemeButton(){
     const { toggleTheme } = useTheme()
+    const theme = Cookies.get("theme")
     return(
-        // <button onClick={toggleTheme}>Test</button>
-        <DarkModeSwitch
-        checked
-        >
-        </DarkModeSwitch>
+        <button onClick={toggleTheme}>{theme === 'light' ? "dark" : "light"}</button>
     )
 }
 
