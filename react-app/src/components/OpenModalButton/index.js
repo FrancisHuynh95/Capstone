@@ -17,16 +17,8 @@ function OpenModalButton({
     if (onButtonClick) onButtonClick();
   };
 
-  const lightMode = {
-    color: "black"
-  }
-
-  const darkMode = {
-    color: "white"
-  }
-
   return (
-    <button style={theme === 'dark' ? darkMode : lightMode} className='buttonName' onClick={onClick}>{buttonText}</button>
+    <button className='buttonName' onClick={onClick}>{buttonText}</button>
   );
 }
 

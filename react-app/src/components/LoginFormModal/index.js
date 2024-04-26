@@ -35,14 +35,14 @@ function LoginFormModal() {
     <>
       <div className="loginModal">
         <form onSubmit={handleSubmit}>
-          <h1 className="modalH1">Log In</h1>
+          <h1 style={{color: "black"}} className="modalH1">Log In</h1>
           <ul>
             {errors.map((error, idx) => (
               <li className="errors" key={idx}>{error.split(":")[1]}</li>
             ))}
           </ul>
           <div className="userInputs">
-            <div className="Email">
+            <div style={{color: "black"}} className="Email">
               Email:
                 <input
                   className="Input"
@@ -52,7 +52,7 @@ function LoginFormModal() {
                   required
                   />
             </div>
-            <div className="Password">
+            <div className="Password" style={{color: "black"}}>
               Password:
                 <input
                   className="Input"
