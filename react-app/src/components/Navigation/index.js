@@ -9,17 +9,11 @@ import { getCartThunk } from '../../store/cart';
 import Search from './search';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { clearAllProductsThunk } from '../../store/product';
-import Cookies from 'js-cookie'
-import { useState } from 'react';
+import { useTheme } from './darkMode';
 
 function Navigation({ isLoaded }) {
 
 	//retrieving cookie for if the user set dark mode, if nothing then default to light mode
-	const darkModeEnabled = Cookies.get("theme")
-	if (darkModeEnabled === undefined) {
-		Cookies.set("theme", "false")
-	}
-	const [dark, setDark] = useState(darkModeEnabled)
 	const dispatch = useDispatch()
 	const history = useHistory()
 	const sessionUser = useSelector(state => state.session.user);
@@ -27,7 +21,8 @@ function Navigation({ isLoaded }) {
 	const cartArray = Object.values(cart)
 	let amount = 0;
 	cartArray.map(product => amount += product.quantity)
-
+	const { theme } = useTheme()
+	console.log('dark', theme)
 	useEffect(() => {
 		dispatch(getCartThunk())
 	}, [dispatch])
@@ -37,6 +32,13 @@ function Navigation({ isLoaded }) {
 			await dispatch(clearAllProductsThunk())
 		}
 		history.push('/')
+	}
+
+	const darkModeStyle = {
+		color: "white"
+	}
+	const lightModeStyle = {
+		color: "black"
 	}
 
 	return (
@@ -50,7 +52,7 @@ function Navigation({ isLoaded }) {
 				<Search />
 			</div>
 			<div className='newProduct'>
-				{sessionUser && <NavLink className="NewProductListing" exact to="/product/new">New Product Listing</NavLink>}
+				{sessionUser && <NavLink style={theme === "dark" ? darkModeStyle : lightModeStyle} className="NewProductListing" exact to="/product/new">New Product Listing</NavLink>}
 			</div>
 			<div className='socialsAndProfile'>
 				{sessionUser && <div className='cartIcon'>
@@ -66,7 +68,7 @@ function Navigation({ isLoaded }) {
 				</div>
 				{isLoaded && (
 					<div className='profileButtonContainer'>
-						<ProfileButton user={sessionUser} dark={setDark} darkStatus={dark} />
+						<ProfileButton user={sessionUser} />
 					</div>
 				)}
 			</div>
