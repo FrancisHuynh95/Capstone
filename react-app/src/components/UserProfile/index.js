@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { NavLink, useHistory } from "react-router-dom"
 import { getAllProductsThunk } from "../../store/product"
-import { useTheme } from "../Navigation/darkMode"
+import { useTheme, darkModeStyle, lightModeStyle } from "../Navigation/darkMode"
 import OpenModalButton from "../OpenModalButton"
 import DeleteProductModal from "../deleteProductModal"
 import UpdateReviewModal2 from "../updateReviewModal2"
@@ -31,13 +31,6 @@ const UserProfile = () => {
     useEffect(() => {
         dispatch(getAllProductsThunk())
     }, [dispatch, filiteredProducts.length])
-
-    const darkModeStyle = {
-        color: "white"
-        }
-    const lightModeStyle = {
-    color: "black"
-    }
 
     if (!allProducts) return <p>Loading</p>
     if (!user) return <h2>Please login to view your profile</h2>

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { clearAllProductsThunk } from '../../store/product';
-import { useTheme } from './darkMode';
+import { useTheme, darkModeStyle, lightModeStyle } from './darkMode';
 import { getCartThunk } from '../../store/cart';
 import ProfileButton from './ProfileButton';
 import OpenModalButton from '../OpenModalButton';
@@ -30,15 +30,6 @@ function Navigation({ isLoaded }) {
 			await dispatch(clearAllProductsThunk())
 		}
 		history.push('/')
-	}
-
-
-	// Styling for dark/light mode
-	const darkModeStyle = {
-		color: "white"
-	}
-	const lightModeStyle = {
-		color: "black"
 	}
 
 	return (

@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { NavLink } from "react-router-dom";
 import ThemeButton from "./themeButton";
-import { useTheme } from "./darkMode";
+import { useTheme, darkModeStyle, lightModeStyle } from "./darkMode";
 
 
 
@@ -62,7 +62,7 @@ function ProfileButton({ user }) {
   return (
     <>
       <button id={!user ? "userButtonProfileThingLoggedOut" : "userButtonProfileThing"}onClick={openMenu}>
-      <i class="fas fa-user-circle fa-lg"></i>
+      <i style={theme === 'dark' ? darkModeStyle : lightModeStyle} class="fas fa-user-circle fa-lg"></i>
       </button>
       <div className={ulClassName} ref={ulRef}>
         {user ? (

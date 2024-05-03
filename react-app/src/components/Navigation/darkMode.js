@@ -6,6 +6,14 @@ const ThemeContext = createContext();
 
 export const useTheme = () => useContext(ThemeContext);
 
+export const darkModeStyle = {
+    color: "white"
+    }
+
+export const lightModeStyle = {
+color: "black"
+}
+
 export const ThemeProvider = ({ children }) => {
     const [theme, setTheme] = useState(Cookies.get('theme') || 'light');
 
