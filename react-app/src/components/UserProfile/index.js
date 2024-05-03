@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { NavLink, useHistory } from "react-router-dom"
 import { getAllProductsThunk } from "../../store/product"
+import { useTheme } from "../Navigation/darkMode"
 import OpenModalButton from "../OpenModalButton"
 import DeleteProductModal from "../deleteProductModal"
 import UpdateReviewModal2 from "../updateReviewModal2"
@@ -12,6 +13,7 @@ const UserProfile = () => {
     const user = useSelector(state => state.session.user)
     const allProducts = useSelector(state => state.product.products)
     const allProductArray1 = Object.values(allProducts)
+    const {theme} = useTheme()
     const reviewArray = []
     const theProduct = []
     for (let i = 0; i < allProductArray1.length; i++) {
@@ -30,6 +32,12 @@ const UserProfile = () => {
         dispatch(getAllProductsThunk())
     }, [dispatch, filiteredProducts.length])
 
+    const darkModeStyle = {
+        color: "white"
+        }
+    const lightModeStyle = {
+    color: "black"
+    }
 
     if (!allProducts) return <p>Loading</p>
     if (!user) return <h2>Please login to view your profile</h2>
@@ -41,7 +49,7 @@ const UserProfile = () => {
                 {filiteredProducts.map(product =>
                     <div className="userProductsContainer">
                         <NavLink className="userProfileProduct" exact to={`/product/${product.id}`}>
-                            <p className="user_product_name">{product.name}</p>
+                            <p style={theme === 'dark' ? darkModeStyle : lightModeStyle} className="user_product_name">{product.name}</p>
                             <div className="UserProductPic">
                                 <img className="UserProductImg" src={`${product.product_img1}`} alt="product"></img>
                             </div>
