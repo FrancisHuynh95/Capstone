@@ -3,7 +3,6 @@ import { useTheme } from '../Navigation/darkMode'
 
 const SocialsModal = () => {
     const { theme } = useTheme()
-    console.log(theme)
 
     const stylesLight = {
         color: "black"

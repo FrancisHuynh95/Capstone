@@ -1,19 +1,18 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import ProfileButton from './ProfileButton';
-import './Navigation.css';
-import OpenModalButton from '../OpenModalButton';
-import SocialsModal from '../socialsModal';
-import { getCartThunk } from '../../store/cart';
-import Search from './search';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { clearAllProductsThunk } from '../../store/product';
 import { useTheme } from './darkMode';
+import { getCartThunk } from '../../store/cart';
+import ProfileButton from './ProfileButton';
+import OpenModalButton from '../OpenModalButton';
+import SocialsModal from '../socialsModal';
+import Search from './search';
+import './Navigation.css';
 
 function Navigation({ isLoaded }) {
 
-	//retrieving cookie for if the user set dark mode, if nothing then default to light mode
 	const dispatch = useDispatch()
 	const history = useHistory()
 	const sessionUser = useSelector(state => state.session.user);
@@ -34,6 +33,8 @@ function Navigation({ isLoaded }) {
 		history.push('/')
 	}
 
+
+	// Styling for dark/light mode
 	const darkModeStyle = {
 		color: "white"
 	}
@@ -63,6 +64,7 @@ function Navigation({ isLoaded }) {
 					<OpenModalButton
 						className="socialsButton"
 						buttonText="Contact Me"
+						blackButton={false}
 						modalComponent={<SocialsModal />}
 					/>
 				</div>

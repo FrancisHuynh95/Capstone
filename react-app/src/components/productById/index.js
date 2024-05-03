@@ -86,6 +86,7 @@ function ProductById() {
                                 {product.user?.id === user?.id &&
                                     <OpenModalButton
                                         buttonText={`Delete Product`}
+                                        blackButton={true}
                                         modalComponent={<DeleteProductModal
                                             product_id={product.id}
                                         />}
@@ -117,12 +118,16 @@ function ProductById() {
                                             <div className="updateReviewButtonInProductPage">
                                                 <OpenModalButton
                                                     buttonText="Update Review"
-                                                    modalComponent={<UpdateReviewModal product_id={product.id} review_id={review.id} />}
+                                                    modalComponent={<UpdateReviewModal
+                                                        product_id={product.id}
+                                                        review_id={review.id} />}
                                                 />
                                             </div>
                                             <OpenModalButton
                                                 buttonText="Delete Review"
-                                                modalComponent={<DeleteReviewModal product_id={product.id} review_id={review.id} />}
+                                                modalComponent={<DeleteReviewModal
+                                                    product_id={product.id}
+                                                    review_id={review.id} />}
                                             />
                                         </div >
                                     }

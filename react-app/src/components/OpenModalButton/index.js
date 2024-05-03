@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useModal } from '../../context/Modal';
 import { useTheme } from '../Navigation/darkMode';
 
@@ -7,6 +7,7 @@ function OpenModalButton({
   buttonText, // text of the button that opens the modal
   onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
   onModalClose, // optional: callback function that will be called once the modal is closed
+  blackButton
 }) {
   const { setModalContent, setOnModalClose } = useModal();
   const {theme} = useTheme()
@@ -16,9 +17,20 @@ function OpenModalButton({
     setModalContent(modalComponent);
     if (onButtonClick) onButtonClick();
   };
+	const darkModeStyle = {
+    color: "white"
+	}
+	const lightModeStyle = {
+    color: "black"
+	}
+
+  let activeColor = blackButton === true ? darkModeStyle : lightModeStyle
+  if(blackButton) activeColor = darkModeStyle
+  else if(!blackButton && theme === 'light') activeColor = lightModeStyle
+  else if(!blackButton && theme === 'dark') activeColor = darkModeStyle
 
   return (
-    <button className='buttonName' onClick={onClick}>{buttonText}</button>
+    <button style={activeColor} className='buttonName' onClick={onClick}>{buttonText}</button>
   );
 }
 

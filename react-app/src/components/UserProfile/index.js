@@ -51,6 +51,7 @@ const UserProfile = () => {
                             <OpenModalButton
                                 id="deleteProductUserProfile"
                                 buttonText={`Delete Product`}
+                                blackButton={true}
                                 modalComponent={<DeleteProductModal
                                     product_id={product.id}
                                 />}
@@ -85,6 +86,7 @@ const UserProfile = () => {
                             <div className="userDeleteReviewModal">
                                 <OpenModalButton
                                     buttonText={`Delete Review`}
+                                    blackButton={true}
                                     modalComponent={<DeleteReviewModal
                                         review_id={product.id}
                                         product_id={product.product_id}
