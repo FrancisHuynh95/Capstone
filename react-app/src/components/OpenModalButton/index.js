@@ -26,9 +26,9 @@ function OpenModalButton({
 
   let activeColor = blackButton === true ? darkModeStyle : lightModeStyle
   if(blackButton) activeColor = darkModeStyle
-  else if(!blackButton && theme === 'light') activeColor = lightModeStyle
-  else if(!blackButton && theme === 'dark') activeColor = darkModeStyle
-
+  // if(!blackButton && theme === 'light') activeColor = lightModeStyle
+  // else if(!blackButton && theme === 'dark') activeColor = darkModeStyle
+  console.log(theme, 'activeColor', activeColor, 'blackButton', blackButton, 'buttonText', buttonText)
   return (
     <button style={activeColor} className='buttonName' onClick={onClick}>{buttonText}</button>
   );

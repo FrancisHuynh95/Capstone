@@ -21,7 +21,6 @@ function Navigation({ isLoaded }) {
 	let amount = 0;
 	cartArray.map(product => amount += product.quantity)
 	const { theme } = useTheme()
-	console.log('dark', theme)
 	useEffect(() => {
 		dispatch(getCartThunk())
 	}, [dispatch])
@@ -64,7 +63,7 @@ function Navigation({ isLoaded }) {
 					<OpenModalButton
 						className="socialsButton"
 						buttonText="Contact Me"
-						blackButton={false}
+						blackButton={theme === 'dark' ? true : false}
 						modalComponent={<SocialsModal />}
 					/>
 				</div>

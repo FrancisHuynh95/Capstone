@@ -118,6 +118,7 @@ function ProductById() {
                                             <div className="updateReviewButtonInProductPage">
                                                 <OpenModalButton
                                                     buttonText="Update Review"
+                                                    blackButton={false}
                                                     modalComponent={<UpdateReviewModal
                                                         product_id={product.id}
                                                         review_id={review.id} />}
@@ -125,6 +126,7 @@ function ProductById() {
                                             </div>
                                             <OpenModalButton
                                                 buttonText="Delete Review"
+                                                blackButton={true}
                                                 modalComponent={<DeleteReviewModal
                                                     product_id={product.id}
                                                     review_id={review.id} />}
