@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useModal } from '../../context/Modal';
-import { useTheme, darkModeStyle, lightModeStyle } from '../Navigation/darkMode';
+import { darkModeStyle, lightModeStyle } from '../Navigation/darkMode';
 
 function OpenModalButton({
   modalComponent, // component to render inside the modal
@@ -10,7 +10,6 @@ function OpenModalButton({
   blackButton
 }) {
   const { setModalContent, setOnModalClose } = useModal();
-  const {theme} = useTheme()
 
   const onClick = () => {
     if (onModalClose) setOnModalClose(onModalClose);
