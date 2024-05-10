@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
-import "./LoginForm.css";
 import { useHistory } from "react-router-dom";
+import { lightModeStyle, darkModeStyle } from "../Navigation/darkMode"
+import "./LoginForm.css";
 
 function LoginFormModal() {
   const dispatch = useDispatch();
@@ -35,14 +36,14 @@ function LoginFormModal() {
     <>
       <div className="loginModal">
         <form onSubmit={handleSubmit}>
-          <h1 style={{color: "black"}} className="modalH1">Log In</h1>
+          <h1 style={lightModeStyle} className="modalH1">Log In</h1>
           <ul>
             {errors.map((error, idx) => (
               <li className="errors" key={idx}>{error.split(":")[1]}</li>
             ))}
           </ul>
           <div className="userInputs">
-            <div style={{color: "black"}} className="Email">
+            <div style={lightModeStyle} className="Email">
               Email:
                 <input
                   className="Input"
@@ -52,7 +53,7 @@ function LoginFormModal() {
                   required
                   />
             </div>
-            <div className="Password" style={{color: "black"}}>
+            <div className="Password" style={lightModeStyle}>
               Password:
                 <input
                   className="Input"

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
+import { lightModeStyle, darkModeStyle } from "../Navigation/darkMode";
 import "./SignupForm.css";
 
 function SignupFormModal() {
@@ -34,14 +35,14 @@ function SignupFormModal() {
 	return (
 		<>
 		<div className="signupModal">
-			<h1 className="modalH1" style={{color: "black"}}>Sign Up</h1>
+			<h1 className="modalH1" style={lightModeStyle}>Sign Up</h1>
 			<form onSubmit={handleSubmit} id="signupForm">
 				<ul>
 					{errors.map((error, idx) => (
 						<li className="errors" key={idx}>{error}</li>
 					))}
 				</ul>
-				<label style={{color: "black"}}>
+				<label style={lightModeStyle}>
 					Email
 					<input
 						type="email"
@@ -50,7 +51,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<label style={{color: "black"}}>
+				<label style={lightModeStyle}>
 					Username
 					<input
 						type="text"
@@ -59,7 +60,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<label style={{color: "black"}}>
+				<label style={lightModeStyle}>
 					Password
 					<input
 						type="password"
@@ -68,7 +69,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<label style={{color: "black"}}>
+				<label style={lightModeStyle}>
 					Confirm Password
 					<input
 						type="password"
@@ -77,7 +78,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<label style={{color: "black"}}>
+				<label style={lightModeStyle}>
 					First Name
 					<input
 						type="text"
@@ -86,7 +87,7 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<label style={{color: "black"}}>
+				<label style={lightModeStyle}>
 					Last Name
 					<input
 						type="text"
