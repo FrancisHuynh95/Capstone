@@ -1,15 +1,8 @@
 import './socials.css'
-import { useTheme } from '../Navigation/darkMode'
+import { useTheme, lightModeStyle, darkModeStyle } from '../Navigation/darkMode'
 
 const SocialsModal = () => {
     const { theme } = useTheme()
-
-    const stylesLight = {
-        color: "black"
-    }
-    const stylesDark = {
-        color: "white"
-    }
 
     const backgroundDark = {
         backgroundColor: "black"
@@ -25,18 +18,18 @@ const SocialsModal = () => {
             <div
                 className='whatItsMadeOutOf'>
                 <h3
-                    style={theme === "light" ? stylesLight : stylesDark}>This website was made with:</h3>
+                    style={theme === "light" ? lightModeStyle : darkModeStyle}>This website was made with:</h3>
                 <p
-                    style={theme === "light" ? stylesLight : stylesDark}>JavaScript</p>
+                    style={theme === "light" ? lightModeStyle : darkModeStyle}>JavaScript</p>
                 <p
-                    style={theme === "light" ? stylesLight : stylesDark}>React.js/Redux</p>
+                    style={theme === "light" ? lightModeStyle : darkModeStyle}>React.js/Redux</p>
                 <p
-                    style={theme === "light" ? stylesLight : stylesDark}>Python</p>
+                    style={theme === "light" ? lightModeStyle : darkModeStyle}>Python</p>
                 <p
-                    style={theme === "light" ? stylesLight : stylesDark}>Flask</p>
+                    style={theme === "light" ? lightModeStyle : darkModeStyle}>Flask</p>
             </div>
             <p
-                style={theme === "light" ? stylesLight : stylesDark}
+                style={theme === "light" ? lightModeStyle : darkModeStyle}
                 className="aboutSocial">You can contact me through my social media</p>
             <div className="Socials-icon">
                 <a
@@ -47,7 +40,7 @@ const SocialsModal = () => {
                     <i
                         className="linkedinIcon"
                         class="fab fa-linkedin fa-lg"
-                        style={theme === 'light' ? null : stylesDark}></i></a>
+                        style={theme === 'light' ? null : darkModeStyle}></i></a>
                 <a
                     className="githubContainer"
                     target="_blank"
@@ -56,10 +49,10 @@ const SocialsModal = () => {
                     <i
                         className='githubIcon'
                         class="fab fa-github fa-lg"
-                        style={theme === 'light' ? null : stylesDark}></i></a>
+                        style={theme === 'light' ? null : darkModeStyle}></i></a>
             </div>
             <a
-                style={theme === 'light' ? null : stylesDark}
+                style={theme === 'light' ? null : darkModeStyle}
                 className="portfolio"
                 target="_blank"
                 rel="noreferrer"
