@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useModal } from '../../context/Modal';
-import { useTheme } from '../Navigation/darkMode';
+import { useTheme, darkModeStyle, lightModeStyle } from '../Navigation/darkMode';
 
 function OpenModalButton({
   modalComponent, // component to render inside the modal
@@ -17,12 +17,6 @@ function OpenModalButton({
     setModalContent(modalComponent);
     if (onButtonClick) onButtonClick();
   };
-	const darkModeStyle = {
-    color: "white"
-	}
-	const lightModeStyle = {
-    color: "black"
-	}
 
   let activeColor = blackButton === true ? darkModeStyle : lightModeStyle
   if(blackButton) activeColor = darkModeStyle
