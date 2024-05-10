@@ -47,13 +47,20 @@ function UserCart() {
         <>
             <h1 className="userCartHeading">User Cart</h1>
             <div className="cartProductCardContainer">
-                {user && cartArray.length > 0 ? cartArray.map(cart =>
-                    <CartItemCard item={cart}/>
-                ) : <p>There are no items in your cart</p>}
+                {user && cartArray.length > 0 ?
+                cartArray.map(cart =>
+                    <CartItemCard item={cart} />) :
+                    <p>There are no items in your cart</p>
+                }
             </div>
             <p className="totalPrice">Cart Total: ${`${getTotalPrice()} (${res.allTotal} items) `}</p>
             <div className="purchaseButtonContainer">
-                {cartArray.length > 0 ? <button className="purchaseButton" onClick={() => purchase()}>Purchase</button> : null}
+                {cartArray.length > 0 ?
+                    <button
+                        className="purchaseButton"
+                        onClick={() => purchase()}>Purchase
+                    </button>
+                : null}
             </div>
         </>
     )

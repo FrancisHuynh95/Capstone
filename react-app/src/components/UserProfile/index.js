@@ -13,7 +13,7 @@ const UserProfile = () => {
     const user = useSelector(state => state.session.user)
     const allProducts = useSelector(state => state.product.products)
     const allProductArray1 = Object.values(allProducts)
-    const {theme} = useTheme()
+    const { theme } = useTheme()
     const reviewArray = []
     const theProduct = []
     for (let i = 0; i < allProductArray1.length; i++) {
@@ -41,14 +41,27 @@ const UserProfile = () => {
             <div className="userProductsEverything">
                 {filiteredProducts.map(product =>
                     <div className="userProductsContainer">
-                        <NavLink className="userProfileProduct" exact to={`/product/${product.id}`}>
-                            <p style={theme === 'dark' ? darkModeStyle : lightModeStyle} className="user_product_name">{product.name}</p>
+                        <NavLink
+                            className="userProfileProduct"
+                            exact to={`/product/${product.id}`}
+                        >
+                            <p
+                                style={theme === 'dark' ? darkModeStyle : lightModeStyle}
+                                className="user_product_name">{product.name}
+                            </p>
                             <div className="UserProductPic">
-                                <img className="UserProductImg" src={`${product.product_img1}`} alt="product"></img>
+                                <img
+                                    className="UserProductImg"
+                                    src={`${product.product_img1}`}
+                                    alt="product">
+                                </img>
                             </div>
                         </NavLink>
                         <div className="userButtons">
-                            <button id="updateProductUserProfile" onClick={() => history.push(`/product/${product.id}/update`)}>Update</button>
+                            <button
+                                id="updateProductUserProfile"
+                                onClick={() => history.push(`/product/${product.id}/update`)}>Update
+                            </button>
                             <OpenModalButton
                                 id="deleteProductUserProfile"
                                 buttonText={`Delete Product`}
