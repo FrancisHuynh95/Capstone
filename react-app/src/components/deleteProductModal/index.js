@@ -19,8 +19,14 @@ function DeleteProductModal({ product_id }) {
         <div className="deleteProductModal">
             <h2 className="deleteProductModalH2">Are you sure you want to delete the product listing?</h2>
             <div className="deleteProductButtons">
-                <button className="deleteProductButton" onClick={() => handleOnClick()}>Confirm Delete</button>
-                <button className="cancelButton" onClick={() => closeModal()}>Cancel</button>
+                <button
+                    className="deleteProductButton"
+                    onClick={() => handleOnClick()}>Confirm Delete
+                </button>
+                <button
+                    className="cancelButton"
+                    onClick={() => closeModal()}>Cancel
+                </button>
             </div>
         </div>
     )

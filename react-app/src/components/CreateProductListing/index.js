@@ -6,7 +6,6 @@ import "./createProduct.css"
 
 function CreateProductListing() {
     const currentUser = useSelector(state => state.session.user)
-    // const product = useSelector(state => state.product.singleProduct)
     const history = useHistory()
     const dispatch = useDispatch()
 
@@ -77,12 +76,7 @@ function CreateProductListing() {
         if (product_img1 === null || product_img2 === null || product_img3 === null) {
             errorObj.image = "Three images are required"
         }
-        // if (product_img2 === null) {
-        //     errorObj.image = "Three images are required"
-        // }
-        // if (product_img3 === null) {
-        //     errorObj.image = "Three images are required"
-        // }
+
         setError(errorObj)
         if (Object.values(errorObj).length > 0) {
             return
@@ -114,15 +108,34 @@ function CreateProductListing() {
                 {error.image && <p className="errors">{error.image}</p>}
                 <label>
                     Name
-                    <input id="create_product_name" className="product_name mediaSize" type="text" value={name} placeholder='Product Name' onChange={(e) => setName(e.target.value)} />
+                    <input
+                        id="create_product_name"
+                        className="product_name mediaSize"
+                        type="text"
+                        value={name}
+                        placeholder='Product Name'
+                        onChange={(e) => setName(e.target.value)}
+                    />
                 </label>
                 <label>
                     Price
-                    <input className="product_price" type="number" value={price} placeholder='Product Price' onChange={(e) => setPrice(e.target.value)} />
+                    <input
+                        className="product_price"
+                        type="number" value={price}
+                        placeholder='Product Price'
+                        onChange={(e) => setPrice(e.target.value)}
+                    />
                 </label>
                 <label>
                     <div>Description</div>
-                    <textarea rows={10} className="product_description" type="text" value={description} placeholder='Product Description' onChange={(e) => setDescription(e.target.value)} />
+                    <textarea
+                        rows={10}
+                        className="product_description"
+                        type="text"
+                        value={description}
+                        placeholder='Product Description'
+                        onChange={(e) => setDescription(e.target.value)}
+                    />
                 </label>
                 <div className="img_upload_area">
                     <div className="img_upload_test">
@@ -197,11 +210,16 @@ function CreateProductListing() {
                 </div>
             {!loading ?
                 <div className="submit_button">
-                    <button type="submit">Submit</button>
+                    <button
+                        type="submit">Submit
+                    </button>
                 </div>
                 :
                 <div className="submit_button">
-                    <img src="../spinner.svg" alt="Loading"></img>
+                    <img
+                        src="../spinner.svg"
+                        alt="Loading">
+                    </img>
                 </div>
             }
             </form>
