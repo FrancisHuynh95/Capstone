@@ -55,7 +55,13 @@ const UpdateReviewModal = ({ product_id, review_id }) => {
                 <h1 className="updateReviewModalH1">Update Your Review</h1>
                 {error && review.length >= 1 && <p className="errors">{error.review}</p>}
                 <div className="review_area">
-                    <textarea rows={8} cols={45} placeholder="Write your review here!" value={review} onChange={e => setReview(e.target.value)}></textarea>
+                    <textarea
+                        rows={8}
+                        cols={45}
+                        placeholder="Write your review here!"
+                        value={review}
+                        onChange={e => setReview(e.target.value)}>
+                    </textarea>
                     <div className="updateReviewStars">
                         <div className="Stars">
                             <StarRating
@@ -66,7 +72,11 @@ const UpdateReviewModal = ({ product_id, review_id }) => {
                         </div>
                     </div>
                     <div id="buttonDiv">
-                        <button id="submitReviewButton" disabled={review.length < 10 || stars === 0 ? true : false} type="submit">Submit Your Review</button>
+                        <button
+                            id="submitReviewButton"
+                            disabled={review.length < 10 || stars === 0 ? true : false}
+                            type="submit">Submit Your Review
+                        </button>
                     </div>
                 </div>
             </form>
