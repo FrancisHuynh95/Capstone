@@ -8,10 +8,10 @@ export const useTheme = () => useContext(ThemeContext);
 
 export const darkModeStyle = {
     color: "white"
-    }
+}
 
 export const lightModeStyle = {
-color: "black"
+    color: "black"
 }
 
 export const ThemeProvider = ({ children }) => {
